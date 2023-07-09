@@ -6,6 +6,8 @@
         "utility": "cpp",
         "xstring": "cpp",
         "iostream": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "iomanip": "cpp",
+        "stack": "cpp"
     }
 }
