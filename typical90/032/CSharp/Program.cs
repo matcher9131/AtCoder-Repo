@@ -7,7 +7,7 @@ namespace Typical90_032
         {
             Stopwatch sw = new();
             sw.Start();
-            Answer5.Run();
+            Answer2.Run();
             sw.Stop();
             Console.WriteLine($"{sw.ElapsedMilliseconds}msec");
         }

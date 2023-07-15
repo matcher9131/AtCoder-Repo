@@ -8,7 +8,19 @@
         "iostream": "cpp",
         "ranges": "cpp",
         "iomanip": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "unordered_set": "cpp",
+        "set": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "queue": "cpp",
+        "span": "cpp",
+        "type_traits": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "string": "cpp"
     },
     "editor.formatOnSave": false
 }
