@@ -9,5 +9,6 @@
         "ranges": "cpp",
         "iomanip": "cpp",
         "stack": "cpp"
-    }
+    },
+    "editor.formatOnSave": false
 }
