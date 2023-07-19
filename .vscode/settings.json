@@ -20,7 +20,10 @@
         "xhash": "cpp",
         "xtree": "cpp",
         "xutility": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "algorithm": "cpp",
+        "map": "cpp",
+        "cstdlib": "cpp"
     },
     "editor.formatOnSave": false
 }
