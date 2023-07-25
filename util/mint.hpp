@@ -9,6 +9,7 @@ public :
     mint(int val) {
         _v = (ll)val % MOD;
     }
+    mint(): _v(0) {}
 
     int value() {
         return (int)_v;
