@@ -23,7 +23,8 @@
         "string": "cpp",
         "algorithm": "cpp",
         "map": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "bitset": "cpp"
     },
     "editor.formatOnSave": false
 }
