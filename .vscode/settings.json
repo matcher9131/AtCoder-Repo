@@ -24,7 +24,9 @@
         "algorithm": "cpp",
         "map": "cpp",
         "cstdlib": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp"
     },
     "editor.formatOnSave": false
 }
