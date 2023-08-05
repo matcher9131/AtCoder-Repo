@@ -1,5 +1,5 @@
-# AtCoder Problems Recommend Reivew
-AtCoder Problems Recommendでおすすめされる問題をひたすら解いてひたすらレビューする
+# AtCoder Problems Recommendation Reivew
+AtCoder Problems Recommendationでおすすめされる問題をひたすら解いてひたすらレビューする
 
 ## ABC174 E - Logs
 - 最小化問題すなわち二分探索法
