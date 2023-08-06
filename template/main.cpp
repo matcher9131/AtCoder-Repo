@@ -14,6 +14,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cassert>
+#include <numeric>
 using namespace std;
 using ll = long long;
 
