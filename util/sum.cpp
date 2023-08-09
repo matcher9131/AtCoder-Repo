@@ -1,6 +1,7 @@
 #include <vector>
 using namespace std;
 
+
 template <typename T>
 T sum(const vector<T> &vec) {
     T s = 0;
@@ -9,6 +10,7 @@ T sum(const vector<T> &vec) {
     }
     return s;
 }
+
 
 template <typename T>
 T sum(vector<T>::iterator begin, vector<T>::iterator end) {

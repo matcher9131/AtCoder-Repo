@@ -1,13 +1,14 @@
 #include <vector>
 using namespace std;
 
-int n;
-vector<vector<int>> g;
-vector<int> visited;
-void dfs(int from) {
+extern vector<vector<int>> g;
+extern vector<int> visited;
+
+
+void dfs(int from, vector<int> &visited) {
     visited[from] = 1;
     for (const int to : g[from]) {
         if (visited[to]) continue;
-        dfs(to);
+        dfs(to, visited);
     }
 }

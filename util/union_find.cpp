@@ -2,6 +2,7 @@
 #include <utility>
 using namespace std;
 
+
 class UnionFind {
 public:
     // 頂点iが親ならparent[i] == -1 * 連結成分の頂点数
