@@ -12,3 +12,11 @@ void display(const vector<int>& v, string split = ", ", bool showsBracket = true
     if (showsBracket) cout << "]";
     if (outputsNewLine) cout << endl;
 }
+
+void display(const vector<int>& v) {
+    if (!v.empty()) cout << v[0];
+    for (int i = 1; i < v.size(); ++i) {
+        cout << " " << v[i];
+    }
+    cout << endl;
+}
