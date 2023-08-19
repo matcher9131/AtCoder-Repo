@@ -26,7 +26,9 @@
         "cstdlib": "cpp",
         "bitset": "cpp",
         "chrono": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
     },
     "editor.formatOnSave": false
 }
