@@ -300,4 +300,13 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - 計算量は $O(Q \log \max \{A, B\})$
 - 4通りの場合分けも番兵法もすぐに思いついてサクサク解けた
   - いつもこのくらいのスピードだといいんだけどねぇ…
-  
+
+
+## ABC046 C - AtCoDeerくんと選挙速報
+- $i$ 回目における2人の実際の得票数は整数 $k_i$ を用いて $k_iT_i, k_iA_i$ と表せる
+- 得票数が減らないことから、$k_{i+1}T_{i+1} \geq k_iT_i, \ k_{i+1}A_{i+1} \geq k_iA_i$ が成り立つ
+  - これを変形して、$k_{i+1} \geq k_iT_i / T_{i+1}, \ k_{i+1} \geq k_iA_i / A_{i+1}$
+    - よって $k_{i+1}$ が整数であることから $k_{i+1} \geq \max \{ \lceil k_iT_i / T_{i+1} \rceil, \lceil k_iA_i / A_{i+1} \rceil \}$ となる
+      - 求めるものが最小であることから $k_{i+1} = \max \{ \lceil k_iT_i / T_{i+1} \rceil, \lceil k_iA_i / A_{i+1} \rceil \}$ と確定できる。あとはこれをループで求めるだけ
+- 計算量は $O(N)$
+
