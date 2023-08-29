@@ -339,3 +339,19 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - 対象となる $K$ 個のほうだけを`multiset`に突っ込んでいたのでそこの判断をどうすればいいのかわからなかった
     - （公式解説を見る）対象にならない $M-K$ 個も`multiset`で管理すればよかったのか…
 - STLの計算量を整理したい…
+
+## ABC190 F - Shift and Inversions
+- 2重ループでゴリ押しで転倒数を求めるのは $O(N^2)$ で勿論`TLE`
+- 何か良いアルゴリズムがないか検索したところ、Binary Indexed Treeを使えば $O(N \log N)$ にできるようだ
+  - 以下のページを参考にした。感謝。
+    - [Binary Indexed Tree (BIT) 総まとめ！区間加算や二次元BITまで](https://algo-logic.info/binary-indexed-tree/)
+    - [転倒数    [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/dynamic_programming/inversion)
+- 添え字には気を付けよう（1敗）
+- $k = k_1$ のときの数列 $B_{k_1}$ と $k = k1 + 1$ のときの数列 $B_{k_1 + 1}$ を比べると
+  - $B_{k_1 + 1}$ は $B_{k_1}$ の初項 $a_{k_1}$ を末項に移したものになる
+    - $a_{k_1}$ が初項でなくなることで減少する転倒数は $a_{k_1}$
+    - $a_{k_1}$ が末項に来ることで増加する転倒数は $N - 1 - a_{k_1}$
+  - すなわち、$B_{k_1 + 1}$ の転倒数は $B_{k_1}$ の転倒数に $N - 1 - 2a_{k_1}$ を加えたものとなる
+  - よって $k \geq 1$ における $B$ の転倒数はそれぞれ $O(1)$ で求まる
+    - ここの考察は自力ですぐに思いついたので、あとはBITの扱いに慣れなければ…
+
