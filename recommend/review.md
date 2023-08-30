@@ -347,7 +347,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - [Binary Indexed Tree (BIT) 総まとめ！区間加算や二次元BITまで](https://algo-logic.info/binary-indexed-tree/)
     - [転倒数    [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/dynamic_programming/inversion)
 - 添え字には気を付けよう（1敗）
-- $k = k_1$ のときの数列 $B_{k_1}$ と $k = k1 + 1$ のときの数列 $B_{k_1 + 1}$ を比べると
+- $k = k_1$ のときの数列 $B_{k_1}$ と $k = k_1 + 1$ のときの数列 $B_{k_1 + 1}$ を比べると
   - $B_{k_1 + 1}$ は $B_{k_1}$ の初項 $a_{k_1}$ を末項に移したものになる
     - $a_{k_1}$ が初項でなくなることで減少する転倒数は $a_{k_1}$
     - $a_{k_1}$ が末項に来ることで増加する転倒数は $N - 1 - a_{k_1}$
@@ -355,3 +355,13 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - よって $k \geq 1$ における $B$ の転倒数はそれぞれ $O(1)$ で求まる
     - ここの考察は自力ですぐに思いついたので、あとはBITの扱いに慣れなければ…
 
+## ABC106 D - AtCoder Express 2
+- 1次元累積和、余事象などいろいろ考えた挙句…
+  - 2次元累積和なら上手くいくのではないかと考える
+- $a_{i,j}$ をちょうど区間 $[i, j]$ を走る列車の数とし、$2 \leq i \leq N+1$ および $2 \leq j \leq N+1$ に対し $S_{i,j}$ を 範囲 $[1, i) \times [1, j)$ における $a_{i,j}$ の総和とすると
+  - 範囲 $[l, r] \times [l, r]$ における $a_{i,j}$ の総和は $S_{r+1, r+1} - S_{l, r+1} - S_{r+1, l} + S_{l, l}$ と表せる
+- よって各クエリの解は $S_{q_i + 1, q_i + 1} - S_{p_i, q_i + 1} - S_{q_i + 1, p_i} + S_{p_i, p_i}$ となる
+- 計算量は $O(\max \{ N^2, Q \})$
+- 2次元累積和のメモ：
+  - 前処理：$S_{i+1,j+1} = a_{i,j} + S_{i+1,j} + S_{i,j+1} - S{i,j}$
+  - $[l, r) \times [t, b)$ の和は $S_{r,b} - S_{l,b} - S_{r,t} + S_{l,t}$
