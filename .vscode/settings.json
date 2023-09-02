@@ -28,7 +28,8 @@
         "chrono": "cpp",
         "limits": "cpp",
         "system_error": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "unordered_map": "cpp"
     },
     "editor.formatOnSave": false
 }
