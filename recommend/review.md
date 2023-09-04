@@ -271,10 +271,10 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - 計算量は $O(\max \{ R!, N^3 \})$
 
 ## ABC151 E - Max-Min Sums
-- $f$ の線形性より、$A_i$ が $\max\{S\}$ および $\min\{S\}$ として選ばれる回数が分かれば解が求まる
-- $i \geq K$ のとき $\max\{S\} = A_i$ となるような $S$ の選び方は ${}_{i-1}C_{K-1}$ 通り
-- $i \leq n - K + 1$ のとき $\min\{S\} = A_i$ となるような $S$ の選び方は ${}_{N-i}C_{K-1}$ 通り
-  - これは $i \geq k$ のとき $\min\{S\} = A_{n + 1 - i}$ となるような $S$ の選び方は ${}_{i-1}C_{K-1}$ 通りと言い換えられる
+- $f$ の線形性より、$A_i$ が $\max S$ および $\min S$ として選ばれる回数が分かれば解が求まる
+- $i \geq K$ のとき $\max S = A_i$ となるような $S$ の選び方は ${}_{i-1}C_{K-1}$ 通り
+- $i \leq n - K + 1$ のとき $\min S = A_i$ となるような $S$ の選び方は ${}_{N-i}C_{K-1}$ 通り
+  - これは $i \geq k$ のとき $\min S = A_{n + 1 - i}$ となるような $S$ の選び方は ${}_{i-1}C_{K-1}$ 通りと言い換えられる
 - よって $\sum_{i = K}^{N} {}_{i-1}C_{K-1}(A_i - A_{N + 1 - i})$ を求めればよい
 - 問題となるのは ${}_{i-1}C_{K-1}$ だが、$i = K$ のとき ${}_{i-1}C_{K-1} = {}_{K-1}C_{K-1} = 1$ であり、$i > K$ において ${}_{i-1}C_{K-1} = {}_{i-2}C_{K-1} \cdot (i-1)/(i-K)$ であるから、ループ中で更新することにより $O(1)$ で計算できる
 - 数学的考察はきちんとできたが、時間がかかりすぎ…
@@ -334,13 +334,13 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - 途中に提出した解答が見事に`AC`と`TLE`と`RE`と`WA`が混ざっていて噴いた
   - これを一発で`AC`する人の思考回路を是非言語化していただきたいものである
 
-## ABC281 E - Least Elements
+## [ABC281 E - Least Elements](https://atcoder.jp/contests/abc281/tasks/abc281_e)
 - `multiset`で管理して、$A_i$ 番目を削除して $A_{M + i - 1}$ 番目を挿入すればいいことはわかったが
   - 対象となる $K$ 個のほうだけを`multiset`に突っ込んでいたのでそこの判断をどうすればいいのかわからなかった
     - （公式解説を見る）対象にならない $M-K$ 個も`multiset`で管理すればよかったのか…
 - STLの計算量を整理したい…
 
-## ABC190 F - Shift and Inversions
+## [ABC190 F - Shift and Inversions](https://atcoder.jp/contests/abc190/tasks/abc190_f)
 - 2重ループでゴリ押しで転倒数を求めるのは $O(N^2)$ で勿論`TLE`
 - 何か良いアルゴリズムがないか検索したところ、Binary Indexed Treeを使えば $O(N \log N)$ にできるようだ
   - 以下のページを参考にした。感謝。
@@ -355,7 +355,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - よって $k \geq 1$ における $B$ の転倒数はそれぞれ $O(1)$ で求まる
     - ここの考察は自力ですぐに思いついたので、あとはBITの扱いに慣れなければ…
 
-## ABC106 D - AtCoder Express 2
+## [ABC106 D - AtCoder Express 2](https://atcoder.jp/contests/abc106/tasks/abc106_d)
 - 1次元累積和、余事象などいろいろ考えた挙句…
   - 2次元累積和なら上手くいくのではないかと考える
 - $a_{i,j}$ をちょうど区間 $[i, j]$ を走る列車の数とし、$2 \leq i \leq N+1$ および $2 \leq j \leq N+1$ に対し $S_{i,j}$ を 範囲 $[1, i) \times [1, j)$ における $a_{i,j}$ の総和とすると
@@ -366,7 +366,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - 前処理：$S_{i+1,j+1} = a_{i,j} + S_{i+1,j} + S_{i,j+1} - S{i,j}$
   - $[l, r) \times [t, b)$ の和は $S_{r,b} - S_{l,b} - S_{r,t} + S_{l,t}$
 
-## ABC267 E - Erasing Vertices 2
+## [ABC267 E - Erasing Vertices 2](https://atcoder.jp/contests/abc267/tasks/abc267_e)
 - コストが小さいほうから操作するのがよさそうと思いつつも、正直わからなかったので解説をチラ見
   - こういうときこそ`priority_queue`の出番！
 - ただしコストが途中で更新されるのでそこをどうするのか
@@ -374,7 +374,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - その代わりに、古いほうで操作をしないように操作済かどうかをわかるようにする
       - 操作をする頂点に対し $A_i = 0$ とすることで判別するようにした
 
-## ABC273 E - Notebook
+## [ABC273 E - Notebook](https://atcoder.jp/contests/abc273/tasks/abc273_e)
 - ノートの各ページにいちいち配列の内容を書き込んでいては間に合わないが
   - `LOAD`によって $A$ の内容が大幅に書き換わる可能性があるので、単純に配列で $A$ を保持しても解けない
   - すなわち $A$ の最新の内容と過去の内容を同時に保持する必要がある
@@ -399,7 +399,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
         - $V_c$ を出力する
   - ただし、実際の実装に関しては $B$ を配列にすると`MLE`になるので、代わりに`unordered_map`を使っている
 
-## ABC114 D - 756
+## [ABC114 D - 756](https://atcoder.jp/contests/abc114/tasks/abc114_d)
 - 自然数 $n$ の正の約数の個数は、相異なる素数 $p_1, p_2, \dots p_m$ と正整数列 $\{ a_m \}$を用いて $\displaystyle n = \prod_{i = 1}^m p_i^{a_i}$ と表せるとき、$\displaystyle \prod_{i = 1}^m (a_i + 1)$ 個と求められる
   - 要するに $n$ の素因数分解ができれば良い
   - このあたりは大学入試数学で必須の知識なので助かった
@@ -415,7 +415,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - 非負整数列 $\{ b_m \}$ に $4$ がちょうど2個、および $2$ がちょうど1個含まれ、他は全て $0$
   - 愚直に多重ループで数えられるので、計算量は $N$ 以下の素数の個数を $M$ として $O(\max \{ N \log N, M^3 \})$
 
-## ABC154 E - Almost Everywhere Zero
+## [ABC154 E - Almost Everywhere Zero](https://atcoder.jp/contests/abc154/tasks/abc154_e)
 - 愚直に組み合わせで数えようとするも、上から数桁が $N$ と一致するパターンがややこしくて詰む
 - DPも考えたが3要素目（$N$ 以下であることが確定しているかどうか）を思いつかず撃沈
 - コードは公式解説の要点だけを見て書いたもの
@@ -431,3 +431,9 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - 空のコンテナに対する`begin()`は`end()`と等しく、`end()`の指す要素は不正な範囲になる
   - 先に $Y_i$ を突っ込んで後から $A_{X_i}$ を削除すれば $L$ が空になることがないので避けられる
 - 計算量は $O(Q \log K(N-K))$
+
+## [ABC091 C - 2D Plane 2N Points](https://atcoder.jp/contests/abc091/tasks/arc092_a)
+- 二部グラフの最大マッチング問題
+- [二部グラフのマッチング    [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/graph_theory/bipartite_matching)を参考に増大路を検索するアルゴリズムで書いた。感謝
+  - これの計算量は頂点数を $V$ 、辺数を $E$ として $O(VE)$
+- 公式解説曰く貪欲法でも行けるらしいが、まず気づかん…
