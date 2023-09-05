@@ -437,3 +437,13 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - [二部グラフのマッチング    [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/graph_theory/bipartite_matching)を参考に増大路を検索するアルゴリズムで書いた。感謝
   - これの計算量は頂点数を $V$ 、辺数を $E$ として $O(VE)$
 - 公式解説曰く貪欲法でも行けるらしいが、まず気づかん…
+
+## [ABC220 F - Distance Sums 2](https://atcoder.jp/contests/abc220/tasks/abc220_f)
+- LCA（最小共通祖先）などを考えたがどう考えても計算量が $O(N^2)$ 以上になり間に合わない
+  - 後学のためにLCAのリンク：[最小共通祖先 [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/graph_theory/lowest_common_ancestor)
+- （公式解説）部分木のサイズがキーになる問題だった
+- 部分木のサイズの求め方メモ：
+    1. 整数列 $\{s_n\}$ の全ての項を1（自身のサイズ）で初期化する
+    1. 帰りがけ順で子のサイズ $s_i$ の全てを自身のサイズに加える
+        - 帰りがけ順と言っても、全ての子のDFSを呼び出すループが終わった後ではなく、それぞれの子のDFSを呼び出した直後にその子のサイズを加えるようにすれば余計なループが不要になる
+- なお`accumulate()`の引数に`LL`をつけ忘れて1時間以上を溶かす
