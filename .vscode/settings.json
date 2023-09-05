@@ -29,7 +29,8 @@
         "limits": "cpp",
         "system_error": "cpp",
         "xlocale": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "format": "cpp"
     },
     "editor.formatOnSave": false
 }
