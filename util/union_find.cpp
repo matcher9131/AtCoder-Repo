@@ -4,34 +4,32 @@ using namespace std;
 
 
 class UnionFind {
-public:
     // 頂点iが親ならparent[i] == -1 * 連結成分の頂点数
-    vector<int> parent;
-    
-    UnionFind(int n) {
-        parent = vector<int>(n, -1);
+    vector<int> _parent;
+
+public:
+    UnionFind(int n) : _parent(n, -1) {}
+
+    int get_root(int i) {
+        return _parent[i] < 0 ? i : (_parent[i] = get_root(_parent[i]));
     }
 
-    int getRoot(int i) {
-        return this->parent[i] < 0 ? i : (parent[i] = getRoot(parent[i]));
-    }
-
-    int getSize(int i) {
-        return -this->parent[this->getRoot(i)];
+    int get_size(int i) {
+        return -_parent[get_root(i)];
     }
 
     bool connect(int i, int j) {
-        i = this->getRoot(i);
-        j = this->getRoot(j);
+        i = get_root(i);
+        j = get_root(j);
         if (i == j) return false;
         // 大きいほうに小さいほうをくっつける
-        if (this->getSize(i) < this->getSize(j)) {
+        if (get_size(i) < get_size(j)) {
             swap(i, j);
         }
         // サイズの更新
-        this->parent[i] += this->parent[j];
+        _parent[i] += _parent[j];
         // 親の更新
-        this->parent[j] = i;
+        _parent[j] = i;
         return true;
     }
 };
