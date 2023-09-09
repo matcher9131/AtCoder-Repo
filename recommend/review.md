@@ -316,18 +316,18 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - この問題緑色の間違いじゃないのか…？
 
 ## エイシング プログラミング コンテスト 2020 D - Anything Goes to Zero
-- $\textrm{popcount}(n) \leq \lfloor \log_2{n} \rfloor + 1$ であるから、$f$ を適用する毎に $n$ は小さくなり、かつだいたい $\log_2{n}$ 回の操作で $0$ になりそう
+- $\mathrm{popcount}(n) \leq \lfloor \log_2{n} \rfloor + 1$ であるから、$f$ を適用する毎に $n$ は小さくなり、かつだいたい $\log_2{n}$ 回の操作で $0$ になりそう
 - $f(X_i) \leq N$ なので1回の操作で $n \leq N$ となるから、あらかじめ $i (1 \leq i \leq N)$ に対して $f(i)$ を計算したテーブルを用意しておけばあとはこのテーブルを引きまくればOK
 - よってあとは初回の $f(X_i)$ に注力するのみ
 - 各 $X_i$ に対して毎回 $f(X_i)$ を一から計算していては $O(N^2)$ で`TLE`なので工夫が必要
-  - まず、$\textrm{popcount}(X_i)$ は $\textrm{popcount}(X)+1, \textrm{popcount}(X)-1$ のいずれかである
+  - まず、$\mathrm{popcount}(X_i)$ は $\mathrm{popcount}(X)+1, \mathrm{popcount}(X)-1$ のいずれかである
     - 以下これを順に $p_1, p_2$ とする
   - $X_i = X \oplus 2^{N-i}$ すなわち $X_i = X + 2^{N-i}$ または $X_i = X - 2^{N-i}$ であるから、あらかじめ $i (1 \leq i \leq N)$ に対して $2^i \bmod p_1, \ 2^i \bmod p_2$ および $X \bmod p_1, \ X \bmod p_2$ を計算しておけば $O(1)$ で $f(X_i)$ を求められる
 - 以上により $O(N \log N)$ で全ての解が求まる。…のだが
 - コーナーケースの処理に手間取る
-  - まず $\textrm{popcount}(X) = 0$ すなわち $X = 0$ のとき
-    - 必ず $\textrm{popcount}(X_i) = 1$ となるので全ての $i$ に対して解は $1$
-  - 次に $\textrm{popcount}(X) = 1$ のとき
+  - まず $\mathrm{popcount}(X) = 0$ すなわち $X = 0$ のとき
+    - 必ず $\mathrm{popcount}(X_i) = 1$ となるので全ての $i$ に対して解は $1$
+  - 次に $\mathrm{popcount}(X) = 1$ のとき
     - $X$ の上から $i$ 桁目のビットが $1$ のときはそもそも $X_i = 0$ となるので解は $0$
     - $p_1$ のほうは普通に使えるのに対し、$p_2 = 0$ より $2^i \bmod p_2$ などは0除算エラーになるため場合分けで除ける
       - ここを力技で分けたがもっとスムーズな書き方はなかったものか…
@@ -473,19 +473,35 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 　- 途中でグラフの構造が変わるわけではないのでそもそも単にDFSでよかった
 
 ## [ARC141 B - Increasing Prefix XOR](https://atcoder.jp/contests/arc141/tasks/arc141_b)
-- 以下、$x$ の最上位ビットを $\textrm{msb}(x)$ と表す
-- 一般に自然数 $a, b \ (a \lt b)$ に対して $a \lt a \oplus b \Leftrightarrow \textrm{msb}(a) \lt \textrm{msb}(b)$ が成り立つ
-  - $\textrm{msb}(a) = \textrm{msb}(b)$ だとXORにより最上位ビットが0になってしまうため
-- 全ての $i (1 \leq i \lt N)$ に対し $\textrm{msb}(A_i) \lt \textrm{msb}(A_{i+1})$ であることを帰納法で示す
-    1. $B_1 \lt B_2$ より $A_1 \lt A_1 \oplus A_2 \Leftrightarrow \textrm{msb}(A_1) \lt \textrm{msb}(A_2)$
-    1. 自然数 $k$ に対して $\textrm{msb}(A_1) \lt \textrm{msb}(A_2) \lt \dots \lt \textrm{msb}(A_k)$ と仮定する
-        - このとき $\textrm{msb}(B_k) = \textrm{msb}(A_k)$ が成り立つので
-            - $B_k \lt B_{k+1} = B_k \oplus A_{k+1} \Leftrightarrow \textrm{msb}(B_k) \lt \textrm{msb}(A_{k+1}) \Leftrightarrow \textrm{msb}(A_k) \lt \textrm{msb}(A_{k+1})$
-    1. 以上により帰納的に $\textrm{msb}(A_i) \lt \textrm{msb}(A_{i+1})$ が示せた
-- これにより $N \gt \textrm{msb}(M) + 1$ のときは条件を満たす数列 $A$ は存在しないことがわかる
-- あとは $dp_{i,j}$ を 「$\textrm{msb}(A_i) = j$ となるような数列 $(A_1, A_2, \dots, A_i)$ の場合の数 $\pmod{998244353}$」として以下のように数えるのみ
-    - $c_j$ を $\textrm{msb}(x) = j$ かつ $x \leq M$ を満たす自然数 $x$ の個数とする
+- 以下、$x$ の最上位ビットを $\mathrm{msb}(x)$ と表す
+- 一般に自然数 $a, b \ (a \lt b)$ に対して $a \lt a \oplus b \Leftrightarrow \mathrm{msb}(a) \lt \mathrm{msb}(b)$ が成り立つ
+  - $\mathrm{msb}(a) = \mathrm{msb}(b)$ だとXORにより最上位ビットが0になってしまうため
+- 全ての $i (1 \leq i \lt N)$ に対し $\mathrm{msb}(A_i) \lt \mathrm{msb}(A_{i+1})$ であることを帰納法で示す
+    1. $B_1 \lt B_2$ より $A_1 \lt A_1 \oplus A_2 \Leftrightarrow \mathrm{msb}(A_1) \lt \mathrm{msb}(A_2)$
+    1. 自然数 $k$ に対して $\mathrm{msb}(A_1) \lt \mathrm{msb}(A_2) \lt \dots \lt \mathrm{msb}(A_k)$ と仮定する
+        - このとき $\mathrm{msb}(B_k) = \mathrm{msb}(A_k)$ が成り立つので
+            - $B_k \lt B_{k+1} = B_k \oplus A_{k+1} \Leftrightarrow \mathrm{msb}(B_k) \lt \mathrm{msb}(A_{k+1}) \Leftrightarrow \mathrm{msb}(A_k) \lt \mathrm{msb}(A_{k+1})$
+    1. 以上により帰納的に $\mathrm{msb}(A_i) \lt \mathrm{msb}(A_{i+1})$ が示せた
+- これにより $N \gt \mathrm{msb}(M) + 1$ のときは条件を満たす数列 $A$ は存在しないことがわかる
+- あとは $dp_{i,j}$ を 「$\mathrm{msb}(A_i) = j$ となるような数列 $(A_1, A_2, \dots, A_i)$ の場合の数 $\pmod{998244353}$」として以下のように数えるのみ
+    - $c_j$ を $\mathrm{msb}(x) = j$ かつ $x \leq M$ を満たす自然数 $x$ の個数とする
     - 初期値：$dp_{1,j} = c_j$
     - 更新式：$\displaystyle dp_{i,j} = \sum_{k = 1}^{j - 1} c_j dp_{i-1,k}$
 - 計算量は $O(\min \{ N, \log M \}(\log M)^2)$
+
+## [ABC261 E - Many Operations](https://atcoder.jp/contests/abc261/tasks/abc261_e)
+- 純粋に全操作を行うと $O(N^2)$ で間に合わない
+- ここでポイントになるのは、各操作はビット毎に独立であるという点
+  - すなわち、操作 $1, 2, \dots i$ を順に行って得られる新たな $X$ の2進数表記での下から $j$ 桁目は、操作前の $X$ の2進数表記での下から $j$ 桁目に依存する
+    - よって、各ビットごとに初期値の $j$ ビット目が $0$ および $1$ であるときに操作 $1, 2, \dots i$ を順に行って得られる数の $j$ ビット目 $b_{0,i,j}, b_{1,i,j}$ を求めれば、新たな $X$ の各桁がそれぞれ $O(1)$ で求まる
+- 具体的には以下の通り
+    1. $C_0 = 0, C_1 = 2^{30} - 1, X = C$ とする
+    1. $i (1 \leq i \leq N)$ について以下を順に行う
+        1. $C_0, C_1$ のそれぞれに操作 $i$ を行う
+        1. $j (1 \leq j \leq 30)$ について以下を順に行う
+            - $X$ の $j$ ビット目を、それが $0$ なら $C_0$ の $j$ ビット目に、$1$ なら $C_1$ の $j$ ビット目に書き換える
+        1. $X$ を出力する
+- 計算量は $O(N)$
+- 後から解説を見て、新たな $X$ を得るのにわざわざループでビットごとに計算せずとも $(X \ \mathrm{and} \ C_1) \ \mathrm{or} \ ((X \ \mathrm{xor} \ 2^{30} - 1) \ \mathrm{and} \ C_0)$ で良かったことに気づく
+  - 定数倍とはいえかなり計算量が変わるので反省
 
