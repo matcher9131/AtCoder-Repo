@@ -505,3 +505,9 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - 後から解説を見て、新たな $X$ を得るのにわざわざループでビットごとに計算せずとも $(X \ \mathrm{and} \ C_1) \ \mathrm{or} \ ((X \ \mathrm{xor} \ 2^{30} - 1) \ \mathrm{and} \ C_0)$ で良かったことに気づく
   - 定数倍とはいえかなり計算量が変わるので反省
 
+## [ABC120 D - Decayed Bridges](https://atcoder.jp/contests/abc120/tasks/abc120_d)
+- 「順番に辺を削除しながらクエリに答える」＝「逆順にして順番にUnion-Findで辺を追加しながらクエリに答える」
+  - これは前にどこかでやったパターン
+- 逆順にすれば、最初は全ての橋がないので不便さは $_{N}C_2 = \frac{1}{2}N(N-1)$ であり
+  - 橋 $i$ を繋ぐ際に、島 $A_i$ と $B_i$ が異なる連結成分に存在すればそれらのサイズの積の分だけ不便さが減っていく
+- 計算量は $O(M \alpha(N)) \simeq O(M)$
