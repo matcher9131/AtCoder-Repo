@@ -7,8 +7,8 @@ extern bool isOK(int, int);
 
 
 int binary_search(int key) {
-    int ng = INITIAL_NG; //
-    int ok = INITIAL_OK; //
+    int ng = INITIAL_NG;
+    int ok = INITIAL_OK;
 
     while (abs(ok - ng) > 1) {
         int mid = (ok + ng) / 2;

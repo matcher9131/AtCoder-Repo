@@ -30,7 +30,8 @@
         "system_error": "cpp",
         "xlocale": "cpp",
         "unordered_map": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "array": "cpp"
     },
     "editor.formatOnSave": false
 }
