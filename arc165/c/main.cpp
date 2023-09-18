@@ -19,80 +19,60 @@
 using namespace std;
 using ll = long long;
 
-class UnionFind {
-    // 頂点iが親ならparent[i] == -1 * 連結成分の頂点数
-    vector<int> _parent;
-    int _group_count;
-
-public:
-    UnionFind(int n) : _parent(n, -1), _group_count(n) {}
-
-    int get_root(int i) {
-        return _parent[i] < 0 ? i : (_parent[i] = get_root(_parent[i]));
-    }
-
-    int get_size(int i) {
-        return -_parent[get_root(i)];
-    }
-
-    int get_group_count() {
-        return _group_count;
-    }
-
-    bool connect(int i, int j) {
-        i = get_root(i);
-        j = get_root(j);
-        if (i == j) return false;
-        // 大きいほうに小さいほうをくっつける
-        if (get_size(i) < get_size(j)) {
-            swap(i, j);
-        }
-        // サイズの更新
-        _parent[i] += _parent[j];
-        // 親の更新
-        _parent[j] = i;
-        // 連結成分の数の更新
-        --_group_count;
-        return true;
-    }
-};
-
-int n, m;
-vector<int> a, b, w;
-
-bool isOK(int x) {
-    UnionFind uf(n);
-    for (int i = 0; i < m; ++i) {
-        if (w[i] >= x) {
-            uf.connect(a[i], b[i]);
-        }
-    }
-    return uf.get_group_count() <= 2;
-}
-
-int binary_search() {
-    int ng = 1e9 + 1;
-    int ok = 0;
-
-    while (abs(ok - ng) > 1) {
-        int mid = (ok + ng) / 2;
-        if (isOK(mid)) ok = mid;
-        else ng = mid;
-    }
-    
-    return ok;
-}
 
 int main() {
+    int n, m;
     cin >> n >> m;
-    a = vector<int>(m);
-    b = vector<int>(m);
-    w = vector<int>(m);
-    for (int i = 0; i < n; ++i) {
-        cin >> a[i] >> b[i] >> w[i];
-        --a[i];
-        --b[i];
+    vector<vector<pair<ll, int>>> g(n, vector<pair<ll, int>>());
+    for (int i = 0; i < m; ++i) {
+        int a, b;
+        ll w;
+        cin >> a >> b >> w;
+        --a;
+        --b;
+        g[a].emplace_back(w, b);
+        g[b].emplace_back(w, a);
     }
+    for (int i = 0; i < n; ++i) {
+        sort(g[i].begin(), g[i].end());
+    }
+
+    function<bool(int, int, vector<int>&, int)> dfs = [&](int x, int from, vector<int> &color, int c) {
+        color[from] = c;
+        for (const auto &[cost, to] : g[from]) {
+            if (cost >= x) break;
+            if (color[to] == c) return false;
+            if (color[to] != 0) continue;
+            if (!dfs(x, to, color, -c)) return false;
+        }
+        return true;
+    };
+
+    auto isOK = [&](int x) {
+        vector<int> color(n);
+        for (int i = 0; i < n; ++i) {
+            if (color[i] == 0) {
+                if (!dfs(x, i, color, 1)) return false;
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (g[i].size() >= 2 && g[i][0].first + g[i][1].first < x) return false;
+        }
+        return true;
+    };
+    
+    function<int()> binary_search = [&]() {
+        int ng = 2e9 + 1;
+        int ok = 0;
+
+        while (abs(ok - ng) > 1) {
+            int mid = (int)(((ll)ok + ng) / 2);
+            if (isOK(mid)) ok = mid;
+            else ng = mid;
+        }
+        
+        return ok;
+    };
 
     cout << binary_search() << endl;
 
