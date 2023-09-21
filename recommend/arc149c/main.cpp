@@ -25,34 +25,7 @@ int main() {
     cin >> n;
     vector<vector<int>> a(n, vector<int>(n));
 
-    if (n == 3) {
-        vector<int> perm(n * n);
-        for (int i = 0; i < n * n; ++i) {
-            perm[i] = i + 1;
-        }
-
-        set<int> composite{ 4, 6, 8, 9, 10, 12, 14, 15, 16 };
-        do {
-            bool isOK = true;
-            for (int i = 0; i < n - 1; ++i) {
-                for (int j = 0; j < n; ++j) {
-                    if (!composite.contains(perm[i * n + j] + perm[(i + 1) * n + j])) isOK = false;
-                }
-            }
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < n - 1; ++j) {
-                    if (!composite.contains(perm[i * n + j] + perm[i * n + j + 1])) isOK = false;
-                }
-            }
-            if (isOK) break;
-        } while (next_permutation(perm.begin(), perm.end()));
-
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                a[i][j] = perm[i * n + j];
-            }
-        }
-    } else if (n % 2 == 0) {
+    if (n % 2 == 0) {
         // e e e e
         // e e e e
         // o o o o
@@ -76,16 +49,25 @@ int main() {
         for (int i = 0; i < n * n / 2; ++i) {
             a[i / n][i % n] = 2 * (i + 1);
         }
-        int r = (n - 1) % 3;
         int cl = n * n / 2 - 1;
-        swap(a[cl / n][cl % n], a[(cl - r) / n][(cl - r) % n]);
+        int cu = n * n / 2 - n;
+        swap(a[(cl - 3) / n][(cl - 3) % n], a[cu / n][cu % n]);
 
         set<int, greater<int>> s;
         for (int i = 0; i <= n * n / 2; ++i) {
             s.emplace_hint(s.begin(), 2 * i + 1);
         }
 
+        for (const int i : s) {
+            if ((a[n / 2 - 1][n / 2] + i) % 3 == 0 && a[n / 2 - 1][n / 2] + i > 3) {
+                a[n / 2][n / 2] = i;
+                s.erase(i);
+                break;
+            }
+        }
+
         for (int x = 0; x < n; ++x) {
+            if (x == n / 2) continue;
             int y = n / 2 + (x < n / 2 ? 1 : 0);
             for (const int i : s) {
                 if ((a[y - 1][x] + i) % 3 == 0 && a[y - 1][x] + i > 3) {
