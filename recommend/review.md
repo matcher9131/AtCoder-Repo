@@ -616,3 +616,37 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - この場合偶数を適当に入れ替えて対応する
 - 実装が適当過ぎて $N = 3$ のときに苦労した
   - 奇数の埋める順番を間違えると解がなくなってしまう
+
+## [ABC032 D - ナップサック問題](https://atcoder.jp/contests/abc032/tasks/abc032_d)
+- Recommendationに表示されたわけではないのだが気になったので解いてみた
+- 問題自体はシンプルなナップサック問題なのだが、制約が複数種類あるため方針を変える必要がある
+  - ある意味一粒で何度もおいしい問題
+- $\displaystyle \max_{1 \leq i \leq N} w_i \leq 1000$ の場合
+    - いわゆる最もポピュラーなケース
+    - $dp_{i,j}$ を「$i$ 個目までのナップサックを見て合計質量が $j$ になるような選び方をした時の価値の和の最大値」とおいて以下の通りに更新する
+        - 初期値：$dp_{1,w_1} = v_1$、それ以外は $0$
+        - 更新：
+            - $j \lt v_i$ ならば $dp_{i+1,j} = dp_{i,j}$
+            - $j \geq v_i$ ならば $dp_{i+1,j} = \max \{ dp_{i,j}, dp_{i, j - w_i} + v_i \}$
+    - 解は $\displaystyle \max_{0 \leq j \leq W} dp_{N, j}$
+    - 計算量は $O(NW)$ であり $NW \leq 1000N^2 \leq 4 \times 10^7$ なので十分に間に合う 
+- $\displaystyle \max_{1 \leq i \leq N} v_i \leq 1000$ の場合
+    - ↑と同じDPを作ると $w_i \leq 10^9$ の制約により $w_i$ の最大値がデカいと`MLE`になる
+    - DPの要素に $w_i$ ではなく $v_i$ を使いたい
+    - $dp_{i,j}$ を「$i$ 個目までのナップサックを見て合計価値が $j$ になるような選び方をした時の重量の和の最小値」とおいて以下の通りに更新する
+        - $\displaystyle V = \sum_{i = 1}^N v_i$ とおく
+        - 初期値：$dp_{1,v_1} = w_1$、$1 \leq i \leq N$ に対し $dp_{i, 0} = 0$、それ以外は $\infty$
+        - 更新：
+            - $j \lt w_i$ ならば $dp_{i+1,j} = dp_{i,j}$
+            - $j \geq w_i$ ならば $dp_{i+1,j} = \min \{ dp_{i,j}, dp_{i, j - v_i} + w_i \}$
+    - 解は $dp_{N,j} \leq W$ となる最大の $j$
+    - 計算量は $O(NV)$ であり $NV \leq 1000N^2 \leq 4 \times 10^7$ なので十分に間に合う
+- $N \leq 30$ の場合
+    - $v_i, w_i$ ともに大きすぎてDPの要素にできないのでDPは諦める
+    - 代わりに $2^{30} \simeq 10^9$ なのでギリギリ全探索可能
+    - ただし純粋にビット列で計算すると価値の和を求めるのに $O(N)$ の計算量が必要なため、全体で $O(N2^N)$ となり`TLE`
+    - ここでナップサックを半分に分けて計算量を減らすことを考える
+        - 前半 $\lceil \frac{N}{2} \rceil$ 個と後半 $\lfloor \frac{N}{2} \rfloor$ に分けてそれぞれビット列で全探索すると、価値の和と重さの和を求める計算量は $O(\lceil \frac{N}{2} \rceil 2^{\lceil \frac{N}{2} \rceil} + \lfloor \frac{N}{2} \rfloor 2^{\lfloor \frac{N}{2} \rfloor}) \simeq O(\frac{N}{2} 2^{\frac{N}{2}})$
+            - $\frac{N}{2} 2^{\frac{N}{2}}$ は最大でも $5 \times 10^5$ 程度なのでかなり余裕がある
+        - 勿論そのあとに前半と後半を組み合わせて解を求める必要がある
+            - この計算量は $O(2^{\lceil \frac{N}{2} \rceil}2^{\lfloor \frac{N}{2} \rfloor}) = O(2^N)$ なので前述の通りギリギリ間に合う
