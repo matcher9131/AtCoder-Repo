@@ -646,7 +646,13 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - 代わりに $2^{30} \simeq 10^9$ なのでギリギリ全探索可能
     - ただし純粋にビット列で計算すると価値の和を求めるのに $O(N)$ の計算量が必要なため、全体で $O(N2^N)$ となり`TLE`
     - ここでナップサックを半分に分けて計算量を減らすことを考える
-        - 前半 $\lceil \frac{N}{2} \rceil$ 個と後半 $\lfloor \frac{N}{2} \rfloor$ に分けてそれぞれビット列で全探索すると、価値の和と重さの和を求める計算量は $O(\lceil \frac{N}{2} \rceil 2^{\lceil \frac{N}{2} \rceil} + \lfloor \frac{N}{2} \rfloor 2^{\lfloor \frac{N}{2} \rfloor}) \simeq O(\frac{N}{2} 2^{\frac{N}{2}})$
+        - 前半 $\lceil \frac{N}{2} \rceil$ 個と後半 $\lfloor \frac{N}{2} \rfloor$ 個に分けてそれぞれビット列で全探索すると、価値の和と重さの和を求める計算量は $O(\lceil \frac{N}{2} \rceil 2^{\lceil \frac{N}{2} \rceil} + \lfloor \frac{N}{2} \rfloor 2^{\lfloor \frac{N}{2} \rfloor}) \simeq O(\frac{N}{2} 2^{\frac{N}{2}})$
             - $\frac{N}{2} 2^{\frac{N}{2}}$ は最大でも $5 \times 10^5$ 程度なのでかなり余裕がある
         - 勿論そのあとに前半と後半を組み合わせて解を求める必要がある
             - この計算量は $O(2^{\lceil \frac{N}{2} \rceil}2^{\lfloor \frac{N}{2} \rfloor}) = O(2^N)$ なので前述の通りギリギリ間に合う
+
+## [ABC184 E - Third Avenue](https://atcoder.jp/contests/abc184/tasks/abc184_e)
+- グリッドグラフにさらにテレポーターどうしを辺で繋いだものを考え、それに対してDijkstraで最短距離を求める。以上！
+  - ただし実際に辺を繋いでしまうと辺数は最大で $(HW - 2)(HW - 3)/2 \simeq 8 \times 10^{12}$ であり`MLE`を食らうので、同じ種類のテレポーターの座標のみをリストで保持し、探索時に参照する形をとった
+- 計算量は辺数を $E$ として $(E+HW)\log{HW}$ であり、$E$ は前述の通り $H^2W^2$ のオーダーになる可能性があるが、テレポーターが多すぎるとゴールまでの距離も短くなるため実際にはそこまでの計算量にはならない…はず
+  - テストケースは最大約2100msで通っている
