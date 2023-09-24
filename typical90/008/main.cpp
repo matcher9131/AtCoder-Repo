@@ -21,8 +21,8 @@ using namespace std;
 using ll = long long;
 using mint = atcoder::modint1000000007;
 
-const string ATCODER = "atcoder";
-const int m = ATCODER.size();
+const string ACD = "atcoder";
+const int m = ACD.size();
 
 int main() {
     int n;
@@ -34,7 +34,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j <= m; ++j) {
             dp[i + 1][j] += dp[i][j];
-            if (j < m && s[i] == ATCODER[j]) dp[i + 1][j + 1] += dp[i][j];
+            if (j < m && s[i] == ACD[j]) dp[i + 1][j + 1] += dp[i][j];
         }
     }
     
