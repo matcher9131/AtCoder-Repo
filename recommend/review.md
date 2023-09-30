@@ -702,7 +702,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - はじめは単に「高橋君が頂点 $i$ に行くまでの最小の移動回数 $a_i$」と「青木君が頂点 $j$ に行くまでの最小の移動回数 $b_i$」に分けてそれぞれを更新していくことを考えたが、「2人が同時にそれぞれ頂点 $i,j$ にいる状態」を考えるべきと気づいて↑のようにした
 - 通常のDijkstra法と比べて計算量としてネックになるのは2人が行くことのできる隣接頂点を探すときの2重ループだが、$M \leq 2000$ より多くとも $10^6$ 通りの組み合わせしかないため問題ないと見た
 
-## [C - 二人のアルピニスト](https://atcoder.jp/contests/code-festival-2016-qualc/tasks/codefestival_2016_qualC_c)
+## [CODE FESTIVAL 2016 qual C C - 二人のアルピニスト](https://atcoder.jp/contests/code-festival-2016-qualc/tasks/codefestival_2016_qualC_c)
 - 山 $i$ の高さ $h_i$ としてありうる場合の数を $m_i$ とおく
 - 高橋君か青木君が最大値を更新した場合、その山の高さは確定する（すなわち $m_i = 1$）
   - より具体的には以下
