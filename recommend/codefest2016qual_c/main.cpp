@@ -45,13 +45,11 @@ int main() {
     mint ans = 1;
     for (int i = 0; i < n; ++i) {
         if (t[i].second) {
-            // x[i] = t[i] <= a[i]
-            if (t[i].first > a[i].first) {
+            if ((a[i].second && t[i] != a[i]) || t[i].first > a[i].first) {
                 cout << 0 << endl;
                 return 0;
             }
         } else if (a[i].second) {
-            // x[i] = a[i] <= t[i]
             if (t[i].first < a[i].first) {
                 cout << 0 << endl;
                 return 0;
