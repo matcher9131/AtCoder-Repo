@@ -470,7 +470,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - その連結成分の任意の黒頂点と白頂点は題意を満たす移動ができる
     - よって各連結成分ごとに黒頂点の数と白頂点の数の積を求め、その和を答えればよい
 - Union-Findを改造して黒頂点と白頂点の数を数えられるようにしたが
-　- 途中でグラフの構造が変わるわけではないのでそもそも単にDFSでよかった
+  - 途中でグラフの構造が変わるわけではないのでそもそも単にDFSでよかった
 
 ## [ARC141 B - Increasing Prefix XOR](https://atcoder.jp/contests/arc141/tasks/arc141_b)
 - 以下、$x$ の最上位ビットを $\mathrm{msb}(x)$ と表す
@@ -714,3 +714,10 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
     - なお実はこの部分をきちんと考えておらず嘘解法を通してしまった模様（レビューを書いていて気づいた）
 - 最大値を更新しない場合、$1 \leq h_i \leq \min \{ T_i, A_i \}$ が成り立つので $m_i = \min \{ T_i, A_i \}$
 - 各山の高さは独立なので $\displaystyle \prod_{i = 1}^N m_i$ が解になる
+
+## [ABC157 E - Simple String Queries](https://atcoder.jp/contests/abc157/tasks/abc157_e)
+- 文字種ごとに以下のSegment Treeを用意する
+  - データ型は`boolean`
+  - 区間の要素の総積は論理OR、単位元は`false`
+  - 要素の変更は、$S_i$ 文字目がその文字種なら`true`、そうでないなら`false`とする
+- あとはtype 2のクエリが来るたびに各文字種で区間 $\[ l_q, r_q \]$ の総積が`true`になるものの数を答えればよい
