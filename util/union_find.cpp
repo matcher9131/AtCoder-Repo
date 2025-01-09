@@ -4,7 +4,6 @@ using namespace std;
 
 
 class UnionFind {
-    // 頂点iが親ならparent[i] == -1 * 連結成分の頂点数
     vector<int> _parent;
 
 public:
@@ -22,13 +21,10 @@ public:
         i = get_root(i);
         j = get_root(j);
         if (i == j) return false;
-        // 大きいほうに小さいほうをくっつける
         if (get_size(i) < get_size(j)) {
             swap(i, j);
         }
-        // サイズの更新
         _parent[i] += _parent[j];
-        // 親の更新
         _parent[j] = i;
         return true;
     }
