@@ -31,7 +31,19 @@
         "xlocale": "cpp",
         "unordered_map": "cpp",
         "format": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "xstddef": "cpp",
+        "optional": "cpp",
+        "functional": "cpp",
+        "cstddef": "cpp",
+        "numeric": "cpp",
+        "cmath": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xloctime": "cpp"
     },
     "editor.formatOnSave": false
 }
