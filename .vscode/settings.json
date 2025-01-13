@@ -44,7 +44,8 @@
         "xlocmon": "cpp",
         "xlocnum": "cpp",
         "xloctime": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "forward_list": "cpp"
     },
     "editor.formatOnSave": false
 }
