@@ -222,3 +222,6 @@
 - 最長単純道：`dp[道が含む頂点の集合][今いる頂点] = 道の長さの最大値`(Bit DP)
 - なお今回は全探索でも問題なく、バックトラックで行けた模様
 
+## 075 - Magic For Balls（★3）
+- ビット操作関数を覚える
+  - `bit_floor, bit_ceil, bit_width, countr_zero, countr_one, countl_zero, countr_one, popcount`
