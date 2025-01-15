@@ -45,7 +45,8 @@
         "xlocnum": "cpp",
         "xloctime": "cpp",
         "sstream": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "bit": "cpp"
     },
     "editor.formatOnSave": false
 }
