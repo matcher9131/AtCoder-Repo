@@ -225,3 +225,8 @@
 ## 075 - Magic For Balls（★3）
 - ビット操作関数を覚える
   - `bit_floor, bit_ceil, bit_width, countr_zero, countr_one, countl_zero, countr_one, popcount`
+
+## 076 - Cake Cut（★3）
+- 循環配列の連続区間：2巡させた通常の配列でOK
+- 区間和：尺取法
+
