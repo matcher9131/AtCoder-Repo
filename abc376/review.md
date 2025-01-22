@@ -1,4 +1,4 @@
-# [ABC377](https://atcoder.jp/contests/abc377) Review
+# [ABC376](https://atcoder.jp/contests/abc376) Review
 - バーチャル参加
 - Eって本当に緑色か…？信じられん…
 
