@@ -37,11 +37,11 @@ int main() {
 
     // 工程iでwi個の製品を処理するのに予算xi円以内になるかどうか
     auto canAfford = [&](int i, ll wi, ll xi) -> bool {
-        for (ll s = 0; s <= b[i]; ++s) {
+        for (ll s = 0; s < b[i]; ++s) {
             ll t = divCeil(max(0LL, wi - s * a[i]), b[i]);
             if (s * p[i] + t * q[i] <= xi) return true;
         }
-        for (ll t = 0; t <= a[i]; ++t) {
+        for (ll t = 0; t < a[i]; ++t) {
             ll s = divCeil(max(0LL, wi - t * b[i]), a[i]);
             if (s * p[i] + t * q[i] <= xi) return true;
         }
