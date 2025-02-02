@@ -70,7 +70,10 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "charconv": "cpp",
+        "ratio": "cpp",
+        "variant": "cpp"
     },
     "editor.formatOnSave": false
 }
