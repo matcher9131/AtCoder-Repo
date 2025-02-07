@@ -740,3 +740,7 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
         3. そうでない場合は改めて`long long`型で $T_n$ を求めて $M$ と大小比較する
             - `double`の仮数部は2進数で52桁であり、`long long`型は2進数で最大63桁であるため、`double`型のまま大小比較をするには精度が足りない
 
+## [ABC152 E - Flatten](https://atcoder.jp/contests/abc152/tasks/abc152_e)
+- $L$ を $A_1, A_2, \dots, A_N$ の最小公倍数とすると $B_i = \frac{L}{A_i}$ となる
+- $\bmod$ 計算だとGCDおよびLCMが求まらないので素直に素因数分解すればよい
+- メモ：`map`に対して`for_each`や`accumlate`するときに渡す関数の引数の型は`map<Key, T>::value_type`
