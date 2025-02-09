@@ -744,3 +744,6 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 - $L$ を $A_1, A_2, \dots, A_N$ の最小公倍数とすると $B_i = \frac{L}{A_i}$ となる
 - $\bmod$ 計算だとGCDおよびLCMが求まらないので素直に素因数分解すればよい
 - メモ：`map`に対して`for_each`や`accumlate`するときに渡す関数の引数の型は`map<Key, T>::value_type`
+
+## [ARC151 B - A < AP](https://atcoder.jp/contests/arc151/tasks/arc151_b)
+- 辞書順で小さいものの個数：対称性があるならば、全体と辞書順で等しいものの個数を数えるだけでもいける
