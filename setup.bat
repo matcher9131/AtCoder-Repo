@@ -10,3 +10,5 @@ mkdir %1\d
 copy template %1\d
 mkdir %1\e
 copy template %1\e
+mkdir %1\f
+copy template %1\f
