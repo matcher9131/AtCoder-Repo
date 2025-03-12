@@ -761,3 +761,6 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
   - 正しくは $X$ の上位ビットから順に $1$ にできるかどうかを判定していく
     - コードがぱっと見だと二分探索には見えないが、勿論やっていることは立派な二分探索である
 - 計算量は $O((N\log N + K)\log X)$
+
+## [ABC176 D - Wizard in Maze](https://atcoder.jp/contests/abc176/tasks/abc176_d)
+- ワープ魔法を距離 $10^9$ の移動と考えればdijkstraでOK
