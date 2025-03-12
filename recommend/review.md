@@ -764,3 +764,9 @@ AtCoder Problems Recommendationでおすすめされる問題をひたすら解�
 
 ## [ABC176 D - Wizard in Maze](https://atcoder.jp/contests/abc176/tasks/abc176_d)
 - ワープ魔法を距離 $10^9$ の移動と考えればdijkstraでOK
+
+## [ABC201 D - Game in Momotetsu World](https://atcoder.jp/contests/abc201/tasks/abc201_d)
+https://drken1215.hatenablog.com/entry/2023/07/21/235300
+
+- いわゆるネガマックス法
+- メモ化再帰で計算量を減らす
