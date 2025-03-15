@@ -770,3 +770,6 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 
 - いわゆるネガマックス法
 - メモ化再帰で計算量を減らす
+
+## [ABC339 D - Synchronized Players](https://atcoder.jp/contests/abc339/tasks/abc339_d)
+- $N \leq 60$ より最大でも $N^4 \sim 10^7$ より2人のプレイヤーの座標を頂点とするグリッドBFSが間に合う
