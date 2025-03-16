@@ -780,3 +780,11 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 ## [ABC354 D - AtCoder Wallpaper](https://atcoder.jp/contests/abc354/tasks/abc354_d)
 - $[4n, 4n+3] \times [2m, 2m+1]$ の繰り返しなので $[4n, x] \times [2m, y]$ における面積は比較的求めやすい
   - よって $P = 4 \lfloor A/4 \rfloor, Q = 4 \lfloor B/4 \rfloor, R = 4 \lfloor C/4 \rfloor, S = 4 \lfloor D/4 \rfloor$ として $[P, R] \times [Q, S]$ の面積を求め、過不足を調整するのが簡明
+
+## [AGC032 B - Balanced Neighbors](https://atcoder.jp/contests/agc032/tasks/agc032_b)
+- 与えられた $N$ に対して逐一探索するのではなく、汎用的な条件を考えるタイプの問題
+- $N$ が偶数のとき
+  - 各頂点 $i$ に対し $j = N + 1 - i$ とおくと $i \neq j$ であり、自身と $j$ 以外のすべての頂点と辺を繋ぐと隣接する頂点の和は $\frac{N(N+1)}{2} - (N+1)$ となり $i$ に依らず一定
+- $N$ が奇数のとき
+  - 各頂点 $i$ に対し $j = N - i$ とおくと $i \neq j$ であり、自身と $j$ 以外のすべての頂点と辺を繋ぐと隣接する頂点の和は $\frac{N(N+1)}{2} - N$ となり $i$ に依らず一定
+    - かつ頂点 $N$ は自身以外のすべての頂点と辺を繋ぐと隣接する頂点の和は $\frac{N(N+1)}{2} - N$ となるので題意を満たす
