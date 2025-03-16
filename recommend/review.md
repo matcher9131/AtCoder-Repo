@@ -776,3 +776,7 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 
 ## [ACL Beginner D - Flat Subsequence](https://atcoder.jp/contests/abl/tasks/abl_d)
 - `atcoder::segtree`の初期値は`e()`
+
+## [ABC354 D - AtCoder Wallpaper](https://atcoder.jp/contests/abc354/tasks/abc354_d)
+- $[4n, 4n+3] \times [2m, 2m+1]$ の繰り返しなので $[4n, x] \times [2m, y]$ における面積は比較的求めやすい
+  - よって $P = 4 \lfloor A/4 \rfloor, Q = 4 \lfloor B/4 \rfloor, R = 4 \lfloor C/4 \rfloor, S = 4 \lfloor D/4 \rfloor$ として $[P, R] \times [Q, S]$ の面積を求め、過不足を調整するのが簡明
