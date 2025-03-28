@@ -19,37 +19,39 @@
 using namespace std;
 using ll = long long;
 
-constexpr int INF = 1e8;
-
 int main() {
     int n;
     cin >> n;
-    vector<vector<int>> dist(n, vector<int>(n, INF));
+    vector<vector<int>> g(n);
     for (int i = 0; i < n - 1; ++i) {
         int a, b;
         cin >> a >> b;
         --a; --b;
-        dist[a][b] = 1;
-        dist[b][a] = 1;
+        g[a].push_back(b);
+        g[b].push_back(a);
     }
 
-    
-    for (int k = 0; k < n; ++k) {
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
-            }
+    vector<int> vc(n, -1);
+    function<void(int, int)> dfs = [&](int from, int color) -> void {
+        vc[from] = color;
+        for (const int to : g[from]) {
+            if (vc[to] != -1) continue;
+            dfs(to, !color);
         }
-    }
+    };
+    dfs(0, 0);
 
     set<pair<int, int>> edges;
     for (int i = 0; i < n; ++i) {
         for (int j = i + 1; j < n; ++j) {
-            if (dist[i][j] > 1 && dist[i][j] % 2 == 1) edges.emplace(i, j);
+            if (find(g[i].begin(), g[i].end(), j) != g[i].end()) continue;
+            if (vc[i] != vc[j]) {
+                edges.emplace(i, j);
+            }
         }
     }
 
-    if ((int)edges.size() % 2 == 1) {
+    if (edges.size() % 2) {
         cout << "First" << endl;
         while (true) {
             cout << edges.begin()->first + 1 << " " << edges.begin()->second + 1 << endl;
@@ -59,9 +61,8 @@ int main() {
             if (i == -1 && j == -1) {
                 return 0;
             }
-            if (i > j) swap(i, j);
-            auto it = edges.find({ i, j });
-            edges.erase(it);
+            --i; --j;
+            edges.erase(edges.find({ i, j }));
         }
     } else {
         cout << "Second" << endl;
@@ -71,9 +72,8 @@ int main() {
             if (i == -1 && j == -1) {
                 return 0;
             }
-            if (i > j) swap(i, j);
-            auto it = edges.find({ i, j });
-            edges.erase(it);
+            --i; --j;
+            edges.erase(edges.find({ i, j }));
             cout << edges.begin()->first + 1 << " " << edges.begin()->second + 1 << endl;
             edges.erase(edges.begin());
         }
