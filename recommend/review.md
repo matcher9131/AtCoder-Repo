@@ -798,3 +798,7 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 
 ## [ABC214 D - Sum of Maximum Weights](https://atcoder.jp/contests/abc214/tasks/abc214_d)
 - 寄与する回数が少ない順（＝コストが小さい順）に辺を繋ぐと数えやすい
+
+## [ABC232 E - Rook Path](https://atcoder.jp/contests/abc232/tasks/abc232_e)
+- ~~俺か俺以外か~~ 目的地にいるかいないかの2状態DP
+- $x, y$ に分けて同時に見る。すなわち、 $\mathrm{dp}_{i,p,q}: i$ 回目の移動後にルーク $(x, y)$ が $p: x = x_2, q: y = y_2$ を満たすような移動の場合の数とすればよい（ $p,q$ は`boolean`）  
