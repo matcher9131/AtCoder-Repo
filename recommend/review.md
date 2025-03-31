@@ -795,3 +795,6 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
     1. ペアを $x$ の昇順→ $y$ の降順で並び替える
     2. $y$ だけ見てLIS（最長増加部分列）の長さを求める
         - 同じ $x$ に対して $y$ が降順に並ぶため、同じ $x$ を2度選ぶことがない
+
+## [ABC214 D - Sum of Maximum Weights](https://atcoder.jp/contests/abc214/tasks/abc214_d)
+- 寄与する回数が少ない順（＝コストが小さい順）に辺を繋ぐと数えやすい
