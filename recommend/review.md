@@ -817,3 +817,5 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
   - $X < K$ が確定しているかどうかを表す変数 $Y$ を用意して2要素DPにする
     - $Y=\mathrm{true}$ のときの初期値を $-\infty$ にする必要があるのと、 $-\infty$ からの遷移を禁止する必要がある点に注意
 
+## [ABC213 E - Stronger Takahashi](https://atcoder.jp/contests/abc213/tasks/abc213_e)
+- 通常の非壁隣接マスへはコスト0、壁を破壊して到達可能なマスへはコスト1の辺が張られているものとしてDijkstra
