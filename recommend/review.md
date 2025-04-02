@@ -819,3 +819,8 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 
 ## [ABC213 E - Stronger Takahashi](https://atcoder.jp/contests/abc213/tasks/abc213_e)
 - 通常の非壁隣接マスへはコスト0、壁を破壊して到達可能なマスへはコスト1の辺が張られているものとしてDijkstra
+
+## [F - Dungeon Explore](https://atcoder.jp/contests/abc305/tasks/abc305_f)
+- 連結無向グラフからDFSで用いられない辺をグラフから削除すると木になるので $2N$ 回未満の移動ですべての頂点に到達できる
+- 行きがけ時に（まだわかっていなければ）隣接頂点を取得し、帰りがけ時に親へ移動すればOK
+
