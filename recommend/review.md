@@ -820,7 +820,10 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 ## [ABC213 E - Stronger Takahashi](https://atcoder.jp/contests/abc213/tasks/abc213_e)
 - 通常の非壁隣接マスへはコスト0、壁を破壊して到達可能なマスへはコスト1の辺が張られているものとしてDijkstra
 
-## [F - Dungeon Explore](https://atcoder.jp/contests/abc305/tasks/abc305_f)
+## [ABC305 F - Dungeon Explore](https://atcoder.jp/contests/abc305/tasks/abc305_f)
 - 連結無向グラフからDFSで用いられない辺をグラフから削除すると木になるので $2N$ 回未満の移動ですべての頂点に到達できる
 - 行きがけ時に（まだわかっていなければ）隣接頂点を取得し、帰りがけ時に親へ移動すればOK
 
+## [ABC098 D - Xor Sum 2](https://atcoder.jp/contests/abc098/tasks/arc098_b)
+- $A_l \oplus A_{l+1} \oplus \dots \oplus A_{r} = A_l + A_{l+1} + \dots + A_r \Leftrightarrow $ 任意の $l \leq i < j \leq r$ に対して $A_i \ \mathrm{AND} \ A_j = 0$
+- 尺取り虫法で↑を満たす区間 $[l, r)$ を求めれば $\sum \frac{1}{2}(r_i - l_i)(r_i - l_i + 1)$ が解
