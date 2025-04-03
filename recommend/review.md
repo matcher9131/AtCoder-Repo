@@ -827,3 +827,8 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 ## [ABC098 D - Xor Sum 2](https://atcoder.jp/contests/abc098/tasks/arc098_b)
 - $A_l \oplus A_{l+1} \oplus \dots \oplus A_{r} = A_l + A_{l+1} + \dots + A_r \Leftrightarrow $ 任意の $l \leq i < j \leq r$ に対して $A_i \ \mathrm{AND} \ A_j = 0$
 - 尺取り虫法で↑を満たす区間 $[l, r)$ を求めれば $\sum \frac{1}{2}(r_i - l_i)(r_i - l_i + 1)$ が解
+
+## [ARC126 B - Cross-free Matching](https://atcoder.jp/contests/arc126/tasks/arc126_b)
+- $l_1, l_2, \dots, l_K$ の順に線分を選んだとして、 $a_{l_1} < a_{l_2} < \dots < a_{l_K}$ および $b_{l_1} < b_{l_2} < \dots < b_{l_K}$ が必要十分条件
+- これは[ARC133 B - Dividing Subsequence](https://atcoder.jp/contests/arc133/tasks/arc133_b)でやったやーつ
+
