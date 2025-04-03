@@ -832,3 +832,13 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 - $l_1, l_2, \dots, l_K$ の順に線分を選んだとして、 $a_{l_1} < a_{l_2} < \dots < a_{l_K}$ および $b_{l_1} < b_{l_2} < \dots < b_{l_K}$ が必要十分条件
 - これは[ARC133 B - Dividing Subsequence](https://atcoder.jp/contests/arc133/tasks/arc133_b)でやったやーつ
 
+## [ABC259 E - LCM on Whiteboard](https://atcoder.jp/contests/abc259/tasks/abc259_e)
+- 書き換える前の $a_1, a_2, \dots, a_N$ の最小公倍数を $L$ とおく
+- $f(i, p)$ を $a_i$ が含む素因数 $p$ の個数とし、集合 $S_p = \{ i \mid f(i, p) = \max_{1 \leq j \leq N} f(j, p) \}$ とする
+- 各 $p$ に対し
+  - $|S_p| = 1$ のとき、その唯一の要素 $i$ とすると、 $A_i$ を $1$ に書き換えることで $L$ と異なる最小公倍数を得られる
+    - かつ、異なる $p$ に対して異なる最小公倍数を得られる
+  - $|S_p| > 1$ のとき、その中に含まれる各要素 $i$ について、 $S_{p'} = \{ i \}$ となる $p'$ が存在しないならば、 $A_i$ を $1$ に書き換えて得られる最小公倍数は $L$ のままである
+- よって ${\displaystyle T = \bigcup_{p \in \{ p \, \mid \, \left| S_p \right| = 1 \}} S_p }$ とすると、解は以下の通り
+  - $|T| = N$ のとき、 $L$ があり得る値に含まれないので $|T|$
+  - $|T| < N$ のとき、 $L$ があり得る値に含まれるので $|T| + 1$
