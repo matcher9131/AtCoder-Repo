@@ -90,6 +90,25 @@
 ## 024 - Select +／- One（★2）
 - ちょうど $K$ 回：偶奇性が必要になることがある
 
+## 025 - Digit Product Equation（★7）
+- まとめて全探索
+- 重複組合せの列挙
+  - 再帰関数が手っ取り早い
+  - 昇順に並んでいる $(A_1, A_2, \dots, A_i)$ に対し $A_{i+1}$ として追加できるものは $A_{i+1} \geq A_{i}$ となるもののみ
+    - 再帰関数の引数を「現在の状態」「次に追加できる最小インデックス」とすればOK
+```
+// 取り出し元の長さnの配列
+// 事前に昇順にソートしておく
+vector<int> a;
+void dfs(vector<int> v, int from) {
+    for (int i = from; i < n; ++i) {
+        vector<int> nv = v;
+        nv.push_back(a[i]);
+        dfs(nv, i);
+    }
+}
+```
+
 ## 026 - Independent Set on a Tree（★4）
 - 木は必ず二部グラフ
 
