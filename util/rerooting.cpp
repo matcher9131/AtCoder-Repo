@@ -5,12 +5,18 @@ using namespace std;
 using ll = long long;
 
 // 全方位木DP
-struct Rerooting {
-private:
+class Rerooting {
+public:
     struct DP {
         ll dp;
         DP(ll dp_) : dp(dp_) {}
     };
+    struct Edge {
+        int to;
+    };
+    using Graph = vector<vector<Edge>>;
+
+private:
     // 単位元（葉のDPの値はadd_root(identity)になる）
     const DP id = DP(-1);
     // 二項演算
@@ -21,16 +27,11 @@ private:
     function<DP(DP)> get_subtree_root = [](DP d) -> DP {
         return DP(d.dp + 1);
     };
-
-    struct Edge {
-        int to;
-    };
-    using Graph = vector<vector<Edge>>;
     vector<vector<DP>> dp;
-    vector<DP> ans;
     Graph G;
     
 public:
+    vector<DP> ans;
     Rerooting(int N) : G(N) {
         dp.resize(N);
         ans.assign(N, id);
