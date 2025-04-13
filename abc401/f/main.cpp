@@ -16,69 +16,79 @@
 #include <cassert>
 #include <numeric>
 #include <functional>
+#include <atcoder/convolution>
 using namespace std;
 using ll = long long;
 
-struct Rerooting {
+class Rerooting {
+public:
     struct DP {
-        long long dp;
-        DP(long long dp_) : dp(dp_) {}
-    };
-    const DP identity = DP(-1);
-    function<DP(DP, DP)> merge = [](DP dp_cum, DP d) -> DP {
-        return DP(max(dp_cum.dp, d.dp));
-    };
-    function<DP(DP)> add_root = [](DP d) -> DP {
-        return DP(d.dp + 1);
+        ll dp;
+        DP(ll dp_) : dp(dp_) {}
     };
     struct Edge {
         int to;
     };
-    
     using Graph = vector<vector<Edge>>;
+
+private:
+    // 単位元（葉のDPの値はadd_root(identity)になる）
+    const DP id = DP(-1);
+    // 二項演算
+    function<DP(DP, DP)> merge = [](DP acc, DP d) -> DP {
+        return DP(max(acc.dp, d.dp));
+    };
+    // 新たな部分木のDPを計算
+    function<DP(DP)> get_subtree_root = [](DP d) -> DP {
+        return DP(d.dp + 1);
+    };
     vector<vector<DP>> dp;
-    vector<DP> ans;
     Graph G;
+    
+public:
+    vector<DP> ans;
     Rerooting(int N) : G(N) {
         dp.resize(N);
-        ans.assign(N, identity);
+        ans.assign(N, id);
     }
     void add_edge(int a, int b) {
         G[a].push_back({b});
     }
     void build() {
         dfs(0);
-        bfs(0, identity);
+        bfs(0, id);
     }
+
+private:
     DP dfs(int v, int p = -1) {
-        DP dp_cum = identity;
+        DP acc = id;
         int deg = G[v].size();
-        dp[v] = vector<DP>(deg, identity);
+        dp[v] = vector<DP>(deg, id);
         for (int i = 0; i < deg; i++) {
             int u = G[v][i].to;
             if (u == p) continue;
             dp[v][i] = dfs(u, v);
-            dp_cum = merge(dp_cum, dp[v][i]);
+            acc = merge(acc, dp[v][i]);
         }
-        return add_root(dp_cum);
+        return get_subtree_root(acc);
     }
     void bfs(int v, const DP& dp_p, int p = -1) {
         int deg = G[v].size();
         for (int i = 0; i < deg; i++) {
             if (G[v][i].to == p) dp[v][i] = dp_p;
         }
-        vector<DP> dp_l(deg + 1, identity), dp_r(deg + 1, identity);
+        vector<DP> dp_l(deg + 1, id), dp_r(deg + 1, id);
         for (int i = 0; i < deg; i++) {
             dp_l[i + 1] = merge(dp_l[i], dp[v][i]);
         }
         for (int i = deg - 1; i >= 0; i--) {
             dp_r[i] = merge(dp_r[i + 1], dp[v][i]);
         }
-        ans[v] = add_root(dp_l[deg]);
+        ans[v] = get_subtree_root(dp_l[deg]);
         for (int i = 0; i < deg; i++) {
             int u = G[v][i].to;
             if (u == p) continue;
-            bfs(u, add_root(merge(dp_l[i], dp_r[i + 1])), v);
+            bfs(u, get_subtree_root(merge(dp_l[i], dp_r[i + 1])), v);
         }
     }
 };
@@ -107,14 +117,24 @@ int main() {
     }
     g2.build();
 
+    // x[k]: a_i = kとなるiの個数
+    vector<ll> x(n1), y(n2);
+    for (const auto &d : g1.ans) {
+        ++x[d.dp];
+    }
+    for (const auto &d : g2.ans) {
+        ++y[d.dp];
+    }
+    vector<ll> z = atcoder::convolution_ll(x, y);
+
+    ll d1 = max_element(g1.ans.begin(), g1.ans.end(), [](Rerooting::DP a, Rerooting::DP b) { return a.dp < b.dp; })->dp;
+    ll d2 = max_element(g2.ans.begin(), g2.ans.end(), [](Rerooting::DP a, Rerooting::DP b) { return a.dp < b.dp; })->dp;
+    ll d = max(d1, d2);
+
     ll ans = 0;
-    for (int i = 0; i < n1; ++i) {
-        ans += g1.ans[i].dp * (ll)n2;
+    for (ll i = 0; i < (ll)z.size(); ++i) {
+        ans += max(i + 1, d) * z[i];
     }
-    for (int i = 0; i < n2; ++i) {
-        ans += g2.ans[i].dp * (ll)n1;
-    }
-    ans += (ll)n1 * n2;
 
     cout << ans << endl;
     return 0;
