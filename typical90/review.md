@@ -242,6 +242,15 @@ void dfs(vector<int> v, int from) {
 ## 066 - Various Arrays（★5）
 - 確率変数 $X,Y$ が独立なら $E(X + Y) = E(X) + E(Y), \ E(XY) = E(X)E(Y)$
 
+## 068 - Paired Information（★5）
+- 交代和を`segtree`で計算：
+  - `(value, length)`のタプルで型を持つ
+  - $A_i = x$ としたいときは $(x, 1)$ をセットする
+  - 単位元は $(0, 0)$
+  - 演算は以下の通り
+    - $(x, l_x) \circ (y, l_y) = (x + (-1)^{l_x}y, l_x + l_y)$
+    - 要するに`acc`のほうに長さに関する情報を持たせ、それを参照することで次の項を反転するかどうかを判定する
+
 ## 069 - Colorful Blocks 2（★3）
 - $a^b \bmod m$：繰り返し2乗法（$a^{2^n}$ を前計算しておいて $b$ を2進数表記で考える）
 
