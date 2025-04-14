@@ -240,7 +240,7 @@ void dfs(vector<int> v, int from) {
 - ただしこの問題の場合 $K-Y \leq r \leq R, K-Z \leq g \leq G$ が制約となるため、 $r < K-Y$ および $b < K-Z$ に対して $0$ 通りとしておく必要がある
 
 ## 066 - Various Arrays（★5）
-- 確率変数 $X,Y$ が独立なら $E(X + Y) = E(X) + E(Y), \ E(XY) = E(X) + E(Y)$
+- 確率変数 $X,Y$ が独立なら $E(X + Y) = E(X) + E(Y), \ E(XY) = E(X)E(Y)$
 
 ## 069 - Colorful Blocks 2（★3）
 - $a^b \bmod m$：繰り返し2乗法（$a^{2^n}$ を前計算しておいて $b$ を2進数表記で考える）
