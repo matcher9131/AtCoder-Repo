@@ -204,6 +204,12 @@ void dfs(vector<int> v, int from) {
 ## 052 - Dice Product（★3）
 - $\displaystyle \sum_{j_1 = 1}^6 \sum_{j_2 = 1}^6 \dots \sum_{j_N = 1}^6 A_{1,j_1}A_{2,j_2} \dots A_{N,j_N} = \sum_{j_1 = 1}^6 \sum_{j_2 = 1}^6 \dots \sum_{j_{N-1} = 1}^6 A_{1,j_1}A_{2,j_2} \dots A_{N,j_N} \sum_{j_N = 1}^6 A_{N,j_N} = \dots = \sum_{j_1 = 1}^6 A_{1,j_1} \sum_{j_2 = 1}^6 A_{2,j_2} \dots \sum_{j_N = 1}^6 A_{N,j_N} = \prod_{i = 1}^N \sum_{j_i = 1}^6 A_{i,j_i} $
 
+## 054 - Takahashi Number（★6）
+- **超頂点** を用いて辺の数を減らす
+  - この問題の場合、 $N+i$ 番目の頂点として $i$ 本目の論文自体を追加し、論文と著者のみに辺を引くことにすると
+    - 頂点数 $N+M$ 、辺数 $\sum_{i=1}^M K_i$ となりBFSが間に合う
+    - 解は $\mathrm{dist}(1, i) / 2$
+
 ## 056 - Lucky Bag（★5）
 - DP復元：どこから遷移してきたのかを情報に持つ
 - 最初の要素から気を抜かない（範囲外アクセス）
