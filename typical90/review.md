@@ -235,6 +235,10 @@ void dfs(vector<int> v, int from) {
 ## 064 - Uplift（★3）
 - 範囲更新が必要に見えて、実際は更新範囲の端だけ監視していればOKなタイプ
 
+## 065 - RGB Balls 2（★7）
+- 赤から $r$ 個、緑から $b$ 個選んで合計 $k$ 個にする：`convolution`
+- ただしこの問題の場合 $K-Y \leq r \leq R, K-Z \leq g \leq G$ が制約となるため、 $r < K-Y$ および $b < K-Z$ に対して $0$ 通りとしておく必要がある
+
 ## 066 - Various Arrays（★5）
 - 確率変数 $X,Y$ が独立なら $E(X + Y) = E(X) + E(Y), \ E(XY) = E(X) + E(Y)$
 
