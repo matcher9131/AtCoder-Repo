@@ -887,3 +887,9 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
 - （公式解説）うまく部分的に和を取りながらやればimos法でもいけるらしい……
   - `lazy_segtree`のほうが直感的だが脳死である感は否めない
 
+## [ABC167 E - Colorful Blocks](https://atcoder.jp/contests/abc167/tasks/abc167_e)
+- あらかじめ $1 \leq i < N$ を満たす $i$ から $0 \leq k \leq K$ 個を選んで $i$ 個目 と $i+1$ 個目のブロックを同じ色で塗ると決めておく
+  - この状況下における塗り方は $N - k$ 個を隣り合うブロックに同じ色を塗らないようにする場合の数と等しく、 $M(M-1)^{N-k-1}$ 通り
+  - かつ、 $i$ の選び方が異なれば必ず別の塗り方になる
+- よって解は ${\displaystyle \sum_{k = 0}^{K} M(M-1)^{N-k-1} \left( \begin{matrix} N-1 \\ k \end{matrix} \right) }$
+  - 例によって階乗を前計算しておけば時間計算量は $O(K \log P)$
