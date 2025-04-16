@@ -901,3 +901,14 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
     - それでもまだ $S_i \leq 0$ ならば $S_i = 1$ となるようにする。すなわち $A_i$ に $1 - S_i$ を加える
   - $S_i < 0$ となるべきなのに $S_i \geq 0$ である場合も同様にできる
 - あとは $S_1 > 0$ とした場合と $S_1 < 0$ とした場合をそれぞれ計算して小さい方を解とするだけ
+
+## [ABC378 E - Mod Sigma Problem](https://atcoder.jp/contests/abc378/tasks/abc378_e)
+- $A$ の累積和を $S$ （ただし $S_0 = 0$ ）とすると、求めるものは ${\displaystyle \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M}$
+- ここで $S$ を単なる累積和ではなく $\bmod M$ にして問題なく、さらに $(S_r - S_{l-1}) \bmod M$ は
+  - $S_r \geq S_{l-1}$ のとき、 $S_r - S_{l-1}$
+  - $S_r < S_{l-1}$ のとき、 $S_r - S_{l-1} + M$
+  - とすることができる
+- ここで $B_i$ を $i < j \leq N$ かつ $S_i > S_j$ を満たす $j$ の個数とすると、
+$$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_{r=l}^N (S_r - S_{l-1}) + B_{l-1}M \right)
+  = \sum_{l=1}^N \left( \sum_{r=l}^N S_r - (N - l + 1)S_i + B_{l-1}M \right) $$
+- ${\displaystyle \sum_{r=l}^N S_r}$ は $S$ の累積和を取ることで前計算 $O(N)$ 、 $B$ も前計算 $O(N \log M)$ で求まるため計算量も問題ない
