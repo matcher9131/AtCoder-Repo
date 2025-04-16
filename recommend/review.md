@@ -893,3 +893,11 @@ https://drken1215.hatenablog.com/entry/2023/07/21/235300
   - かつ、 $i$ の選び方が異なれば必ず別の塗り方になる
 - よって解は ${\displaystyle \sum_{k = 0}^{K} M(M-1)^{N-k-1} \left( \begin{matrix} N-1 \\ k \end{matrix} \right) }$
   - 例によって階乗を前計算しておけば時間計算量は $O(K \log P)$
+
+## [ABC059 C - Sequence](https://atcoder.jp/contests/abc059/tasks/arc072_a)
+- $i = 1, 2, \dots, N$ の順に $S_i$ が条件を満たせるように $A_{i-1}$ → $A_i$ の順に貪欲に調整していけばOK
+  - 具体的には $S_i > 0$ となるべきなのに $S_i \leq 0$ である場合には
+    - （ $i \geq 2$ ならば）まず $S_{i-1}$ を可能な限り $-1$ に近づける。すなわち $A_{i-1}$ に $\mathrm{min} \{ -1 - S_{i-1}, 1 - S_i \} $ を加える
+    - それでもまだ $S_i \leq 0$ ならば $S_i = 1$ となるようにする。すなわち $A_i$ に $1 - S_i$ を加える
+  - $S_i < 0$ となるべきなのに $S_i \geq 0$ である場合も同様にできる
+- あとは $S_1 > 0$ とした場合と $S_1 < 0$ とした場合をそれぞれ計算して小さい方を解とするだけ
