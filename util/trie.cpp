@@ -9,7 +9,7 @@ struct Trie {
         vector<int> ids;
         int ch;
         int num_str;
-        Node (int _ch) : next(CHAR_SIZE, -1) ch(_ch), num_str(0) {
+        Node (int _ch) : next(CHAR_SIZE, -1), ch(_ch), num_str(0) {
         }
     };
 
@@ -19,7 +19,7 @@ struct Trie {
         nodes.push_back(Node(root));
     }
 
-    void insert(const string &s, int id = nodes[0].num_str) {
+    void insert(const string &s, int id) {
         int node_id = 0;
         for (const char c : s) {
             int ch = (int)(c - BASE);
@@ -39,7 +39,7 @@ struct Trie {
         int node_id = 0;
         for (const char c : s) {
             int ch = (int)(c - BASE);
-            int next_id = nodes[node_id].next[c];
+            int next_id = nodes[node_id].next[ch];
             if (next_id == -1) return 0;
             node_id = next_id;
         }
