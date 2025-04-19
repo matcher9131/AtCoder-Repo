@@ -28,37 +28,23 @@ int main() {
         cin >> s[i] >> c[i] >> p[i];
     }
 
-    // dp[i][j][k]: 解けた問題の集合がiで支払った金額がjになる確率
+    // dp[i][j]: 解けた問題の集合がiで支払った金額がjのときの得点期待値の最大値
     vector<vector<double>> dp(1 << n, vector<double>(x + 1));
-    dp[0][0] = 1;
-    for (int j = 0; j <= x; ++j) {
-        for (int bit = 0; bit < 1 << n; ++bit) {
+    for (int bit = 0; bit < 1 << n; ++bit) {
+        for (int j = 0; j <= x; ++j) {
             for (int i = 0; i < n; ++i) {
-                if (bit & (1 << i)) continue;
-                if (j + c[i] > x) continue;
-                dp[bit][j + c[i]] += dp[bit][j] * (1.0 - p[i] / 100.0);
-                dp[bit | (1 << i)][j + c[i]] += dp[bit][j] * p[i] / 100.0;
+                if ((bit & (1 << i)) == 0) continue;
+                if (j < c[i]) continue;
+                dp[bit][j] = max(dp[bit][j], (s[i] + dp[bit ^ (1 << i)][j - c[i]]) * p[i] / 100.0 + dp[bit][j - c[i]] * (1.0 - p[i] / 100.0));
             }
         }
     }
 
     double ans = 0;
     for (int bit = 0; bit < 1 << n; ++bit) {
-        int score = 0;
-        for (int i = 0; i < n; ++i) {
-            if (bit & (1 << i)) score += s[i];
-        }
-        double prob = 0;
-        for (int j = x; j >= 0; --j) {
-            if (dp[bit][j] > 0) {
-                prob = dp[bit][j];
-                break;
-            }
-        }
-        
-        ans += score * prob;
+        ans = max(ans, *max_element(dp[bit].begin(), dp[bit].end()));
     }
 
-    cout << ans << endl;
+    cout << setprecision(15) << ans << endl;
     return 0;
 }
