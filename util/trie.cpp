@@ -35,6 +35,18 @@ struct Trie {
         nodes[node_id].ids.push_back(id);
     }
 
+    bool contains_prefix_of(const string &s) {
+        int node_id = 0;
+        for (const char c : s) {
+            if (nodes[node_id].ids.size() > 0) return true;
+            int ch = (int)(c - BASE);
+            int next_id = nodes[node_id].next[ch];
+            if (next_id == -1) return false;
+            node_id = next_id;
+        }
+        return nodes[node_id].ids.size() > 0;
+    }
+
     int num_start_with(const string &s) {
         int node_id = 0;
         for (const char c : s) {
