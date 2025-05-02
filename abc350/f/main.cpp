@@ -16,32 +16,8 @@
 #include <cassert>
 #include <numeric>
 #include <functional>
-#include <atcoder/lazysegtree>
-#include <compare>
 using namespace std;
 using ll = long long;
-
-using S = int;
-S op(S a, S b) { return a + b; }
-S e() { return 0; }
-struct F {
-    int l;
-    int r;
-    int count;
-
-    bool isID() { return l == 0 && r == 0 && count == 0; }
-};
-S mapping(F f, S x) {
-    return f.l + f.r + (f.count % 2 ? -x - 1 : x);
-}
-F id() {
-    return { 0, 0, 0 };
-}
-F composition(F f, F g) {
-    if (f.isID()) return g;
-    return { f.l - g.l, f.r - g.r, f.count + g.count };
-}
-
 
 char trans(char c) {
     if ('a' <= c && c <= 'z') {
@@ -54,43 +30,46 @@ char trans(char c) {
 int main() {
     string s;
     cin >> s;
-    vector<char> ch;
-    vector<int> lv;
-    int currentLevel = 0;
-    // lv, [l, r)
-    vector<tuple<int, int, int>> segment;
-    vector<int> pl;
-    for (const char c : s) {
-        if (c == '(') {
-            ++currentLevel;
-            pl.push_back(ch.size());
-        } else if (c == ')') {
-            segment.emplace_back(currentLevel, pl.back(), (int)ch.size());
-            pl.pop_back();
-            --currentLevel;
-        } else {
-            ch.push_back(c);
-            lv.push_back(currentLevel);
+    int n = s.size();
+    vector<int> paren(n, -1);
+    vector<int> l;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] == '(') {
+            l.push_back(i);
+        } else if (s[i] == ')') {
+            int j = l.back();
+            l.pop_back();
+            paren[i] = j;
+            paren[j] = i;
         }
     }
-    int n = ch.size();
-    sort(segment.begin(), segment.end(), greater<tuple<int, int, int>>());
 
-    atcoder::lazy_segtree<S, op, e, F, mapping, composition, id> seg(n);
-    for (int i = 0; i < n; ++i) {
-        seg.set(i, i);
-    }
+    function<void(int,int,bool)> dfs = [&](int l, int r, bool odd) {
+        if (odd){
+            for (int i = r; i >= l; --i) {
+                if (s[i] == ')') {
+                    int j = paren[i];
+                    dfs(j+1, i-1, false);
+                    i = j;
+                } else if (s[i] != '(') {
+                    cout << trans(s[i]);
+                }
+            }
+        } else {
+            for (int i = l; i <= r; ++i) {
+                if (s[i] == '(') {
+                    int j = paren[i];
+                    dfs(i+1, j-1, true);
+                    i = j;
+                } else if (s[i] != ')') {
+                    cout << s[i];
+                }
+            }
+        }
+    };
 
-    for (const auto &[_, l, r] : segment) {
-        seg.apply(l, r, {l, r, 1});
-    }
-
-    string ans(n, '_');
-    for (int i = 0; i < n; ++i) {
-        int j = seg.get(i);
-        ans[j] = lv[i] % 2 ? trans(ch[i]) : ch[i];
-    }
-    cout << ans << endl;
-
+    dfs(0, n - 1, false);
+    cout << endl;
+    
     return 0;
 }
