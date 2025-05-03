@@ -59,17 +59,7 @@ int main() {
         int state = redState | (blueState << 9);
         if (dp.contains(state)) return dp[state];
 
-        if ((redState | blueState) == 0b111111111) {
-            // 先手が最後のマスを埋めるのでturnは必ず-1
-            ll redScore = 0, blueScore = 0;
-            for (int i = 0; i < 3; ++i) {
-                for (int j = 0; j < 3; ++j) {
-                    if (exists(redState, i, j)) redScore += a[i][j];
-                    if (exists(blueState, i, j)) blueScore += a[i][j];
-                }
-            }
-            return dp[state] = blueScore - redScore;
-        }
+        if ((redState | blueState) == 0b111111111) return 0;
 
         if ((turn == 1 ? riichi(redState, blueState) : riichi(blueState, redState)).first != -1) {
             return dp[state] = INF;
@@ -79,7 +69,7 @@ int main() {
             int newRedState = turn == 1 ? redState | (1 << (3 * ri + rj)) : redState;
             int newBlueState = turn == -1 ? blueState | (1 << (3 * ri + rj)) : blueState;
             ll score = -dfs(-turn, newRedState, newBlueState);
-            return dp[state] = score;
+            return dp[state] = score + a[ri][rj];
         }
 
         ll result = -1e18;
@@ -90,7 +80,7 @@ int main() {
                 int newRedState = turn == 1 ? redState | (1 << (3 * i + j)) : redState;
                 int newBlueState = turn == -1 ? blueState | (1 << (3 * i + j)) : blueState;
                 ll score = -dfs(-turn, newRedState, newBlueState);
-                result = max(result, score);
+                result = max(result, score + a[i][j]);
             }
         }
         return dp[state] = result;
