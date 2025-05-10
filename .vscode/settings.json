@@ -73,7 +73,8 @@
         "cassert": "cpp",
         "charconv": "cpp",
         "ratio": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "internal_bit": "cpp"
     },
     "editor.formatOnSave": false
 }
