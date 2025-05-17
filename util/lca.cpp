@@ -2,6 +2,9 @@
 using namespace std;
 using ll = long long;
 
+// Usage:
+// (constructor) -> add_edge -> build -> ...
+
 struct Edge {
     ll to;
 };
