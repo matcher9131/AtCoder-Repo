@@ -74,7 +74,8 @@
         "charconv": "cpp",
         "ratio": "cpp",
         "variant": "cpp",
-        "internal_bit": "cpp"
+        "internal_bit": "cpp",
+        "segtree": "cpp"
     },
     "editor.formatOnSave": false
 }
