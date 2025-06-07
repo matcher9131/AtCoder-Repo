@@ -77,5 +77,6 @@
         "internal_bit": "cpp",
         "segtree": "cpp"
     },
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "dotnet.defaultSolution": "disable"
 }
