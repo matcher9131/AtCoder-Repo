@@ -933,3 +933,15 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
     - これにより $\mathrm{dp}_{i+1, i+1}$ が $O(1)$ で更新できる
 - 解は $\max_j \mathrm{dp}_{N, j}$ で、全体計算量は $O(N^2)$
 
+## [ARC150 B - Make Divisible](https://atcoder.jp/contests/arc150/tasks/arc150_b)
+- AC（55分＋1TLE＋1WA）
+- 結局のところうまいやり方はなく $X=0$ から順に走査するしか無いが、勿論工夫をしないと`TLE`
+- $B$ を $A+X$ で割った商を $Q_X$ 、余りを $R_X$ とおくと、 $X+Y$ の最小値は $R_X = 0$ のとき $X$ 、そうでないときは $X + A + X - R_X = A + 2X - R_X$
+  - このとき $Q_X \geq R_X$ ならば $Q_X > Q_{X+1}$ となるので工夫のしどころはないが、
+  - $Q_X < R_X$ のとき、 $R_X$ を $Q_X$ で割った商を $q$ とおくと、 $0 \leq k < q$ に対し
+    - $B = Q_X(A+X) + R_X = Q_X(A+X+k) + R_X - kQ_X$ となり、 $0 < R_X - kQ_X < R_X < A+X \leq A+X+k$ より $Q_X, R_X - kQ_X$ はそれぞれ $B$ を $A+X+k$ で割った商と余りとしてよい
+      - このとき、 $k<q$ より $R_X - kQ_X > 0$ なので $X+Y$ の最小値は $X+k + (A+X+k) - (R_X - kQ_X) = A + 2X + 2k - R_X + kQ_X > A + 2X - R_X$ である
+        - よって $k = 0, 1, \dots, q$ の中で $X+Y$ が最小になりうるのは $k=0, q$ のときのみとなるので、 $X$ をいくらかスキップして走査できる
+          - なお $k = q$ を走査し忘れて1敗
+- 全体計算量は $O(\sqrt{B})$
+
