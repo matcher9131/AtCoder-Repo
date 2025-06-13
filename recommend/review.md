@@ -963,6 +963,10 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
   - $O(N^3)$ で勿論`TLE`
 - DP遷移式に注目する
   - $i = 0$ または $i < j$ のときXさんのターンであり、 $\mathrm{dp}_{i,j} = \max_{k > j} \mathrm{dp}_{k, j}$ と遷移する
-  - $i > j$ のときYさんのターンであり、 $\mathrm{dp}_{i,j} = \max_{k > i} \mathrm{dp}_{i, k}$ と遷移する
-- よって後ろから更新していけば計算量を $O(N^2)$ に落とせる
+  - $i > j$ のときYさんのターンであり、 $\mathrm{dp}_{i,j} = \min_{k > i} \mathrm{dp}_{i, k}$ と遷移する
+- よって後ろから最大値・最小値を保持しつつ更新していけば計算量を $O(N^2)$ に落とせる
 
+## [ARC155 A - ST and TS Palindrome](https://atcoder.jp/contests/arc155/tasks/arc155_a)
+- やっぱり回文は鬼門……
+- $S'$ は右端、左端のそれぞれから $\mathrm{rev}(S), S, \mathrm{rev}(S), S, \dots$ の繰り返しになるのでそれをチェックするコードを書くも`WA`の嵐
+- 結局公式解説どおり中央の $K \bmod 2N$ 文字のみを実際に生成し $(=T)$ 、$S + T$ と $T + S$ の双方が回文になるかどうかをチェックした
