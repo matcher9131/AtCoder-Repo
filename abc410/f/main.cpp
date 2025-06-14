@@ -22,45 +22,47 @@ using ll = long long;
 void solve() {
     int h, w;
     cin >> h >> w;
-    vector<string> s(h);
+    vector<string> g(h);
     for (int i = 0; i < h; ++i) {
-        cin >> s[i];
+        cin >> g[i];
     }
 
-    vector<vector<int>> a(h+1, vector<int>(w+1, 0));
-    vector<vector<int>> b(h+1, vector<int>(w+1, 0));
-    vector<vector<int>> c(h+1, vector<int>(w+1, 0));
-    for (int i = 0; i < h; ++i) {
-        for (int j = 0; j < w; ++j) {
-            a[i+1][j+1] = a[i][j+1] + a[i+1][j] - a[i][j] + (s[i][j] == '#' ? 1 : 0);
-            b[i+1][j+1] = b[i][j+1] + b[i+1][j] - b[i][j] + (s[i][j] == '.' ? 1 : 0);
-            c[i+1][j+1] = a[i+1][j+1] - b[i+1][j+1];
+    // c[i][j]: 区画[i, i+1) x [0, j)におけるスコア
+    vector<vector<int>> c(min(h, w), vector<int>(max(h, w) + 1));
+    if (h <= w) {
+        for (int i = 0; i < h; ++i) {
+            for (int j = 0; j < w; ++j) {
+                c[i][j+1] = c[i][j] + (g[i][j] == '#' ? 1 : -1);
+            }
         }
-    }
-
-    int ans = 0;
-    for (int i1 = 0; i1 < h; ++i1) {
-        for (int j1 = 0; j1 < w; ++j1) {
-            for (int i2 = i1+1; i2 <= h; ++i2) {
-                for (int j2 = j1+1; j2 <=w; ++j2) {
-                    int v1 = a[i2][j2] - a[i1][j2] - a[i2][j1] + a[i1][j1];
-                    int v2 = b[i2][j2] - b[i1][j2] - b[i2][j1] + b[i1][j1];
-                    if (v1 == v2) {
-                        ++ans;
-                        printf("[%d,%d) x [%d,%d)\n", i1, i2, j1, j2);
-                        
-                    }
-                }
+    } else {
+        for (int i = 0; i < w; ++i) {
+            for (int j = 0; j < h; ++j) {
+                c[i][j+1] = c[i][j] + (g[j][i] == '#' ? 1 : -1);
             }
         }
     }
-    cout << ans << endl;
 
-    // for (int i = 1; i <= h; ++i) {
-    //     for (int j = 1; j <= w; ++j) {
-    //         cout << c[i][j] << " \n"[j == w];
-    //     }
-    // }
+    ll ans = 0;
+    vector<int> cs(max(h, w) + 1);
+    vector<int> csc(2*h*w+1);
+    int offset = h*w;
+    for (int i1 = 0; i1 < min(h, w); ++i1) {
+        cs.assign(cs.size(), 0);
+        for (int i2 = i1; i2 < min(h, w); ++i2) {
+            for (int j = 0; j <= max(h, w); ++j) {
+                cs[j] += c[i2][j];
+                ans += csc[offset + cs[j]];
+                ++csc[offset + cs[j]];
+            }
+            // reset csc
+            for (int j = 0; j <= max(h, w); ++j) {
+                --csc[offset + cs[j]];
+            }
+        }
+    }
+
+    cout << ans << endl;
 }
 
 
