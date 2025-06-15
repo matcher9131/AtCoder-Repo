@@ -75,7 +75,13 @@
         "ratio": "cpp",
         "variant": "cpp",
         "internal_bit": "cpp",
-        "segtree": "cpp"
+        "segtree": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "rope": "cpp",
+        "slist": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     },
     "editor.formatOnSave": false,
     "dotnet.defaultSolution": "disable"
