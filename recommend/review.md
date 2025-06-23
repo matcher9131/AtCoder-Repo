@@ -988,3 +988,13 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
     - しりとりができなくなって負けもここに含まれる
 - メモしているのにその結果を使わないなんてアホなことがないように（1敗）
   - このポカ多いんだよなぁ……
+
+## [ABC328 F - Good Set Query]
+- 頂点に値を持つグラフで、頂点間の値の差に相当するラベルを持った有向辺を繋いでいくタイプ
+- 今のグラフの状態と新たに追加する辺に矛盾があるかどうかが問題になる
+  - 重み付きUnion-Find木を使えば判別可能
+    - 参考: [Union-Find木 [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/data_structure/union_find_tree#ポテンシャル付きunion-find)
+- なお自分の解答だとグループどうしの併合時にサイズの大きい方を新たな親としていないので、`connect`の計算量は $O(\log N)$ に悪化している
+  - しかしこれでも全体の計算量は $O(Q \log N)$ なので余裕
+  - 参考: [UnionFindTree に関する知見の諸々 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2018/05/30/191943)
+    - 今回は辺のラベルが頂点間の値の差だが、両端頂点のXORやモノイドなどにも応用が効くらしい
