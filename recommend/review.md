@@ -980,7 +980,7 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
 - $S_i = \sum_{j=1}^i A_i \bmod M$ とすれば（ $S_0 = 0$ とする）、求めるのは $S_i = S_j$ を満たす $0 \leq i < j \leq N$ の個数
 - よってあとは $C_k$ を $S_i = k$ を満たす $i$ の個数としておけば $\sum_k C_k(C_k - 1)/2$ で解が求まる
 
-## [ABC278 F - Shiritori]
+## [ABC278 F - Shiritori](https://atcoder.jp/contests/abc278/tasks/abc278_f)
 - 「使用済みの単語の集合」「最後に選ばれた単語」の2要素Bit DP
 - DFSでメモ化探索
   - 手番と同じプレイヤーが勝つような単語がある場合は問答無用でそれを選ぶ
@@ -989,7 +989,7 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
 - メモしているのにその結果を使わないなんてアホなことがないように（1敗）
   - このポカ多いんだよなぁ……
 
-## [ABC328 F - Good Set Query]
+## [ABC328 F - Good Set Query](https://atcoder.jp/contests/abc328/tasks/abc328_f)
 - 頂点に値を持つグラフで、頂点間の値の差に相当するラベルを持った有向辺を繋いでいくタイプ
 - 今のグラフの状態と新たに追加する辺に矛盾があるかどうかが問題になる
   - 重み付きUnion-Find木を使えば判別可能
@@ -998,3 +998,11 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
   - しかしこれでも全体の計算量は $O(Q \log N)$ なので余裕
   - 参考: [UnionFindTree に関する知見の諸々 - noshi91のメモ](https://noshi91.hatenablog.com/entry/2018/05/30/191943)
     - 今回は辺のラベルが頂点間の値の差だが、両端頂点のXORやモノイドなどにも応用が効くらしい
+
+## [ABC216 F - Max Sum Counting](https://atcoder.jp/contests/abc216/tasks/abc216_f)
+- DPがそのまま答えになるわけではないタイプ
+- $A_i$ の昇順に並べ替えておくことで $\max_{i \in S} A_i$ の考慮を簡単にしておく
+- $\mathrm{dp}_{i,j}$ を $i$ 以下の正整数を要素に持つ集合 $T$ に関して、 $\sum_{i \in T} B_i = j$ となる $T$ の個数とおくと、DP更新は以下
+  - $B_i$ を取らない： $\mathrm{dp}_{i,j} \gets \mathrm{dp}_{i-1,j}$
+  - $B_i$ を取る： $\mathrm{dp}_{i,j} \gets \mathrm{dp}_{i,j} + \mathrm{dp}_{i-1,j-B_i} (j \geq B_i)$
+- DPを更新しながら解 $\mathrm{ans}$ を更新するのがキモであり、 $S$ は空集合ではないことから、DP更新において $B_i$ を取るときに $j \leq A_i$ ならば $\mathrm{dp}_{i-1,j-B_i}$ を $\mathrm{ans}$ に加算していけばよい
