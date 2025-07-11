@@ -12,7 +12,7 @@ S e() {
     return -INF;
 }
 using F = int;
-F mapping(F f, S x) {
+S mapping(F f, S x) {
     return f + x;
 }
 F composition(F f, F g) {
