@@ -35,60 +35,33 @@ int main() {
         }
     }
 
-    vector<vector<int>> bRowSorted = b;
-    vector<int> aRowIndex(h, -1);
-    vector<bool> bUsedRow(h);
-    for (int i = 0; i < h; ++i) {
-        sort(bRowSorted[i].begin(), bRowSorted[i].end());
-    }
-    for (int i = 0; i < h; ++i) {
-        vector<int> c = a[i];
-        sort(c.begin(), c.end());
-        for (int j = 0; j < h; ++j) {
-            if (c == bRowSorted[j] && !bUsedRow[j]) {
-                aRowIndex[i] = j;
-                bUsedRow[j] = true;
+    map<vector<vector<int>>, int> dist;
+    dist[a] = 0;
+    queue<vector<vector<int>>> que;
+    que.push(a);
+    while (!que.empty()) {
+        auto c = que.front();
+        que.pop();
+        for (int i = 0; i < h-1; ++i) {
+            auto ci = c;
+            swap(ci[i], ci[i+1]);
+            if (!dist.contains(ci)) {
+                dist[ci] = dist[c] + 1;
+                que.push(ci);
             }
         }
-    }
-    if (any_of(aRowIndex.begin(), aRowIndex.end(), [](int val) { return val == -1; })) {
-        cout << -1 << endl;
-        return 0;
-    }
-
-    int ans = 0;
-    for (int i = 0; i < h-1; ++i) {
-        for (int j = h-1; j >= i+1; --j) {
-            if (aRowIndex[j-1] > aRowIndex[j]) {
-                swap(aRowIndex[j-1], aRowIndex[j]);
-                swap(a[j-1], a[j]);
-                ++ans;
+        for (int j = 0; j < w-1; ++j) {
+            auto ci = c;
+            for (int i = 0; i < h; ++i) {
+                swap(ci[i][j], ci[i][j+1]);
+            }
+            if (!dist.contains(ci)) {
+                dist[ci] = dist[c] + 1;
+                que.push(ci);
             }
         }
     }
 
-    vector<int> aColIndex(w);
-    for (int j = 0; j < w; ++j) {
-        aColIndex[j] = find(b[0].begin(), b[0].end(), a[0][j]) - b[0].begin();
-    }
-    for (int i = 1; i < h; ++i) {
-        for (int j = 0; j < w; ++j) {
-            if (a[i][j] != b[i][aColIndex[j]]) {
-                cout << -1 << endl;
-                return 0;
-            }
-        }
-    }
-
-    for (int i = 0; i < w-1; ++i) {
-        for (int j = w-1; j >= i+1; --j) {
-            if (aColIndex[j-1] > aColIndex[j]) {
-                swap(aColIndex[j-1], aColIndex[j]);
-                ++ans;
-            }
-        }
-    }
-
-    cout << ans << endl;
+    cout << (dist.contains(b) ? dist[b] : -1) << endl;
     return 0;
 }
