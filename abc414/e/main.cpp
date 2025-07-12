@@ -25,12 +25,15 @@ using mint = atcoder::modint998244353;
 int main() {
     ll n;
     cin >> n;
+    ll sqrtn = (ll)sqrt(n);
 
-    mint ans = 0;
-    for (ll b = 1; b * b <= n; ++b) {
-        ll q = (n-1) / b;
-        ans += q * (b-1);
-        if (b != q) ans += b * (q-1);
+    mint ans = (mint)n * (n+1) / 2;
+    for (ll b = 1; b <= sqrtn; ++b) {
+        ans -= n / b;
+    }
+    for (ll k = 1; k <= n / (sqrtn + 1); ++k) {
+        ll count = n/k - n/(k+1);
+        ans -= (mint)k * count;
     }
 
     cout << ans.val() << endl;
