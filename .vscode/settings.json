@@ -99,7 +99,8 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "cfenv": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "modint": "cpp"
     },
     "editor.formatOnSave": false,
     "dotnet.defaultSolution": "disable"
