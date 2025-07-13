@@ -1026,3 +1026,10 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
 
 ## [ABC302 F - Merge Set](https://atcoder.jp/contests/abc302/tasks/abc302_f)
 - 辺数が多いグラフでDFSないしBFSすべきときは**超頂点**を疑え！
+
+## [ARC075 D - Widespread](https://atcoder.jp/contests/arc075/tasks/arc075_b)
+- 2分探索は忘れた頃にやってくる
+- $k$ 回の魔法で全滅させられるかどうかは以下で判断できる
+  - $h_i \leq kB$ である魔物は中心として選ばなくとも消せる
+  - そうでない場合、 $\left\lceil \frac{h_i - kB}{A-B} \right\rceil$ 回は中心として選ぶ必要がある
+  - よって $\sum_{i=1}^N \left\lceil \frac{\max\{ h_i - kB, 0 \}}{A-B} \right\rceil \leq k$ であれば $k$ 回の魔法でOK
