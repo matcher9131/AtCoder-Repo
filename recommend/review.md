@@ -1033,3 +1033,16 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
   - $h_i \leq kB$ である魔物は中心として選ばなくとも消せる
   - そうでない場合、 $\left\lceil \frac{h_i - kB}{A-B} \right\rceil$ 回は中心として選ぶ必要がある
   - よって $\sum_{i=1}^N \left\lceil \frac{\max\{ h_i - kB, 0 \}}{A-B} \right\rceil \leq k$ であれば $k$ 回の魔法でOK
+
+## [ARC120 C - Swaps 2](https://atcoder.jp/contests/arc120/tasks/arc120_c)
+- 交換操作系問題でたまにある **$A_i + i$ に注目するとうまくいく**パターン
+- $C_i = A_i + i, D_i = B_i + i$ とおくと、 $A_i$ に対する操作は $C_i$ と $C_{i+1}$ を交換するだけになる
+- $S_x$ を $C_i = x$ となる $i$ の集合、および $T = \{ 1, 2, \dots, N \}$ とすると、このとき
+  - $i = N, N-1, \dots, 1$ の順に以下を合計したものが解になる
+      1. $j = \max S_{D_i}$ とおく
+      1. $S_{D_i}$ から $j$ を削除する
+      1. $T$ から $j$ を削除する
+      1. $T$ に含まれる $j$ より大きい要素の個数を求める
+- ↑の操作において、以下を満たす場合は $A_i$ を $B_i$ に一致させることが不可能とわかる
+  - $S_{D_i}$ がそもそも存在しない
+  - $S_{D_i}$ が空集合である
