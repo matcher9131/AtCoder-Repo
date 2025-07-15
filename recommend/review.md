@@ -1046,3 +1046,11 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
 - ↑の操作において、以下を満たす場合は $A_i$ を $B_i$ に一致させることが不可能とわかる
   - $S_{D_i}$ がそもそも存在しない
   - $S_{D_i}$ が空集合である
+
+## [ARC116 C - Multiple Sequences](https://atcoder.jp/contests/arc116/tasks/arc116_c)
+- エラストテネスの区間篩： $N$ 以下のすべてを前処理 $O(N \log \log N)$ 、本処理 $O(N \log N)$ で素因数分解できる
+- あとは数IAの場合の数をちゃんとやるだけ
+  - $A_N = k$ で固定したとき、 $k = p_1^{e_1}p_2^{e_2} \dots p_j^{e_j}$ と素因数分解できるとして
+    - それぞれの素因数について $N$ 通りの選択ができる。ただし、素因数どうしの順番は問わない
+      - よって素因数の種類ごとに独立して考えられ、その場合の数は $e_j$ 個のボールを $N$ 人に分けるときと等しい
+    - ↑より $A_N = k$ のときの解は ${\displaystyle \prod_j \begin{pmatrix} N-1+e_j \\ e_j \end{pmatrix}}$ 個
