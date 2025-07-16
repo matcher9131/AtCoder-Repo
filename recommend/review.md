@@ -1100,3 +1100,14 @@ void search(int current, int i, int num_rest) {
 ```
 
 - 計算量は $K \leq N-K$ のとき $O \left( K \begin{pmatrix} N \\ K \end{pmatrix} \right)$
+
+## [ABC221 E - LEQ](https://atcoder.jp/contests/abc221/tasks/abc221_e)
+- $i$ を固定すると
+  - $j < i$ かつ $A_j > A_i$ のとき
+    - $A_j$ を初項、 $A_i$ を末項とする $2^{i-j-1}$ 個の部分列は条件を満たさない
+  - よって $j < i$ かつ $A_j > A_i$ を満たす $j$ の集合を $S_i$ とすると、条件を満たす部分列の個数は $2^{i-1} - 1 - \sum_{j \in S} 2^{i-j-1}$
+- $\sum_{j \in S} 2^{i-j-1}$ を求めるために、長さ $N$ の全項が $0$ の数列 $B$ を用意して、 $A_i$ の大きい順に以下を行う
+  - 更新: $B_i \gets 2^{N-i}$
+  - 使用: $\sum_{j=1}^{i-1} B_j / 2^{N+1-i}$
+  - すなわち $B$ の範囲加算ができればOK（Segment treeを用いた）
+- $A_i = A_j$ のとき↑の判定を誤らないためには添字の大きい方から処理を行えばよい
