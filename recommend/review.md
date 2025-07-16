@@ -1083,3 +1083,20 @@ $$\begin{align*}
   - $\frac{1}{2}A - \frac{\sqrt{3}}{2}A\tan\theta \geq 0 \Leftrightarrow \theta \leq \frac{\pi}{6}$
   - $\frac{\sqrt{3}}{2}A + \frac{1}{2}A\tan\theta \leq B \Leftrightarrow \theta \leq \arctan \frac{2B - \sqrt{3}A}{A}$
 - よって $\theta = \min \left\{ \frac{\pi}{6},  \arctan \frac{2B - \sqrt{3}A}{A} \right\}$ のとき正三角形の1辺が最大になり、解は $\frac{A}{\cos\theta}$ となる
+
+## [ABC386 E - Maximize XOR](https://atcoder.jp/contests/abc386/tasks/abc386_e)
+- 組み合わせの全列挙：特に組み合わせそのものではなく、組み合わせに対して何らかの操作をして1つの値を得たいときに有効
+  - $f$ は適当な二項演算で結合律を満たし、単位元が存在するものとする
+
+```
+void search(int current, int i, int num_rest) {
+    if (num_rest == 0) {
+        // currentを使って何かの操作を行う
+    } else if (i < N) {
+        search(f(current, a[i]), i + 1, num_rest - 1);
+        search(current, i + 1, num_rest);
+    }
+}
+```
+
+- 計算量は $K \leq N-K$ のとき $O \left( K \begin{pmatrix} N \\ K \end{pmatrix} \right)$
