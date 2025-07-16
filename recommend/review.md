@@ -1069,3 +1069,17 @@ $$ \sum_{l=1}^N \sum_{r=l}^N (S_r - S_{l-1}) \bmod M = \sum_{l=1}^N \left( \sum_
 - 最終的に白マスでもっとも深さが小さいマスを根とする部分木のサイズが`Snuke`の塗れるマスの数となる
   - $i$ 番マスを根とする部分木のサイズは $\lceil \frac{t_i - s_i}{2} \rceil$
 - （ユーザー解説）そんな凝ったことをしなくとも $d(i, 1) \leq d(i, N)$ を満たすマスを黒で、そうでなければ白で塗ればいいだけだった……
+
+## [ABC292 F - Regular Triangle Inside a Rectangle](https://atcoder.jp/contests/abc292/tasks/abc292_f)
+- 以下 $A \leq B$ とする
+- $0 \leq \theta < \frac{\pi}{2}$ として、 $xy$ 平面上に点 $P(A, A\tan\theta)$ をとり、原点を中心に $P$ を反時計回りに $60\degree$ 回転させた点を $Q(p, q)$ とすると、
+
+$$\begin{align*}
+  \begin{pmatrix} p \\ q \end{pmatrix} &= \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \begin{pmatrix} A \\ A\tan\theta \end{pmatrix} \\
+  &= \begin{pmatrix} \frac{1}{2}A - \frac{\sqrt{3}}{2}A\tan\theta \\ \frac{\sqrt{3}}{2}A + \frac{1}{2}A\tan\theta \end{pmatrix}
+\end{align*}$$
+
+- 点 $Q$ が領域 $[0, A] \times [0, B]$ 内にあるための必要十分条件は以下の2つを同時に満たすこと
+  - $\frac{1}{2}A - \frac{\sqrt{3}}{2}A\tan\theta \geq 0 \Leftrightarrow \theta \leq \frac{\pi}{6}$
+  - $\frac{\sqrt{3}}{2}A + \frac{1}{2}A\tan\theta \leq B \Leftrightarrow \theta \leq \arctan \frac{2B - \sqrt{3}A}{A}$
+- よって $\theta = \min \left\{ \frac{\pi}{6},  \arctan \frac{2B - \sqrt{3}A}{A} \right\}$ のとき正三角形の1辺が最大になり、解は $\frac{A}{\cos\theta}$ となる
