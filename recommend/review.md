@@ -1150,3 +1150,9 @@ void search(int current, int i, int num_rest) {
 - $S$ とは別に $S$ 内の要素 $A_i$ に対して $A_i = k$ となる要素数 $T_k$ を管理することで、 $T_k > 0$ となる最小の非負整数 $k$ をmexとすることができる
   - $T$ を`atcoder/segtree`で管理すれば`max_right`に任せられる
 - 全体計算量は $O(N (\log N)^2)$
+
+## [ABC306 F - Merge Sets](https://atcoder.jp/contests/abc306/tasks/abc306_f)
+- 概ね公式解説通りの考え方
+- ${\displaystyle f(A, B) = \sum_{i \in A} \left\lvert \{ j \ | \  j \in A \cup B, j \leq i \} \right\rvert}$ からごちゃごちゃ変形していけば
+  - 最終的に ${\displaystyle \left\{ k \ \middle| \ k \in \bigcup_{i' = i+1}^{N} S_{i'}, k \leq A_{i, j} \right\}}$ の個数が分かればなんとかなることがわかる
+    - 後ろからFenwick treeなどで走査すればOK
