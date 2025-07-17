@@ -1156,3 +1156,26 @@ void search(int current, int i, int num_rest) {
 - ${\displaystyle f(A, B) = \sum_{i \in A} \left\lvert \{ j \ | \  j \in A \cup B, j \leq i \} \right\rvert}$ からごちゃごちゃ変形していけば
   - 最終的に ${\displaystyle \left\{ k \ \middle| \ k \in \bigcup_{i' = i+1}^{N} S_{i'}, k \leq A_{i, j} \right\}}$ の個数が分かればなんとかなることがわかる
     - 後ろからFenwick treeなどで走査すればOK
+
+## [ABC250 E - Prefix Equality](https://atcoder.jp/contests/abc250/tasks/abc250_e)
+- Zobrist hashを使うやり方でやってみた
+- メモ：C++で乱数を扱う
+
+```cpp
+#include <random>
+
+// 初期化
+mt19937_64 gen(seed);  // seedは適当な値で
+uniform_int_distribution<ll> rnd(a, b); // 区間[a,b]の整数の一様分布
+// 使用
+ll val = rnd(gen);
+```
+
+- $S_i$ を $\{ a_1, a_2, \dots, a_i \}$ のハッシュとするとき
+  - $a_{i+1} \in \{ a_1, a_2, \dots, a_i \}$ のとき $S_{i+1} = S_i$
+  - $a_{i+1} \notin \{ a_1, a_2, \dots, a_i \}$ のとき $S_{i+1} = S_i \oplus f(a_{i+1})$
+    - ただし $f(x)$ は $x$ に対して適当な乱数を割り当てたもの
+- $B$ に対しても同様にハッシュを定義すればOK
+- 衝突しない確率は余剰ビット数を $m$ として $\exp(2^{-m})$ 程度
+  - 部分集合の数が $N \approx 2^{17}$ で61ビットの乱数を用いたので $m = 44$ すなわち衝突しない確率が $5.7 \times 10^{-14}$ 程度
+    - 宝くじ1等が当たるより遥かに低い確率なので問題ないでしょう
