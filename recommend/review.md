@@ -1137,3 +1137,16 @@ void search(int current, int i, int num_rest) {
 ## [ABC060 D - Simple Knapsack](https://atcoder.jp/contests/abc060/tasks/arc073_b)
 - $w$ の値が4種類しかないのと、 $N \leq 100$ であることから、 $w$ の値ごとに全探索（ $O(N^3)$ ）が可能
 
+## [ABC272 E - Add and Mex](https://atcoder.jp/contests/abc272/tasks/abc272_e)
+- mexの性質より各操作において加算後に $0 \leq A_i < N$ とならない要素は無視できる
+- 無視できない要素を $j = 1, 2, \dots, M$ のそれぞれにおいて評価する回数の和は $\sum_{i=1}^N \frac{N}{i}$ 回程度、すなわち $O(N \log N)$ 程度
+- 初期状態で $A_i < 0$ である要素は何回目の操作ではじめて $A_i \geq 0$ となる（or $A_i \geq 0$ となることはない）のかがあらかじめわかる
+- よって初期状態で $0 \leq A_i < N$ をみたす $A_i$ による多重集合を $S$ として、 $j = 1, 2, \dots, M$ の順に以下を行えばOK
+    1. $S$ 内のそれぞれの要素 $A_i$ について
+        - $A_i + i < N$ ならば $S$ 内で $A_i$ を $A_i + i$ に更新する
+        - $A_i + i \geq N$ ならば $S$ から削除する
+    2. $j$ 回目にはじめて $A_i \geq 0$ となる要素を $S$ に挿入する
+    3. mexを求める
+- $S$ とは別に $S$ 内の要素 $A_i$ に対して $A_i = k$ となる要素数 $T_k$ を管理することで、 $T_k > 0$ となる最小の非負整数 $k$ をmexとすることができる
+  - $T$ を`atcoder/segtree`で管理すれば`max_right`に任せられる
+- 全体計算量は $O(N (\log N)^2)$
