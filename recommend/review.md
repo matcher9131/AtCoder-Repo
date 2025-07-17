@@ -1133,3 +1133,7 @@ void search(int current, int i, int num_rest) {
   - 2回の切断方向が同じ場合は実質1通りしかない
   - 2回の切断方向が異なる場合は、最初に切り分けた領域に $A,B,C$ のどれが入るかで3通りある
 - 以上をすべて網羅して判断すればOK
+
+## [ABC060 D - Simple Knapsack](https://atcoder.jp/contests/abc060/tasks/arc073_b)
+- $w$ の値が4種類しかないのと、 $N \leq 100$ であることから、 $w$ の値ごとに全探索（ $O(N^3)$ ）が可能
+
