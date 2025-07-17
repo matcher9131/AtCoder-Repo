@@ -1,18 +1,19 @@
 #include <algorithm>
 #include <functional>
 using namespace std;
+using ll = long long;
 
-extern int INITIAL_NG;
-extern int INITIAL_OK;
-extern bool isOK(int);
+extern ll INITIAL_NG;
+extern ll INITIAL_OK;
+extern bool isOK(ll);
 
 
-function<int()> binary_search = [&]() {
-    int ng = INITIAL_NG;
-    int ok = INITIAL_OK;
+function<ll()> binary_search = [&]() {
+    ll ng = INITIAL_NG;
+    ll ok = INITIAL_OK;
 
     while (abs(ok - ng) > 1) {
-        int mid = (ok + ng) / 2;
+        ll mid = (ok + ng) / 2;
         if (isOK(mid)) ok = mid;
         else ng = mid;
     }

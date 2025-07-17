@@ -1,17 +1,18 @@
 // #include <atcoder/lazysegtree>
 #include <algorithm>
 using namespace std;
+using ll = long long;
 
-extern int INF;
+extern ll INF;
 
-using S = int;
+using S = ll;
 S op(S a, S b) {
     return max(a, b);
 }
 S e() {
     return -INF;
 }
-using F = int;
+using F = ll;
 S mapping(F f, S x) {
     return f + x;
 }
