@@ -1181,16 +1181,20 @@ ll val = rnd(gen);
     - 宝くじ1等が当たるより遥かに低い確率なので問題ないでしょう
 
 
-## [ABC391 F - K-th Largest Triplet]
+## [ABC391 F - K-th Largest Triplet](https://atcoder.jp/contests/abc391/tasks/abc391_f)
 - $f(i, j, k) = A_iB_j + B_jC_k + C_kA_i$ とおく
 - `priority_queue`で $f(i, j, k)$ を降順に保持しながら
   - 先頭を取り出して（未探索かつ範囲内なら） $f(i+1, j, k), f(i, j+1, k), f(i, j, k+1)$ を挿入を繰り返せばOK
     - 実際には`priority_queue`に $(f(i, j, k), i, j, k)$ のタプルを持たせた
     - `visited`の更新タイミングに注意
 
-## [ABC279 E - Cheating Amidakuji]
+## [ABC279 E - Cheating Amidakuji](https://atcoder.jp/contests/abc279/tasks/abc279_e)
 - $C = (1, 2, \dots, N)$ に対して $k = M, M-1, \dots, i+1$ の順に操作を、 $B$ に対して $k = 1, 2, \dots, i-1$ の順に操作を行う
   - このとき $B_j = 1$ となる $j$ を用いると解は $C_j$ となる
 - $C$ は数列のすべてを保持する必要があるため普通にやれば空間計算量 $O(NM)$ になるが、in-placeに更新すれば $O(N)$ にできる
   - よってあらかじめ $k = 1, 2, \dots, M$ に対してそれぞれ $B_j = 1$ となる $j$ を記録しておくと $i = M, M-1, \dots, 1$ の順で解を求められる
 - 公式解説でいうところの前後からの累積和を用いた恰好となった
+
+## [AGC057 A - Antichain of Integer Strings](https://atcoder.jp/contests/agc057/tasks/agc057_a)
+- （公式解説） $f$ が狭義単調増加であることにに気づかなかったぜ……
+  - 解がどうも連続した整数になることには気づいていたので、何かしらの単調性を満たすものが存在して二分探索で求めることを疑うべきだった
