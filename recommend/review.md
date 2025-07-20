@@ -1249,3 +1249,7 @@ ll val = rnd(gen);
 - あとは $i = 1, 2, \dots, N$ に対して $S_{0,i}, T_{0,i}$ を計算し、$S_{0,i} - T_{0,i} = k$ を満たす $i$ の集合を $U_k$ とすれば
   - 解は $\sum_{k} |U_k|(|U_k| - 1)/2$
     - （要するに累積和の値の種類ごとに組み合わせ数を考えるいつものパティーン）
+
+## [ABC087 D - People on a Line](https://atcoder.jp/contests/abc087/tasks/arc090_b)
+- Weighted Union-Find treeで一発
+  - ライブラリ化しておくとこういうとき楽でいい……
