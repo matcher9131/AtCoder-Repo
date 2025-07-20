@@ -1198,3 +1198,12 @@ ll val = rnd(gen);
 ## [AGC057 A - Antichain of Integer Strings](https://atcoder.jp/contests/agc057/tasks/agc057_a)
 - （公式解説） $f$ が狭義単調増加であることにに気づかなかったぜ……
   - 解がどうも連続した整数になることには気づいていたので、何かしらの単調性を満たすものが存在して二分探索で求めることを疑うべきだった
+
+## [ARC113 D - Sky Reflector](https://atcoder.jp/contests/arc113/tasks/arc113_d)
+- $N=1$ の場合 $A_1$ は $B$ の内容により一意に定まるので、解は $K^M$
+  - $M=1$ の場合も同様
+- $N>1, M>1$ のとき
+  - 任意の $j$ に対し $B_j \geq \max A$ さえ成り立てばあとは自由にできる
+    - $\max A = k$ となる $A$ の個数は $K^N - (K-1)^N$ であり、そのそれぞれに対して $B$ が $(K-k+1)^M$ 個あるので
+      - 解は $\sum_{k=1}^K (K^N - (K-1)^N)(K-k+1)^M$
+- 計算量は $O(K \log P)$
