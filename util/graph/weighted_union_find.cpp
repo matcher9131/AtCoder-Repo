@@ -6,8 +6,8 @@ using namespace std;
 
 template<
     class S = int,
-    auto op = [](S a, S b) { return a + b; },
-    auto inv_op = [](S a, S b) { return a - b; },
+    auto op = [](S v, S d) { return v + d; },
+    auto inv_op = [](S u, S v) { return u - v; },
     auto e = []() { return 0; }
 > class UnionFind {
     static_assert(is_convertible_v<decltype(op), function<S(S, S)>>);
