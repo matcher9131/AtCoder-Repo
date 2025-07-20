@@ -1207,3 +1207,7 @@ ll val = rnd(gen);
     - $\max A = k$ となる $A$ の個数は $K^N - (K-1)^N$ であり、そのそれぞれに対して $B$ が $(K-k+1)^M$ 個あるので
       - 解は $\sum_{k=1}^K (K^N - (K-1)^N)(K-k+1)^M$
 - 計算量は $O(K \log P)$
+
+## [AGC033 B - LRUD Game](https://atcoder.jp/contests/agc033/tasks/agc033_b)
+- 初期配置として可能な範囲を後ろから探索していくパターン
+  - 探索途中で可能な範囲がなくなった場合は即`NO`を返す
