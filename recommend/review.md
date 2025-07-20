@@ -1237,3 +1237,7 @@ ll val = rnd(gen);
 ## [ABC224 D - 8 Puzzle on Graph](https://atcoder.jp/contests/abc224/tasks/abc224_d)
 - 盤面をそのままキーにしてBFSするやつ
 - 盤面は9文字の文字列にでき、想定される盤面数は最大でも $9! \approx 3.6 \times 10^5$ であり、文字列のコピーを考えてもその9倍程度の計算量なので十分間に合う
+
+## [ABC047 D - 高橋君と見えざる手](https://atcoder.jp/contests/abc047/tasks/arc063_b)
+- 結局のところ高橋君は $A_j - A_i$ が最大になるような $i < j$ を選び、町 $i$ で $\lfloor \frac{T}{2} \rfloor$ 個のリンゴを買って町 $j$ ですべて売るのがベストとなる
+- よって $A_j - A_i$ が最大になるような $i < j$ の組が何組あるのかを数えればそれがそのまま解になる
