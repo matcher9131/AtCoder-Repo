@@ -1253,3 +1253,12 @@ ll val = rnd(gen);
 ## [ABC087 D - People on a Line](https://atcoder.jp/contests/abc087/tasks/arc090_b)
 - Weighted Union-Find treeで一発
   - ライブラリ化しておくとこういうとき楽でいい……
+
+## [ABC367 F - Rearrange Query](https://atcoder.jp/contests/abc367/tasks/abc367_f)
+- どうみてもハッシュじゃないと間に合わないよなぁと思い「多重集合　ハッシュ」で検索をかけると
+  - モロにこの問題がヒットして草ァ！
+    - ……それは見ないようにして、[競技プログラミングにおけるハッシュ問題まとめ - はまやんはまやんはまやん](https://blog.hamayanhamayan.com/entry/2017/05/24/154618)を参考にした
+      - [chokudai社長のポスト](https://x.com/chokudai/status/875112616523218944)へのリンクがあり、曰くZobrist hashingでXORではなく単に和を取れば多重集合に対応できるとのこと
+- 間違えてハッシュ最大値を $2^{58}-1$ に設定したので $N$ 個の和がオーバーフローする可能性があったが、問題なくいけてしまった
+  - 理屈から行けば問題無さそうではある（本当か？）
+
