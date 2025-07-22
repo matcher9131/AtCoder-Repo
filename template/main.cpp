@@ -18,7 +18,7 @@
 #include <functional>
 using namespace std;
 using ll = long long;
-
+constexpr ll INF = 1e16;
 
 int main() {
     
