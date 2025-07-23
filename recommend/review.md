@@ -1414,3 +1414,13 @@ ll val = rnd(gen);
 ## [ABC051 D - Candidates of No Shortest Paths](https://atcoder.jp/contests/abc051/tasks/abc051_d)
 - $N \leq 100$ より $O(N^3)$ なのでFloyd–Warshall法が使える
 - 最短経路に含まれないということは他にもっと短い経路がある、すなわち $d(u, v) < E_{u,v}$ が成り立つ
+
+## [ARC155 B - Abs Abs Function](https://atcoder.jp/contests/arc155/tasks/arc155_b)
+- $||x-a|-b| = \min \{ |x - (a-b)|, |x - (a+b)| \}$ より $S' = \{ a+b, a-b | (a,b) \in S \}$ とおくと $f_S(x) = \min_{y \in S'} |x-y|$ となることがわかる
+- よって $S'$ を管理するものとして`set s`を用意し、 $A+B, A-B$ を突っ込んだうえで各クエリを処理する
+  - タイプ1のクエリでは $S'$ に $a_i + b_i, a_i - b_i$ を突っ込む
+  - タイプ2のクエリでは以下を行う
+    - `left = s.lower_bound(a)`, `right = s.lower_bound(b)` とする
+    - `left != right`ならある $y \in S'$ が存在して $a \leq y \leq b$ となることがわかるので、解は $0$ になる
+    - `left == right`ならある連続する $y_1, y_2 \in S$ （すなわち $y_1 < y < y_2$ を満たす全ての $y$ に対し $x \notin S'$ ）が存在して $y_1 < a \leq b < y_2$ であることがわかるので、解は $\min \{ a - y_1, y_2 - b \}$ となることがわかる
+    - ↑をスムーズに行うために、絶対値の十分大きな $M$ を用いて $M, -M$ を番兵として`s`にあらかじめ突っ込んでおくと楽
