@@ -1586,3 +1586,16 @@ $$\begin{align*}
     - $b_i$ が $x$ の倍数かつ $a_i$ が $y$ の倍数
 - $a_i,b_i \leq 10^9$ より $x, y$ はそれぞれ多くとも1000個程度、組み合わせでも $10^6$ オーダーなので、カードパック開封も入れて十分間に合う
   - 恐らく $2^3 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 \cdot 17 \cdot 19 \cdot 23 = 892371480$ の $1024$ 個が最大のはず……
+
+## [ABC174 F - Range Set Query](https://atcoder.jp/contests/abc174/tasks/abc174_f)
+- **Mo's algorithm** が効果的な問題
+  - 参考：[Mo&#x27;s algorithm - アルゴリズムとデータ構造大全](https://take44444.github.io/Algorithm-Book/range/mo/main.html)
+  - 以下を満たすときに効果的なアルゴリズム
+    - オフラインクエリである
+    - 更新クエリがない
+    - 区間 $[l, r)$ の結果から $[l \pm 1, r \pm 1)$ を高速に計算できる
+  - なお区間 $[l, m), [m, r)$ をマージできる場合はSegment treeのほうが速い
+  - 更新順を変えるだけで劇的に速くなるとはアルゴリズムは奥が深いっすねぇ……
+- それでもソートで`tuple`を使っているせいかかなりギリギリ（1753ms）になってしまった
+- なお解を得るのに何故か`unordered_map`を使ってしまい`TLE`
+  - どうせ`unordered_map`を使ってもデクリメント時に0になったかどうかを確認して`erase`する必要があるんだから単なる`vector`でも変わらんやんけ！
