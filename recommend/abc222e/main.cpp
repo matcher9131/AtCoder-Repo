@@ -1,9 +1,9 @@
-#include <vector>
+#include <bits/stdc++.h>
+#include <atcoder/modint>
 using namespace std;
 using ll = long long;
-
-// Usage:
-// (constructor) -> add_edge -> build -> ...
+using mint = atcoder::modint998244353;
+constexpr ll INF = 1e16;
 
 struct Edge {
     ll to;
@@ -77,4 +77,78 @@ public:
     int get_dist(int a, int b) {
         return dist[a] + dist[b] - 2 * dist[get_lca(a, b)];
     }
+
+    int get_depth(int a) {
+        return dist[a];
+    }
 };
+
+
+int main() {
+    ll n, m, k;
+    cin >> n >> m >> k;
+    vector<ll> a(m);
+    for (ll i = 0; i < m; ++i) {
+        cin >> a[i];
+        --a[i];
+    }
+    LCA g(n);
+    vector<pair<ll, ll>> edge(n-1);
+    for (ll i = 0; i < n-1; ++i) {
+        ll a, b;
+        cin >> a >> b;
+        --a; --b;
+        g.add_edge(a, b);
+        edge[i] = { a, b };
+    }
+    g.build();
+
+    vector<ll> parent(n);
+    for (ll i = 0; i < n-1; ++i) {
+        auto [u, v] = edge[i];
+        if (g.get_depth(u) < g.get_depth(v)) {
+            parent[v] = u;
+        } else {
+            parent[u] = v;
+        }
+    }
+
+    vector<ll> count(n);
+    for (ll i = 0; i < m-1; ++i) {
+        ll lca = g.get_lca(a[i], a[i+1]);
+        ll v = a[i];
+        while (v != lca) {
+            ++count[v];
+            v = parent[v];
+        }
+        v = a[i+1];
+        while (v != lca) {
+            ++count[v];
+            v = parent[v];
+        }
+    }
+    ll sumCount = accumulate(count.begin(), count.end(), 0LL);
+    if ((sumCount + k) % 2 != 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+    ll r = (sumCount + k) / 2;
+    if (r < 0 || r > sumCount) {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    // dp[j]: 赤く塗られた辺の移動回数の和がiになるような塗り分け方
+    vector<mint> dp(sumCount + 1);
+    dp[0] = 1;
+    // count[0]は辺が存在しない（rootから親へ向かう辺が存在しない）のでスキップ
+    for (ll i = 1; i < n; ++i) {
+        for (ll j = sumCount; j >= count[i]; --j) {
+            dp[j] += dp[j - count[i]];
+        }
+    }
+
+    cout << dp[r].val() << endl;
+
+    return 0;
+}
