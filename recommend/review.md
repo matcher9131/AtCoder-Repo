@@ -1514,3 +1514,9 @@ $$\begin{align*}
 - なお $M - K = 1$ や $N < M$ のケースを忘れて無駄に`WA`を出しまくった模様
 - （公式解説）うーん、このトンチっぷりよ……
   - 整数の問題は得てしてこうなりやすいんだよなぁ……
+
+## [ABC270 D - Stones](https://atcoder.jp/contests/abc270/tasks/abc270_d)
+- ネガマックス法でメモ化DPすればいけそう
+- いつも参考にしているサイト：[AtCoder ABC 201 D - Game in Momotetsu World (1Q, 水色, 400 点) - けんちょんの競プロ精進記録](https://drken1215.hatenablog.com/entry/2023/07/21/235300)
+  - `終局に応じた得点`は $0$ で、`その手を打つこと自体の得点変化`は $A_i$ で実装すれば万事OK
+
