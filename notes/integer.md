@@ -32,6 +32,7 @@
 - 平方分割
   - [ABC161 F - Division or Subtraction](https://atcoder.jp/contests/abc161/tasks/abc161_f)
   - [ARC150 B - Make Divisible](https://atcoder.jp/contests/arc150/tasks/arc150_b) （ $A = BQ+R$ で $B \geq Q$ と $B < Q$ に分ける）
+  - [ARC125 B - Squares](https://atcoder.jp/contests/arc125/tasks/arc125_b)
 
 ## 区間の素因数分解
 - エラストテネスの区間篩： $[1, N]$ を前処理 $O(N \log \log N)$ 、本処理 $O(N \log N)$ で素因数分解
