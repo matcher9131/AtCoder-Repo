@@ -1719,3 +1719,7 @@ $$\begin{align*}
 
 ## [ABC254 E - Small d and k](https://atcoder.jp/contests/abc254/tasks/abc254_e)
 - 各頂点の次数は $3$ 以下かつ $k_i \leq 3$ よりクエリごとに毎回探索しても高々 $40$ 個の頂点しか見ないので余裕で間に合う
+ 
+## [ABC097 D - Equals](https://atcoder.jp/contests/abc097/tasks/arc097_b)
+- $N$ 頂点のグラフで $(x_i, y_i)$ に辺を張ると、連結成分どうしは自由に $p_i$ を入れ替え可能とわかる
+- よって連結成分ごとに頂点番号の集合 $S$ と $T = {p_i | i \in S}$ を作り、双方に共通する要素の個数を足し上げればOK
