@@ -35,3 +35,6 @@
 ## 辺の最短パスの寄与
 - $d(u, v) = x$ を考えるときは $x$ より長い辺は存在しなくても問題ない
   - [ABC214 D - Sum of Maximum Weights](https://atcoder.jp/contests/abc214/tasks/abc214_d)
+
+## ある2頂点が連結かどうかの条件が複数
+- 頂点を（Union-find treeにおける）その頂点を含む連結成分の代表に置き換える

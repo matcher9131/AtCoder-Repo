@@ -83,3 +83,6 @@
 ## Sum = XOR Sum
 - $A_l \oplus A_{l+1} \oplus \dots \oplus A_{r} = A_l + A_{l+1} + \dots + A_r \Leftrightarrow $ 任意の $l \leq i < j \leq r$ に対して $A_i \ \mathrm{AND} \ A_j = 0$
   - [ABC098 D - Xor Sum 2](https://atcoder.jp/contests/abc098/tasks/arc098_b)
+
+## 周期 $M$ の列から更に小さい周期となるものを取り除く
+- $M$ の小さい順に求め、 $f(M)$ から $\sum_{m|M} f(m)$ を引く
