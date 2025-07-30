@@ -86,3 +86,8 @@
 
 ## 周期 $M$ の列から更に小さい周期となるものを取り除く
 - $M$ の小さい順に求め、 $f(M)$ から $\sum_{m|M} f(m)$ を引く
+  - [ABC304 F - Shift Table](https://atcoder.jp/contests/abc304/tasks/abc304_f)
+
+## 遷移がループしそうなDP
+- 状態数を増やせばループを回避できることがある
+  - [ABC303 D - Shift vs. CapsLock](https://atcoder.jp/contests/abc303/tasks/abc303_d)
