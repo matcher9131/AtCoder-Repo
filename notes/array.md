@@ -91,3 +91,7 @@
 ## 遷移がループしそうなDP
 - 状態数を増やせばループを回避できることがある
   - [ABC303 D - Shift vs. CapsLock](https://atcoder.jp/contests/abc303/tasks/abc303_d)
+
+## $i$ を固定したときに対象となる $j$ が複数存在する
+- $i$ を固定して $j$ の探索、 $j$ を固定して $i$ の探索の双方を行うことにより複数ではなく高々1個にする
+  - [ABC302 D - Impartial Gift](https://atcoder.jp/contests/abc302/tasks/abc302_d)

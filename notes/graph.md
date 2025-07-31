@@ -1,5 +1,18 @@
 # Graph
 
+## 用語
+- オイラー路
+  - すべての辺を1度ずつ通るパス
+- ハミルトン路
+  - 全頂点を通るパス
+    - 「通った頂点の集合」 「今いる頂点」で2要素bit DP
+- Functional graph
+  - 全頂点の出次数が $1$ の有向グラフ
+
+## 単にDFS/BFSすれば良さそうだが辺の数が多すぎる
+- **超頂点**
+  - [ABC302 F - Merge Set](https://atcoder.jp/contests/abc302/tasks/abc302_f)
+
 ## 最短経路に含まれる/含まれない辺を列挙
 - 含まれるなら $d(u, v) = E_{u,v}$ が成り立つ
   - [ABC051 D - Candidates of No Shortest Paths](https://atcoder.jp/contests/abc051/tasks/abc051_d)
@@ -11,12 +24,14 @@
   - [ABC175 D - Moving Piece](https://atcoder.jp/contests/abc175/tasks/abc175_d)
 
 ## 通る辺の順番に制約
-- 辺に対してDP
+- 辺列に対してDP
   - [ABC271 E - Subsequence Path](https://atcoder.jp/contests/abc271/tasks/abc271_e)
 
 ## 辺を削除
 - 場合によっては入次数、出次数の管理だけでOKにできる
   - [全国統一プログラミング王決定戦予選(2019) D - Restore the Tree](https://atcoder.jp/contests/nikkei2019-qual/tasks/nikkei2019_qual_d)
+- 辺数によっては実際に削除するのが良いときもある
+  - [ABC302 E - Isolation](https://atcoder.jp/contests/abc302/tasks/abc302_e)
 
 ## 頂点に値を書き込みながら/色を塗りながら辺を追加して矛盾がないかを調べる
 - Weighted Union-find tree
@@ -32,7 +47,7 @@
     - [ABC095 D - Static Sushi](https://atcoder.jp/contests/abc095/tasks/arc096_b)
     - [ABC197 E - Traveler](https://atcoder.jp/contests/abc197/tasks/abc197_e)
 
-## 辺の最短パスの寄与
+## 辺の最短パスへの寄与
 - $d(u, v) = x$ を考えるときは $x$ より長い辺は存在しなくても問題ない
   - [ABC214 D - Sum of Maximum Weights](https://atcoder.jp/contests/abc214/tasks/abc214_d)
 
