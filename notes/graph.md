@@ -40,8 +40,10 @@
 
 ## 単純パスを全て網羅する
 - $V$ が小さいなら「訪れた頂点集合」 「最後に訪れた頂点」で2要素DP
+  - 初期値に注意（`dp[0]`が無効な状態かも）
   - [ABC274 E - Booster](https://atcoder.jp/contests/abc274/tasks/abc274_e)
   - [ABC278 F - Shiritori](https://atcoder.jp/contests/abc278/tasks/abc278_f)
+  - [ABC301 E - Pac-Takahashi](https://atcoder.jp/contests/abc301/tasks/abc301_e)
 - $V$ が小さくないなら明らかに損なパスを排除
   - 例：ある程度右/左まで行って折り返す以外の移動は不利
     - [ABC095 D - Static Sushi](https://atcoder.jp/contests/abc095/tasks/arc096_b)
