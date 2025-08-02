@@ -95,3 +95,35 @@
 ## $i$ を固定したときに対象となる $j$ が複数存在する
 - $i$ を固定して $j$ の探索、 $j$ を固定して $i$ の探索の双方を行うことにより複数ではなく高々1個にする
   - [ABC302 D - Impartial Gift](https://atcoder.jp/contests/abc302/tasks/abc302_d)
+
+## 区間和を管理したい列で区間を $b$ 倍して $c$ を足す
+- `(区間の総和, 区間の長さ)`をモノイドにすればモノイド作用にできて`atcoder::lazy_segtree`に載せられる
+
+```cpp
+struct S {
+    ll sum;
+    int length;
+};
+S op(S a, S b) {
+    return { a.sum + b.sum, a.length + b.length };
+}
+S e() {
+    return {0, 0};
+}
+struct F {
+    ll mul;
+    ll add;
+};
+S mapping(F f, S x) {
+    return { f.mul * x.sum + f.add * x.length, x.length };
+}
+F composition(F f, F g) {
+    return { f.mul * g.mul, f.mul * g.add + f.add };
+}
+F id() {
+    return {1, 0};
+}
+```
+
+- なお $b=0$ とすることで区間に同じ値を代入できる
+  - [ABC417 F - Random Gathering](https://atcoder.jp/contests/abc417/tasks/abc417_f)
