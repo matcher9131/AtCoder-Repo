@@ -127,3 +127,8 @@ F id() {
 
 - なお $b=0$ とすることで区間に同じ値を代入できる
   - [ABC417 F - Random Gathering](https://atcoder.jp/contests/abc417/tasks/abc417_f)
+
+
+## 周期性がある列に対して $f([L, R))$ の最大値などを求める
+- $L = 1, 2, \dots, N$ に固定する
+  - [ABC300 F - More Holidays](https://atcoder.jp/contests/abc300/tasks/abc300_f)
