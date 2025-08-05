@@ -55,3 +55,9 @@
 
 ## ある2頂点が連結かどうかの条件が複数
 - 頂点を（Union-find treeにおける）その頂点を含む連結成分の代表に置き換える
+
+## 有向グラフで他の全頂点へ到達できるような頂点が存在するかどうかを判断する
+- $O(V^3)$ が間に合うならFloyd-Warshallでいい
+  - [ABC257 D - Jumping Takahashi 2](https://atcoder.jp/contests/abc257/tasks/abc257_d)
+- 強連結成分をトポロジカルソートして、根となる強連結成分内の1頂点から他の全頂点へ到達可能かをDFSで探索
+  - `atcoder::scc`を使えば $O(V+E)$
