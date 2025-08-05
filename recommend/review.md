@@ -1739,4 +1739,14 @@ $$\begin{align*}
   - よって $c_N$ は絶対に反映できない
 - 逆に残り $N-1$ 個を反映させられればスコアは最大になる
   - 最も深い葉から順に $c_1, c_2, \dots$ と書き込んでいけば $N-1$ 本の辺に $c_1, c_2, \dots, c_{N-1}$ を割り当てられる
- 
+
+## [CODE FESTIVAL 2017 qual A C - Palindromic Matrix](https://atcoder.jp/contests/code-festival-2017-quala/tasks/code_festival_2017_quala_c)
+- 同じ文字が1文字必要な箇所： $(H \bmod 2)(W \bmod 2)$ 個
+- 同じ文字が2文字必要な箇所： $(H \bmod 2)\left\lfloor \frac{W}{2} \right\rfloor + (W \bmod 2)\left\lfloor \frac{H}{2} \right\rfloor$ 個
+- 同じ文字が4文字必要な箇所： $\left\lfloor \frac{W}{2} \right\rfloor \left\lfloor \frac{H}{2} \right\rfloor$ 個
+- よって文字種ごとに文字数 $c_i$ を数え、↑を満たせるかどうかを考える
+  - とりあえず同じ文字が1文字必要な箇所が存在する場合は $c_i \bmod 2 = 1$ を満たす文字を突っ込んで $c_i \gets c_i - 1$ とする
+  - 次に $c_i \bmod 4 = 2$ となる文字を同じ文字が2文字必要な箇所に突っ込む
+    - ↑がすべて終わってから $c_i \geq 2$ となる文字を突っ込む
+  - あとは同じ文字が4文字必要な箇所がすべて埋められるかどうかをチェックすればOK
+
