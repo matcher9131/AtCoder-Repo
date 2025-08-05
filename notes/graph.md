@@ -61,3 +61,9 @@
   - [ABC257 D - Jumping Takahashi 2](https://atcoder.jp/contests/abc257/tasks/abc257_d)
 - 強連結成分をトポロジカルソートして、根となる強連結成分内の1頂点から他の全頂点へ到達可能かをDFSで探索
   - `atcoder::scc`を使えば $O(V+E)$
+
+## 負辺を含み負閉路を含まないグラフで全頂点間の最短距離をDijkstraで求める
+- ポテンシャル（参考：[ダイクストラとポテンシャルのはなし - niuez’s diary](https://niuez.hatenablog.com/entry/2019/03/04/142903)）
+  - 頂点 $1$ から全頂点への最短距離をBellman-Fordで求めることによりポテンシャルを求め、残りはDijkstraで求める
+  - 標高のようなポテンシャルがあらかじめ与えられている場合はそれをそのまま使うことによりいきなりDijkstraでOK
+    - [ABC237 E - Skiing](https://atcoder.jp/contests/abc237/tasks/abc237_e)
