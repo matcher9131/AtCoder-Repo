@@ -67,3 +67,7 @@
   - 頂点 $1$ から全頂点への最短距離をBellman-Fordで求めることによりポテンシャルを求め、残りはDijkstraで求める
   - 標高のようなポテンシャルがあらかじめ与えられている場合はそれをそのまま使うことによりいきなりDijkstraでOK
     - [ABC237 E - Skiing](https://atcoder.jp/contests/abc237/tasks/abc237_e)
+
+## 頂点 $v$ から「ある条件」を満たす頂点 $u$ までの距離の最小値が $d$
+- $v$ から距離 $d$ 未満のすべての頂点は「ある条件」を満たさない、かつ距離 $d$ の頂点の少なくとも1つが「ある条件」を満たす
+  - [ABC299 E - Nearest Black Vertex](https://atcoder.jp/contests/abc299/tasks/abc299_e)
