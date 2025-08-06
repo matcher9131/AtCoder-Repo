@@ -138,3 +138,8 @@ F id() {
 - $M = 1, 2, \dots$ と複数回DPを回す
   - [ABC262 D - I Hate Non-integer Number](https://atcoder.jp/contests/abc262/tasks/abc262_d)
   - [ABC336 E - Digit Sum Divisible](https://atcoder.jp/contests/abc336/tasks/abc336_e)
+
+
+## DPで数え上げたいが要素数が多すぎる
+- そもそも漸化式を一般項で表せる
+  - [SoundHound Inc. Programming Contest 2018 -Masters Tournament- C - Ordinary Beauty](https://atcoder.jp/contests/soundhound2018-summer-qual/tasks/soundhound2018_summer_qual_c)

@@ -1820,3 +1820,26 @@ $$\begin{align*}
 - 条件を満たす $(x,y)$ に辺を張ると、連結成分は自由に入れ替え可能<sup>[要出典]</sup>
 - よって連結成分ごとの頂点数の階乗の積が解になる
 - 「 $1, 2, \dots, N^2$ の並び替え」という意味深な条件に疑心暗鬼になりそうだった……
+
+## [SoundHound Inc. Programming Contest 2018 -Masters Tournament- C - Ordinary Beauty](https://atcoder.jp/contests/soundhound2018-summer-qual/tasks/soundhound2018_summer_qual_c)
+- DPでやろうにも $10^9$ オーダーなので無理
+- 長さ $m$ の数列に対しての解を $A_m$ とおく
+- $A_m$ の漸化式について考える
+  - $d = 0$ のとき
+    - 直前の項と同じものを新たな項としたときのみ美しさが増えるので、 $A_{m+1} = A_m + \frac{1}{n}$
+      - よって $A_m = \frac{m-1}{n}$
+  - $n \geq 2d$ のとき
+    - 直前の項 $x$ が $1 \leq x \leq d, n-d+1 \leq x \leq n$ のとき
+      - 美しさを増やせる新たな項は1個
+    - 直前の項 $x$ が $d+1 \leq x \leq n-d$ のとき
+      - 美しさを増やせる新たな項は2個
+    - 以上を合わせて $A_{m+1} = \frac{2d}{n} \left( A_m + \frac{1}{n} \right) + \frac{n-2d}{n} \left( A_m + \frac{2}{n} \right) = A_m + \frac{2n-2d}{n^2}$
+      - よって $A_m = (m-1) \frac{2n-2d}{n^2}$
+  - $n < 2d$ のとき
+    - 直前の項 $x$ が $1 \leq x \leq n-d, d+1 \leq x \leq n$ のとき
+      - 美しさを増やせる新たな項は1個
+    - 直前の項 $x$ が $n-d+1 \leq x \leq d$ のとき
+      - 美しさを増やせる新たな項は0個
+    - 以上を合わせて $A_{m+1} = \frac{2n-2d}{n} \left( A_m + \frac{1}{n} \right) + \frac{-n+2d}{n} A_m = A_m + \frac{2n-2d}{n^2}$
+      - よって $A_m = (m-1) \frac{2n-2d}{n^2}$
+- 以上により $O(1)$ で計算できる
