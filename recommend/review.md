@@ -1792,3 +1792,10 @@ $$\begin{align*}
       1. 連結成分のサイズを $S$ 、頂点 $v$ の次数を $D_v$ として、暫定的に $\mathrm{ans}_v = S - D_v - 1$ とする
       1. $v$ とブロック関係にある各頂点 $u$ について、 $u$ がこの連結成分内に存在するなら $\mathrm{ans}_v \gets \mathrm{ans}_v - 1$ とする
 - 計算量は連結成分を`unordered_set`で持つことで $O(N+M+K)$
+
+## [ABC270 E - Apple Baskets on Circle](https://atcoder.jp/contests/abc270/tasks/abc270_e)
+- 高橋くんが $x$ 周したときに食べられるりんごの個数 $f(x)$ は $f(x) = \sum_{i=1}^N \min \{ A_i, x \}$ で求められる
+  - よって $f(x) \leq K$ となる最大の $x$ は二分探索により求まる
+- あとはかご $1$ から順に残った $K - f(x)$ 個を食べる様子をシミュレートすれば良い
+- 計算量は $O(N \log K)$
+
