@@ -1799,3 +1799,8 @@ $$\begin{align*}
 - あとはかご $1$ から順に残った $K - f(x)$ 個を食べる様子をシミュレートすれば良い
 - 計算量は $O(N \log K)$
 
+## [ABC262 D - I Hate Non-integer Number](https://atcoder.jp/contests/abc262/tasks/abc262_d)
+- 要するに $C$ 個選んでその和が $C$ で割り切れるようにすればよい
+- ここで[ABC336 E - Digit Sum Divisible](https://atcoder.jp/contests/abc336/tasks/abc336_e)を思い出して $C = 1, 2, \dots, N$ の順にDPを回しまくればいいのではと思いつく
+  - つまり $\mathrm{dp}_{i,j,k}$ を先頭 $i$ 項から $j \leq C$ 個選んでその和が $k \pmod C$ になるような場合の数として、 $\mathrm{dp}_{N,C,0}$ を解に加える
+- 計算量は $O(N^4)$

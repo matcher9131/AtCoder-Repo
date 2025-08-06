@@ -132,3 +132,9 @@ F id() {
 ## 周期性がある列に対して $f([L, R))$ の最大値などを求める
 - $L = 1, 2, \dots, N$ に固定する
   - [ABC300 F - More Holidays](https://atcoder.jp/contests/abc300/tasks/abc300_f)
+
+
+## $M$ で割り切れる場合の数をDPで求めたいが $M$ が変動する
+- $M = 1, 2, \dots$ と複数回DPを回す
+  - [ABC262 D - I Hate Non-integer Number](https://atcoder.jp/contests/abc262/tasks/abc262_d)
+  - [ABC336 E - Digit Sum Divisible](https://atcoder.jp/contests/abc336/tasks/abc336_e)
