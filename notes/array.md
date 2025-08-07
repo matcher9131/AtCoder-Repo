@@ -143,3 +143,9 @@ F id() {
 ## DPで数え上げたいが要素数が多すぎる
 - そもそも漸化式を一般項で表せる
   - [SoundHound Inc. Programming Contest 2018 -Masters Tournament- C - Ordinary Beauty](https://atcoder.jp/contests/soundhound2018-summer-qual/tasks/soundhound2018_summer_qual_c)
+
+
+## $i$ 番目と $i+1$ 番目の間および $N$ 番目と $1$ 番目の間に制約がある
+- 「 $i$ 番目と $1$ 番目の間で制約を満たす/満たさない」をDPの要素に付け加える
+  - [ABC307 E - Distinct Adjacent](https://atcoder.jp/contests/abc307/tasks/abc307_e)
+- $1$ 番目を決め打ちして探索し、 $N$ 番目が条件を満たすかどうかを確認する
