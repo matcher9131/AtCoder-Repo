@@ -154,3 +154,11 @@ F id() {
 - ${\displaystyle \mathrm{dp}_i = 1 + \sum_j p_j \cdot \mathrm{dp}_j}$
   - ただし $p_j$ は遷移確率
     - [ABC280 E - Critical Hit](https://atcoder.jp/contests/abc280/tasks/abc280_e)
+
+## DPで特定の条件を満たすものの個数を数える
+- 条件を満たすものと満たさないものの間で遷移があるかを確かめ、ある場合は両方を同時に数える
+  - [ABC418 D - XNOR Operation](https://atcoder.jp/contests/abc418/tasks/abc418_d)
+
+## 連続部分列の個数をDPで数える
+- $\mathrm{dp}_{i}$ を $i$ を右端とする連続部分列のうち条件を満たすものの個数とすると重複カウントを無くせるかもしれない
+  - [ABC418 D - XNOR Operation](https://atcoder.jp/contests/abc418/tasks/abc418_d)
