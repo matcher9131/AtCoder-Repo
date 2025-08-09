@@ -1893,3 +1893,12 @@ $$\begin{align*}
 ## [ABC241 E - Putting Candies](https://atcoder.jp/contests/abc241/tasks/abc241_e)
 - Functional Graph
 - 自己ループに注意（1敗）
+
+## [ABC280 E - Critical Hit](https://atcoder.jp/contests/abc280/tasks/abc280_e)
+- $p = \frac{P}{100}$ として $\mathrm{dp}_i$ を残りHPが $i$ の状態から必要な攻撃回数の期待値とすると
+  - 初期値: $\mathrm{dp}_0 = 0, \mathrm{dp}_1 = 1$
+  - 遷移: $\mathrm{dp}_i = 1 + p \cdot \mathrm{dp}_{i-2} + (1-p)\mathrm{dp}_{i-1}$
+  - 解: $\mathrm{dp}_N$
+- 典型的な後ろからDPパターン
+- （公式解説）遷移が $i$ に依らないので行列による高速化が可能
+  - 尤も今回は必要ないが…

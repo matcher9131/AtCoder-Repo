@@ -149,3 +149,8 @@ F id() {
 - 「 $i$ 番目と $1$ 番目の間で制約を満たす/満たさない」をDPの要素に付け加える
   - [ABC307 E - Distinct Adjacent](https://atcoder.jp/contests/abc307/tasks/abc307_e)
 - $1$ 番目を決め打ちして探索し、 $N$ 番目が条件を満たすかどうかを確認する
+
+## 回数の期待値をDPで
+- ${\displaystyle \mathrm{dp}_i = 1 + \sum_j p_j \cdot \mathrm{dp}_j}$
+  - ただし $p_j$ は遷移確率
+    - [ABC280 E - Critical Hit](https://atcoder.jp/contests/abc280/tasks/abc280_e)
