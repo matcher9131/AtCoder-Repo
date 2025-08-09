@@ -1885,3 +1885,7 @@ $$\begin{align*}
 - 初期値: $\mathrm{dp}_{1,0} = 0, \mathrm{dp}_{1,1} = M$
 - 遷移: $\mathrm{dp}_{i+1,0} = (M-2)\mathrm{dp}_{i,0} + (M-1)\mathrm{dp}_{i,1}, \mathrm{dp}_{i+1,1} = \mathrm{dp}_{i,0}$
 - 解: $\mathrm{dp}_{N,0}$
+
+## [World Tour Finals 2022 Day1 A - Save the Monsters](https://atcoder.jp/contests/wtf22-day1-open/tasks/wtf22_day1_a)
+- 攻撃される回数が少ないモンスターを優先的に守ると解を最大化できそう
+- 勇者のMP切れを考慮して $\max \{ 0, N+B-A \}$ も解の候補になる
