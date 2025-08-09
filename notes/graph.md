@@ -71,3 +71,46 @@
 ## 頂点 $v$ から「ある条件」を満たす頂点 $u$ までの距離の最小値が $d$
 - $v$ から距離 $d$ 未満のすべての頂点は「ある条件」を満たさない、かつ距離 $d$ の頂点の少なくとも1つが「ある条件」を満たす
   - [ABC299 E - Nearest Black Vertex](https://atcoder.jp/contests/abc299/tasks/abc299_e)
+
+## Functional Graphで $K$ 回辺を辿る
+
+```cpp
+// vector<ll> child;
+// atcoder::scc_graph g;
+
+auto groups = g.scc();
+// 頂点から強連結成分のインデックスを逆引き
+vector<int> gi_dict(n);
+for (int gi = 0; gi < groups.size(); ++gi) {
+    for (const int v : groups[gi]) {
+        gi_dict[v] = gi;
+    }
+}
+
+int cur = root;
+while (k > 0) {
+    int gi = gi_dict[cur];
+    int group_size = groups[gi].size();
+    if (group_size > 1) {
+        // サイクル
+        int q = k / group_size, r = k % group_size;
+        // TODO: qを用いてansを更新
+        while (r--) {
+            // TODO: ansを更新
+            cur = child[cur];
+        }
+        break;
+    } else if (child[cur] == cur) {
+        // 自己ループ
+        // TODO: kを用いてansを更新
+        break;
+    } else {
+        // TODO: ansを更新
+        cur = child[cur];
+        --k;
+    }
+}
+
+```
+
+- [ABC241 E - Putting Candies](https://atcoder.jp/contests/abc241/tasks/abc241_e)

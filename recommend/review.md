@@ -1889,3 +1889,7 @@ $$\begin{align*}
 ## [World Tour Finals 2022 Day1 A - Save the Monsters](https://atcoder.jp/contests/wtf22-day1-open/tasks/wtf22_day1_a)
 - 攻撃される回数が少ないモンスターを優先的に守ると解を最大化できそう
 - 勇者のMP切れを考慮して $\max \{ 0, N+B-A \}$ も解の候補になる
+
+## [ABC241 E - Putting Candies](https://atcoder.jp/contests/abc241/tasks/abc241_e)
+- Functional Graph
+- 自己ループに注意（1敗）
