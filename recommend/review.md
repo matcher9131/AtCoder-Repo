@@ -1902,3 +1902,7 @@ $$\begin{align*}
 - 典型的な後ろからDPパターン
 - （公式解説）遷移が $i$ に依らないので行列による高速化が可能
   - 尤も今回は必要ないが…
+
+## [ABC179 D - Leaping Tak](https://atcoder.jp/contests/abc179/editorial/121)
+- DPを`atcoder::lazy_segtree`でやるだけ。以上！
+- 一応imos法でやれば $O(NK)$ に落とせる
