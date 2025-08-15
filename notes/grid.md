@@ -9,8 +9,10 @@
   - [ABC223 E - Placing Rectangles](https://atcoder.jp/contests/abc223/tasks/abc223_e)
 
 ## そのマスを含む行と列のマスの和
-- $i$ を固定したとき、 $S_j$ の降順に並び替えて $S_i + S_j - A_{i,j}$ を探索。 $A_{i,j} = \min_i A_{i, j}$ ならその先は探索不要
-  - [ABC298 F - Rook Score](https://atcoder.jp/contests/abc298/tasks/abc298_f)
+- 各行の和を $S_i$ 、各列の和を $T_j$ とし、 $T_j$ の降順に並び替えて $S_i + T_j - A_{i,j}$ を全探索。 $A_{i,j} = \min_j A_{i, j}$ ならその先の $j$ は探索不要
+  - ただし打ち切りの条件は内側のループが合計で $O(N)$ しか回らないことを保証できれば何でもよい
+    - [ABC298 F - Rook Score](https://atcoder.jp/contests/abc298/tasks/abc298_f)
+      - 数字の書かれているマスが $N$ 個なので、打ち切り条件は「 $(i, j)$ に数字が書かれていない」でOK（最小値に拘る必要はない）
 - 条件を満たすマスの個数を数えるときもほぼ同様
   - [ABC176 E - Bomber](https://atcoder.jp/contests/abc176/tasks/abc176_e)
 
