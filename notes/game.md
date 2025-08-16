@@ -16,4 +16,5 @@
 - 最終局面から逆算して初期盤面が可能かどうかを調べる
   - [AGC033 B - LRUD Game](https://atcoder.jp/contests/agc033/tasks/agc033_b)
 
-
+## Nim
+- [石取りゲーム(Nim)    [いかたこのたこつぼ]](https://ikatakos.com/pot/programming_algorithm/game/nim)
