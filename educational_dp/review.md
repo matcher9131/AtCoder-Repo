@@ -88,6 +88,12 @@
 - いずれにしても範囲加算は必要になるので`atcoder::fenwicktree`に任せた
 - 時間 $O(NK \log K)$ 、空間 $O(NK)$
 
+## N - Slimes
+- $\mathrm{dp}_{i,j}: $ スライム $[i, j)$ を合体で1つにするのに必要なコストの総和の最小値
+- 合体してできるスライムは1つの区間で表すことができるので、区間の両端で2要素DPができる
+- $\mathrm{dp}_{i,j} = \sum_{k=i}^{j-1} A_i + \min_{i < k < j} ( \mathrm{dp}_{i, k} + \mathrm{dp}_{k, j} )$ と遷移する
+- あとはメモ化DPで処理
+- 時間 $O(N^3)$ 、空間 $O(N^2)$
 
 ## O - Matching
 - $\mathrm{dp}_{i,S}: $ 男性の $i$ 人目まで見てすでにペアになった女性の集合が $S$ になるようなペアの作り方の場合の数としてやると $O(N^2 2^N)$ で`TLE`……だったのだが
@@ -99,3 +105,29 @@
   - すなわち $\mathrm{dp}_{S}: $ 集合 $S$ に含まれる女性全員がいずれかの男性とペアになるような場合の数でOK
 - 時間 $O(N2^N)$ 、空間 $O(2^N)$
 
+## P - Independent Set
+- $W_i, B_i: $ 頂点 $i$ を含むその子孫頂点を塗り分ける方法のうち、頂点 $i$ を白色/黒色で塗る場合の数
+- 頂点 $u$ の子を $v$ とするとき、 $W_u = \prod_v (W_v + B_v), B_u = \prod_v W_v$ と遷移する
+- 子の $W_i, B_i$ が求まっていないと親の $W_i, B_i$ が求まらないので、DFSの帰りがけ順で計算するようにする
+- 時間 $O(N)$ 、空間 $O(N)$
+
+## Q - Flowers
+- $\mathrm{dp}_{j}: $ 高さ $j$ の花が最も右にあるときの花の美しさの総和の最大値
+- 最後に選んだ花のみが次に選ぶ花に影響する
+  - すなわち $i$ そのものは状態に保つ必要がないので1要素DPでOK
+- $i = 1, 2, \dots, N$ の順に $\mathrm{dp}_{h_i} \gets \max \{ \mathrm{dp}_{h_i}, a_i + \max_{1 \leq j < h_i} \mathrm{dp}_{j} \}$ と更新する
+  - 区間最大値が必要になるのでSegment treeを使用する
+- 時間 $O(N \log N)$ 、空間 $O(N)$
+
+## S - Digit Sum
+- [Typical DP Contest E - 数](https://atcoder.jp/contests/tdpc/tasks/tdpc_number)と全く同じなのでコピペでOKやろ！と思ったら
+  - ↑で出したのが嘘解法だったらしくまさかの`WA`
+    - DP初期値の設定が間違っていて $D < 10$ のときに通らないようになっていた
+
+## U - Grouping
+- bit DP
+- $\mathrm{dp}_{S}: $ うさぎの集合 $S$ をいくつかのグループに分けるときの総得点の最大値
+- ${\displaystyle \mathrm{dp}_{S} = \max \left\{ \sum_{i<j, i \in S, j \in S} a_{i,j}, \ \max_{T \subset S} (\mathrm{dp}_{T} + \mathrm{dp}_{S \setminus T}) \right\} }$
+- $\mathrm{dp}_{S}$ を求めるのに必要なのは $T \subset S$ となる全ての $T$ における $\mathrm{dp}_{T}$ なので、更新順はいつもどおり集合を表す非負整数の昇順でOK
+- 時間 $O(3^N)$ 、空間 $O(2^N)$
+  - $\mathrm{dp}_{S}$ を $T \subset S$ の全てから求めるパターンにおける時間計算量は $O(3^N)$ となることを覚えておくこと！（ $O(4^N)$ ではない）
