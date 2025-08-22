@@ -15,6 +15,9 @@
   - 特に隣り合った要素への操作の場合有効
     - [ARC119 C - ARC Wrecker 2](https://atcoder.jp/contests/arc119/tasks/arc119_c) （`偶数番目の和 - 奇数番目の和`が不変）
     - [ARC136 B - Triple Shift](https://atcoder.jp/contests/arc136/tasks/arc136_b) （転倒数の偶奇が不変）
+    - [ABC296 F - Simultaneous Swap](https://atcoder.jp/contests/abc296/tasks/abc296_f) （ $A, B$ の転倒数の合計の偶奇が不変）
+  - ※配列内に同じ要素があるとき、**転倒数の偶奇はどちらにすることもできる**
+    - 略証：同じ要素にラベルを付けて区別すると、操作の後にラベルを付け替える/替えないことで転倒数を偶数にも奇数にもできる
 - $A_i + i$ に注目すると交換操作が単純になる
   - [ARC120 C - Swaps 2](https://atcoder.jp/contests/arc120/tasks/arc120_c)
 - 具体的なゴールを設定し、到達可能かどうかを判定する
