@@ -25,3 +25,7 @@
 ## 必ずしも $A \cap B$ のほうが $A \cup B$ より数えやすいとは限らない
 - 「少なくとも1個がAで少なくとも1個がB」という場合は、余事象を考えることにより $A \cap B$ より $A \cup B$ のほうが余事象を用いて数えやすい
   - [ABC297 F - Minimum Bounding Box 2](https://atcoder.jp/contests/abc297/tasks/abc297_f)
+
+## $P(X \geq i)$ が求めやすい $X$ に関して $E_X$ を求める
+- $E_X = \sum_{i} iP(X=i) = \sum_i P(X \geq i)$
+  - [ABC295 E - Kth Number](https://atcoder.jp/contests/abc295/tasks/abc295_e)
