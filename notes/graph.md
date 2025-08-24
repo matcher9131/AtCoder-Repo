@@ -114,3 +114,7 @@ while (k > 0) {
 ```
 
 - [ABC241 E - Putting Candies](https://atcoder.jp/contests/abc241/tasks/abc241_e)
+
+## 探索中にグラフ全体が変化する
+- 変化が一定でバリエーションが少ないなら並行世界
+  - [ABC420 D - Toggle Maze](https://atcoder.jp/contests/abc420/tasks/abc420_d)

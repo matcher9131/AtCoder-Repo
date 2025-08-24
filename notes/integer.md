@@ -28,11 +28,14 @@
     - $[00000_{(2)}, 10000_{(2)}), [10000_{(2)}, 10010_{(2)}), [10010_{(2)}, 10011_{(2)}), 10011_{(2)}$ に分ける
       - [ABC129 E - Sum Equals Xor](https://atcoder.jp/contests/abc129/tasks/abc129_e)
 
-## $N \leq 10^{12}$
+## $N \leq 10^{14}$
 - 平方分割
   - [ABC161 F - Division or Subtraction](https://atcoder.jp/contests/abc161/tasks/abc161_f)
   - [ARC150 B - Make Divisible](https://atcoder.jp/contests/arc150/tasks/arc150_b) （ $A = BQ+R$ で $B \geq Q$ と $B < Q$ に分ける）
   - [ARC125 B - Squares](https://atcoder.jp/contests/arc125/tasks/arc125_b)
+- 一見困難に見えても所謂トンチで因数分解ができる
+  - [ABC420 G - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g)　（両辺に4をかければ $X$ を分離して因数分解可）
+
 
 ## 区間の素因数分解
 - エラストテネスの区間篩： $[1, N]$ を前処理 $O(N \log \log N)$ 、本処理 $O(N \log N)$ で素因数分解
