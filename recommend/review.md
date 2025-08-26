@@ -1906,3 +1906,10 @@ $$\begin{align*}
 ## [ABC179 D - Leaping Tak](https://atcoder.jp/contests/abc179/editorial/121)
 - DPを`atcoder::lazy_segtree`でやるだけ。以上！
 - 一応imos法でやれば $O(NK)$ に落とせる
+
+## [ABC113 D - Number of Amidakuji](https://atcoder.jp/contests/abc113/tasks/abc113_d)
+- $W \leq 8$ なので1行あたりの横棒の引き方は全探索できる
+  - よってとりあえず $2^W$ 通りすべてを試して横棒が連続するものを除外するのが楽そう
+- あとは $\mathrm{dp}_{i, j}$ を $i$ 行目終了時に1本目の縦棒が $j$ 本目の縦棒へ移るような横棒の引き方の場合の数として遷移すればOK
+- 計算量は $O(HW2^W)$
+
