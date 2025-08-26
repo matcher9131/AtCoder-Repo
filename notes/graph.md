@@ -118,3 +118,7 @@ while (k > 0) {
 ## 探索中にグラフ全体が変化する
 - 変化が一定でバリエーションが少ないなら並行世界
   - [ABC420 D - Toggle Maze](https://atcoder.jp/contests/abc420/tasks/abc420_d)
+
+## 木でパスの長さがDになるような頂点組 $(i, j)$ を考える
+-　$(i,j)$ に注目するのではなく $i, j$ のLCAに注目する
+  - [ABC220 E - Distance on Large Perfect Binary Tree](https://atcoder.jp/contests/abc220/tasks/abc220_e)

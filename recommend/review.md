@@ -1913,3 +1913,7 @@ $$\begin{align*}
 - あとは $\mathrm{dp}_{i, j}$ を $i$ 行目終了時に1本目の縦棒が $j$ 本目の縦棒へ移るような横棒の引き方の場合の数として遷移すればOK
 - 計算量は $O(HW2^W)$
 
+## [ABC220 E - Distance on Large Perfect Binary Tree](https://atcoder.jp/contests/abc220/tasks/abc220_e)
+- 木でのパスの長さ→LCAに注目するパティーン
+- 条件を満たす $(i,j)$ のLCAが頂点 $k$ となるようなものをまとめて数えることを考えると、 $k$ の深さのみに依存するので $O(N)$ で計算できる
+  - ただし $i = k$ または $j=k$ になるときとそうでないときで場合分けが必要な点は注意
