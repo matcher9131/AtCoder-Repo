@@ -1943,3 +1943,8 @@ $$\begin{align*}
 - $B_j$ の単調減少区間（ $X_i < 0$ ）においては、途中で $B_j$ が正から負に転じる場合にはその直前で $A_j$ が極大になることはない
 - よって各区間のラストと↑の条件を満たすところのみを計算すればよく、 $O(N)$ でいける
 - なお全ての $x_i$ が負の場合は $0$ ではなく $x_1$ が $A$ の最大値になる点に注意
+
+## [第5回 ドワンゴからの挑戦状 予選 B - Sum AND Subarrays](https://atcoder.jp/contests/dwacon5th-prelims/tasks/dwacon5th_prelims_b)
+- $N \leq 1000$ より全ての連続部分列の和を列挙可能
+- あとはビットを上から見ていくタイプの二分探索でOK
+  - すなわち、（下から） $i$ ビット目に対し、 $\mathrm{ans} + 2^i$ との論理積が $\mathrm{ans} + 2^i$ に一致するような連続部分列の個数が $K$ 以上なら $\mathrm{ans} \gets \mathrm{ans} + 2^i$ とする
