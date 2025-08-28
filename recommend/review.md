@@ -1932,3 +1932,8 @@ $$\begin{align*}
 - よって↑の手順において $x$ は高々 $20$ 通りなので $x$ に関しては全探索でOK
   - $y$ に関してはFenwick treeなどで区間和を得ることで計算量を減らす
   - これにより計算量は $O(N \log A \log \log A)$
+
+## [ABC183 F - Confluence](https://atcoder.jp/contests/abc183/tasks/abc183_f)
+- Union-find treeをカスタマイズするパティーン
+  - 代表となる頂点に`unordered_map`でクラスと人数の情報を持たせる
+  - merge時に人数の多い方に少ない方を合流させることで↑の更新を全体で $O(N \log N)$ で行うことができる
