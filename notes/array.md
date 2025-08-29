@@ -176,3 +176,7 @@ F id() {
 ## $X_i + X_j \geq p, Y_i + Y_j \geq q$ を満たす $(i,j)$ の個数
 - $X_i$ の取りうる値が少ないなら $X$ に関しては普通の配列で全探索して、 $Y$ に関してはFenwick treeなどで区間和を得る
   - [AGC047 A - Integer Product](https://atcoder.jp/contests/agc047/tasks/agc047_a)
+
+## 対称性のあるものを全て列挙する
+- 一つの文字について条件を満たすものをすべて挙げ、それぞれについて文字をローテーションしたものを用意する
+  - [ARC127 B - Ternary Strings](https://atcoder.jp/contests/arc127/tasks/arc127_b)

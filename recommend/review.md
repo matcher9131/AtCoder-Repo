@@ -1968,3 +1968,7 @@ $$\begin{align*}
 ## [ABC044 C - 高橋君とカード](https://atcoder.jp/contests/abc044/tasks/arc060_a)
 - $dp_{i,j,k}:$ $i$ 枚目までから $j$ 枚選んで合計が $k$ になるような選び方の場合の数としておいて、解は $jA = k$ を満たす $(j,k)$ における $\mathrm{dp}_{N,j,k}$ の和とすればOK
 - AtCoder Problemsでは水色上位判定だったが今だったら緑色だろうなぁ……
+
+## [ARC127 B - Ternary Strings](https://atcoder.jp/contests/arc127/tasks/arc127_b)
+- `2`から始まる文字列を3進数と見たときに $2 \cdot 3^{L-1}, 2 \cdot 3^{L-1} + 1, 2 \cdot 3^{L-1} + 2, \dots, 2 \cdot 3^{L-1} + N-1$ の $N$ 個になっていれば $t$ についての条件を満たす
+- あとはそれぞれの数字をローテーションしたものを用意すれば残り3つの条件も満たされる
