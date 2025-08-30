@@ -50,8 +50,6 @@ int main() {
         ll dif = ni - i;
         auto [dit, djt] = dir[s[j].first];
         auto [dia, dja] = dir[t[k].first];
-        assert(dit != 0 || djt != 0);
-        assert(dia != 0 || dja != 0);
 
         if (s[j].first == t[k].first) {
             if (ti == ai && tj == aj) ans += dif;
@@ -59,15 +57,21 @@ int main() {
             // c(dit-dia) = ai-ti
             // c(djt-dja) = aj-tj
             if (dit == dia) {
-                ll c = (aj-tj) / (djt-dja);
-                if (0 < c && c <= dif) ++ans;
+                if (ai-ti == 0 && (aj-tj) % (djt-dja) == 0) {
+                    ll c = (aj-tj) / (djt-dja);
+                    if (0 < c && c <= dif) ++ans;
+                }
             } else if (djt == dja) {
-                ll c = (ai-ti) / (dit-dia);
-                if (0 < c && c <= dif) ++ans;
+                if (aj-tj == 0 && (ai-ti) % (dit-dia) == 0) {
+                    ll c = (ai-ti) / (dit-dia);
+                    if (0 < c && c <= dif) ++ans;
+                }
             } else {
-                ll c1 = (ai-ti) / (dit-dia);
-                ll c2 = (aj-tj) / (djt-dja);
-                if (c1 == c2 && 0 < c1 && c1 <= dif) ++ans;
+                if ((ai-ti) % (dit-dia) == 0 && (aj-tj) % (djt-dja) == 0) {
+                    ll c1 = (ai-ti) / (dit-dia);
+                    ll c2 = (aj-tj) / (djt-dja);
+                    if (c1 == c2 && 0 < c1 && c1 <= dif) ++ans;
+                }
             }
         }
 
