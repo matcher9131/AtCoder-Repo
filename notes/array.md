@@ -180,3 +180,7 @@ F id() {
 ## 対称性のあるものを全て列挙する
 - 一つの文字について条件を満たすものをすべて挙げ、それぞれについて文字をローテーションしたものを用意する
   - [ARC127 B - Ternary Strings](https://atcoder.jp/contests/arc127/tasks/arc127_b)
+
+## $A_l + A_{l+1} + \dots + A_r$ が与えられる
+- $S_r - S_{l-1}$ が与えられているのに等しい
+  - [ABC238 E - Range Sums](https://atcoder.jp/contests/abc238/tasks/abc238_e)

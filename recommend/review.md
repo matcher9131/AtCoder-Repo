@@ -1972,3 +1972,9 @@ $$\begin{align*}
 ## [ARC127 B - Ternary Strings](https://atcoder.jp/contests/arc127/tasks/arc127_b)
 - `2`から始まる文字列を3進数と見たときに $2 \cdot 3^{L-1}, 2 \cdot 3^{L-1} + 1, 2 \cdot 3^{L-1} + 2, \dots, 2 \cdot 3^{L-1} + N-1$ の $N$ 個になっていれば $t$ についての条件を満たす
 - あとはそれぞれの数字をローテーションしたものを用意すれば残り3つの条件も満たされる
+
+## [ABC238 E - Range Sums](https://atcoder.jp/contests/abc238/tasks/abc238_e)
+- $N+1$ 頂点のグラフを用意し、各区間に対して $l_i - 1$ と $r_i$ の間に無向辺を張れば
+  - $a$ の全要素の和がわかる $\Leftrightarrow$ 頂点 $0$ と $N$ が連結
+- あとはDFSするだけ
+- 計算量は $O(N+Q)$
