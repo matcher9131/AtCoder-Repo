@@ -1991,3 +1991,12 @@ $$\begin{align*}
   - $d$ が偶数: $x = 10^{d/2} \cdot (10^{d/2}-2), 10^{d/2} \cdot (10^{d/2}-1) \leq x \leq \min \{ N, 10^d - 1 \}$
   - $d$ が奇数: $10^{d-1} \leq x \leq \min \{ N, 10^{d-1} + 10^{(d-1)/2} - 1 \}$
 - 以上によりテストケース毎に $O(\log N)$ で求まる
+
+## [ABC265 E - Warp](https://atcoder.jp/contests/abc265/tasks/abc265_e)
+- $\mathrm{dp}_{i,j,k}: $ 各ワープをそれぞれ $i, j, k$ 回行うような移動経路の場合の数
+  - 初期値: $\mathrm{dp}_{0,0,0} = 1$
+  - 遷移: $(i,j,k)$ から $(i+1,j,k), (i,j+1,k), (i,j,k+1)$ へ
+    - 例えば、移動先 $((i+1)A + jC + kE, iB + jD + kF)$ に障害物がなければ $\mathrm{dp}_{i+1, j, k} \gets \mathrm{dp}_{i+1, j, k} + \mathrm{dp}_{i, j, k}$
+  - 解: ${\displaystyle \sum_{i=0}^N \sum_{j=0}^{N-i} \mathrm{dp}_{i,j,N-i-j}}$
+- 障害物の有無は`set`を用いることで1回あたり $O(\log M)$ で判断可能
+  - よって全体の計算量は $O(N^3 \log M)$
