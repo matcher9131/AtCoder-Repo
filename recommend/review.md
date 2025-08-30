@@ -2000,3 +2000,11 @@ $$\begin{align*}
   - 解: ${\displaystyle \sum_{i=0}^N \sum_{j=0}^{N-i} \mathrm{dp}_{i,j,N-i-j}}$
 - 障害物の有無は`set`を用いることで1回あたり $O(\log M)$ で判断可能
   - よって全体の計算量は $O(N^3 \log M)$
+
+## [AGC029 B - Powers of two](https://atcoder.jp/contests/agc029/tasks/agc029_b)
+- 大きい方から走査すれば一意に定まることにはすぐに気付いたが
+  - 相方を`lower_bound`で探し、使ったものには使用済みマークを付ける
+    - →同じ数が2個以上あるときに`lower_bound`だと同じ箇所を返し続けるため正しく判定できない
+  - 相方を`bit_ceil(val) - val`で固定
+    - →`bit_ceil(val) == val`のときは相方として`val`を選ぶべきなのに`0`を選んでしまう
+- というわけで`WA`連発……

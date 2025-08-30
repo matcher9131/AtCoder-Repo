@@ -184,3 +184,8 @@ F id() {
 ## $A_l + A_{l+1} + \dots + A_r$ が与えられる
 - $S_r - S_{l-1}$ が与えられているのに等しい
   - [ABC238 E - Range Sums](https://atcoder.jp/contests/abc238/tasks/abc238_e)
+
+## 値によりペアを作る
+- `lower_bound`による検索は同じ値になるペアを複数組む際にうまく行かない（使用済みのものを何度も検索してしまう）
+  - `map`で個数を保持すればOK（個数が0になった要素は直ちに`erase`する）
+    - [AGC029 B - Powers of two](https://atcoder.jp/contests/agc029/tasks/agc029_b)
