@@ -2008,3 +2008,14 @@ $$\begin{align*}
   - 相方を`bit_ceil(val) - val`で固定
     - →`bit_ceil(val) == val`のときは相方として`val`を選ぶべきなのに`0`を選んでしまう
 - というわけで`WA`連発……
+
+## [ARC174 C - Catastrophic Roulette](https://atcoder.jp/contests/arc174/tasks/arc174_c)
+- すでに出た整数が $i (<n)$ 個のとき、自分, 相手が罰金を
+  - 支払わない, 支払わない確率: $\frac{(N-i)(N-i-1)}{N^2}$
+  - 支払う, 支払わない確率: $\frac{i(N-i)}{N^2}$
+  - 支払わない, 支払う確率: $\frac{(N-i)(i+1)}{N^2}$
+  - 支払う, 支払う確率: $\frac{i^2}{N^2}$
+- よってすでに出た整数が $i$ 個の状態から始めてそのプレイヤーが支払う罰金の期待値を $f(i)$ とすると
+  - $f(i) = \frac{(N-i)(N-i-1)}{N^2} f(i+2) + \frac{i(N-i)}{N^2} (1+f(i+1)) + \frac{(N-i)(i+1)}{N^2} f(i+1) + \frac{i^2}{N^2}(1 + f(i))$
+    - 両辺に $f(i)$ があるので移項をする必要がある
+- メモ化DPでOK
