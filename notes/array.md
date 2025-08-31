@@ -189,3 +189,13 @@ F id() {
 - `lower_bound`による検索は同じ値になるペアを複数組む際にうまく行かない（使用済みのものを何度も検索してしまう）
   - `map`で個数を保持すればOK（個数が0になった要素は直ちに`erase`する）
     - [AGC029 B - Powers of two](https://atcoder.jp/contests/agc029/tasks/agc029_b)
+
+## 連結リストっぽい操作がしたい
+- `next[i]`を管理することで以下が行える
+  - $O(1)$ ランダムアクセス
+  - `next`を直に繋ぎ変える（複数削除を一括で行う）
+    - [ABC421 F - Erase between X and Y](https://atcoder.jp/contests/abc421/tasks/abc421_f)
+
+## 片方向連結リストで $x$ から $y$ へ辿りたいがどちらが先にあるのかわからない
+- $x$ からの走査と $y$ からの走査を交互に行う
+  - [ABC421 F - Erase between X and Y](https://atcoder.jp/contests/abc421/tasks/abc421_f)
