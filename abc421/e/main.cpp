@@ -12,14 +12,15 @@ int main() {
         cin >> a[i];
     }
 
-    // map<vector<ll>, double> sc;
     auto getScore = [&](vector<ll> &dist) -> double {
-        // if (sc.contains(dist)) return sc[dist];
-        double res = 0;
+        map<double, ll> m;
         for (ll i = 0; i < 6; ++i) {
-            res = max(res, dist[i] * a[i]);
+            m[a[i]] += dist[i];
         }
-        // return sc[dist] = res;
+        double res = 0;
+        for (const auto &[val, sum] : m) {
+            res = max(res, val * sum);
+        }
         return res;
     };
 
@@ -32,37 +33,43 @@ int main() {
             if (rest == 0) {
                 return dp[i][s] = getScore(s);
             } else {
-                for (ll dicePattern = 0; dicePattern < pow(6, rest); ++dicePattern) {
+                for (ll p = 0; p < pow(6, rest); ++p) {
                     vector<ll> sp = s;
-                    ll pp = dicePattern;
+                    ll pp = p;
                     for (ll j = 0; j < rest; ++j) {
                         ++sp[pp % 6];
                         pp /= 6;
                     }
-                    dp[i][s] += getScore(sp) / pow(6, rest);
+                    dp[i][s] += getScore(sp);
                 }
+                dp[i][s] /= pow(6, rest);
                 return dp[i][s];
             }
         } else {
             ll rest = 5 - accumulate(s.begin(), s.end(), 0LL);
-            for (ll dicePattern = 0; dicePattern < pow(6, rest); ++dicePattern) {
-                ll pp = dicePattern;
-                vector<ll> dice(rest);
-                for (ll j = 0; j < rest; ++j) {
-                    dice.push_back(pp % 6);
-                    pp /= 6;
-                }
-                double pMax = 0;
-                for (ll bit = 0; bit < 1LL << rest; ++bit) {
-                    vector<ll> st = s;
+            if (rest == 0) {
+                return dp[i][s] = dfs(i-1, s);
+            } else {
+                for (ll p = 0; p < pow(6, rest); ++p) {
+                    ll pp = p;
+                    vector<ll> dice;
                     for (ll j = 0; j < rest; ++j) {
-                        if (bit & (1LL << j)) ++st[dice[j]];
+                        dice.push_back(pp % 6);
+                        pp /= 6;
                     }
-                    pMax = max(pMax, dfs(i-1, st));
+                    double stMax = 0;
+                    for (ll bit = 0; bit < 1LL << rest; ++bit) {
+                        vector<ll> st = s;
+                        for (ll j = 0; j < rest; ++j) {
+                            if (bit & (1LL << j)) ++st[dice[j]];
+                        }
+                        stMax = max(stMax, dfs(i-1, st));
+                    }
+                    dp[i][s] += stMax;
                 }
-                dp[i][s] += pMax / pow(6, rest);
+                dp[i][s] /= pow(6, rest);
+                return dp[i][s];
             }
-            return dp[i][s];
         }
     };
     vector<ll> emp(6);
