@@ -185,7 +185,7 @@ F id() {
 - $S_r - S_{l-1}$ が与えられているのに等しい
   - [ABC238 E - Range Sums](https://atcoder.jp/contests/abc238/tasks/abc238_e)
 
-## 値によりペアを作る
+## 値によりペアを貪欲に作る
 - `lower_bound`による検索は同じ値になるペアを複数組む際にうまく行かない（使用済みのものを何度も検索してしまう）
   - `map`で個数を保持すればOK（個数が0になった要素は直ちに`erase`する）
     - [AGC029 B - Powers of two](https://atcoder.jp/contests/agc029/tasks/agc029_b)
@@ -199,3 +199,8 @@ F id() {
 ## 片方向連結リストで $x$ から $y$ へ辿りたいがどちらが先にあるのかわからない
 - $x$ からの走査と $y$ からの走査を交互に行う
   - [ABC421 F - Erase between X and Y](https://atcoder.jp/contests/abc421/tasks/abc421_f)
+
+## $K$ 種類の要素に対してそれぞれ空間 $O(N)$ が必要でそのままやるわけにはいかないが、使用する要素数の合計が $N$ に収まる
+- 空間 $O(N)$ のみを使い回す
+  - [ABC261 F - Sorting Color Balls](https://atcoder.jp/contests/abc261/tasks/abc261_f)
+    - 色ごとに転倒数を数える必要があるが、要素の合計数が $N$ なので転倒数を数え終わるごとに各要素に`fw.add(x, -1)`しても $O(N \log N)$ で抑えられる

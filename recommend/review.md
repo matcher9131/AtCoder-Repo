@@ -2019,3 +2019,11 @@ $$\begin{align*}
   - $f(i) = \frac{(N-i)(N-i-1)}{N^2} f(i+2) + \frac{i(N-i)}{N^2} (1+f(i+1)) + \frac{(N-i)(i+1)}{N^2} f(i+1) + \frac{i^2}{N^2}(1 + f(i))$
     - 両辺に $f(i)$ があるので移項をする必要がある
 - メモ化DPでOK
+
+## [ABC261 F - Sorting Color Balls](https://atcoder.jp/contests/abc261/tasks/abc261_f)
+- バブルソートなので基本的には転倒数を数えればよいが
+  - $C_i = C_j$ であれば転倒数として数えないようにすればよい
+    - さらに言えば、色に関係なく転倒数を数えてから、色ごとに転倒数を数えて引くようにする
+- ただし色ごとにFenwick treeを用意すると $O(N^2)$ になり`TLE`または`MLE`不可避だが
+  - 各Fenwick treeはかなり疎であるため使い回しができる
+    - これにより計算量は $O(N \log N)$ になる
