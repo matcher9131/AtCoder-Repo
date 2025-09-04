@@ -208,3 +208,7 @@ F id() {
 ## 制約条件が2つあるマッチング（それぞれの $i$ に対し $A_i \leq C_j$ かつ $B_i \leq D_j$ を満たすような $j$ をマッチさせる）
 - 降順にソートして順に見ていくことで $A_i \leq C_i$ を必ず満たすようにしておいて、 $B_i \leq D_j$ となる最小の $D_j$ を持つ $j$ をマッチさせる
   - [ABC245 E - Wrapping Chocolate](https://atcoder.jp/contests/abc245/tasks/abc245_e)
+
+## 左端から順に連続部分列の和が $K$ を超えないように分ける
+- `r = upper_bound(s.begin(), s.end(), s[l] + k) - s.begin() - 1` ※半開区間
+  - [ABC159 E - Dividing Chocolate](https://atcoder.jp/contests/abc159/tasks/abc159_e)
