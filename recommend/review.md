@@ -2027,3 +2027,12 @@ $$\begin{align*}
 - ただし色ごとにFenwick treeを用意すると $O(N^2)$ になり`TLE`または`MLE`不可避だが
   - 各Fenwick treeはかなり疎であるため使い回しができる
     - これにより計算量は $O(N \log N)$ になる
+
+## [ABC310 E - NAND repeatedly](https://atcoder.jp/contests/abc310/tasks/abc310_e)
+- $\mathrm{dp}_{i,j}: $ $k \leq i, \ f(k, i) = j$ となる $k$ の個数とおくと
+  - 初期値: $\mathrm{dp}_{1,A_1} = 1$
+  - 遷移:
+    - $A_i = 0$ のとき $\mathrm{dp}_{i,0} = 1, \mathrm{dp}_{i,1} = \mathrm{dp}_{i-1, 0} + \mathrm{dp}_{i-1, 1}$
+    - $A_i = 1$ のとき $\mathrm{dp}_{i,0} = \mathrm{dp}_{i-1,1}, \mathrm{dp}_{i,1} = \mathrm{dp}_{i-1, 0} + 1$
+  - 解: $\sum_{i=1}^N \mathrm{dp}_{i,1}$
+- 典型的なDP問題
