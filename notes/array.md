@@ -204,3 +204,7 @@ F id() {
 - 空間 $O(N)$ のみを使い回す
   - [ABC261 F - Sorting Color Balls](https://atcoder.jp/contests/abc261/tasks/abc261_f)
     - 色ごとに転倒数を数える必要があるが、要素の合計数が $N$ なので転倒数を数え終わるごとに各要素に`fw.add(x, -1)`しても $O(N \log N)$ で抑えられる
+
+## 制約条件が2つあるマッチング（それぞれの $i$ に対し $A_i \leq C_j$ かつ $B_i \leq D_j$ を満たすような $j$ をマッチさせる）
+- 降順にソートして順に見ていくことで $A_i \leq C_i$ を必ず満たすようにしておいて、 $B_i \leq D_j$ となる最小の $D_j$ を持つ $j$ をマッチさせる
+  - [ABC245 E - Wrapping Chocolate](https://atcoder.jp/contests/abc245/tasks/abc245_e)

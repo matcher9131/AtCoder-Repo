@@ -2036,3 +2036,12 @@ $$\begin{align*}
     - $A_i = 1$ のとき $\mathrm{dp}_{i,0} = \mathrm{dp}_{i-1,1}, \mathrm{dp}_{i,1} = \mathrm{dp}_{i-1, 0} + 1$
   - 解: $\sum_{i=1}^N \mathrm{dp}_{i,1}$
 - 典型的なDP問題
+
+## [ABC245 E - Wrapping Chocolate](https://atcoder.jp/contests/abc245/tasks/abc245_e)
+- チョコレート、箱のそれぞれを縦の長さの降順→横の長さの降順でソートしておく
+- チョコレート $i$ に対し
+  - $A_i \leq C_j$ となる全ての箱 $j$ に対し、 $B_i \leq D_j$ となる最小の $D_j$ を持つ箱を選んでマッチさせる
+    - $B_i \leq D_j$ となる $j$ が存在しない場合は`No`
+    - 縦の長さの降順でソートしているので毎度 $j$ をリストアップする必要はなく、直前の $i$ で使った $j$ の集合を使い回せる
+- 計算量は $O(N \log N + (N + M) \log M)$
+- 比較的広範囲に`WA`が出るときは **$N$ と $M$ の取り違えを真っ先に疑え** （2敗）
