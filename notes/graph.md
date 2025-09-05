@@ -122,3 +122,7 @@ while (k > 0) {
 ## 木でパスの長さがDになるような頂点組 $(i, j)$ を考える
 -　$(i,j)$ に注目するのではなく $i, j$ のLCAに注目する
   - [ABC220 E - Distance on Large Perfect Binary Tree](https://atcoder.jp/contests/abc220/tasks/abc220_e)
+
+## 木の構造は変化しないが、辺の重みが途中で変化する
+- オイラーツアーによるタイムスタンプとLazy segment treeの組み合わせ
+  - [ABC294 G - Distance Queries on a Tree](https://atcoder.jp/contests/abc294/tasks/abc294_g)

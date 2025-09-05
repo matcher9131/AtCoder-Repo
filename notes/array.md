@@ -212,3 +212,42 @@ F id() {
 ## 左端から順に連続部分列の和が $K$ を超えないように分ける
 - `r = upper_bound(s.begin(), s.end(), s[l] + k) - s.begin() - 1` ※半開区間
   - [ABC159 E - Dividing Chocolate](https://atcoder.jp/contests/abc159/tasks/abc159_e)
+
+## 二分探索で非整数を求める
+- 二分探索を適当な回数で打ち切る（100回くらい？）
+  - [ABC294 F - Sugar Water 2](https://atcoder.jp/contests/abc294/tasks/abc294_f)
+
+## 2つのランレングス符号をデコードして一致する箇所を探す
+
+```cpp
+vector<ll> v1(n1), l1(n1);
+vector<ll> v2(n2), l2(n2);
+
+vector<ll> sumL1(n1);
+sumL1[0] = l1[0];
+for (ll i = 1; i < n1; ++i) {
+    sumL1[i] = sumL1[i-1] + l1[i];
+}
+vector<ll> sumL2(n2);
+sumL2[0] = l2[0];
+for (ll i = 1; i < n2; ++i) {
+    sumL2[i] = sumL2[i-1] + l2[i];
+}
+
+ll ans = 0;
+ll i = 0, j = 0, k = 0;
+while (i < w) {
+    ll ni = sumL1[j] > sumL2[k] ? sumL2[k] : sumL1[j];
+    if (v1[j] == v2[k]) ans += ni - i;
+    i = ni;
+    if (sumL1[j] > sumL2[k]) ++k;
+    else if (sumL1[j] < sumL2[k]) ++j;
+    else {
+        ++j;
+        ++k;
+    }
+}
+```
+
+- [ABC294 E - 2xN Grid](https://atcoder.jp/contests/abc294/tasks/abc294_e)
+- [ABC421 D - RLE Moving](https://atcoder.jp/contests/abc421/tasks/abc421_d)
