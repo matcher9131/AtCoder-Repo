@@ -251,3 +251,10 @@ while (i < w) {
 
 - [ABC294 E - 2xN Grid](https://atcoder.jp/contests/abc294/tasks/abc294_e)
 - [ABC421 D - RLE Moving](https://atcoder.jp/contests/abc421/tasks/abc421_d)
+
+
+## 漸化式が与えられた列において $10^9$ 以上のオーダーの項を求める
+- 行列累乗の利用
+  - $a_{k+1} = pa_k + q$ ならば $\begin{pmatrix} a_k \\ 1 \end{pmatrix} = \begin{pmatrix} p & q \\ 0 & 1 \end{pmatrix}^k \begin{pmatrix} a_0 \\ 1 \end{pmatrix}$
+    - [ABC293 E - Geometric Progression](https://atcoder.jp/contests/abc293/tasks/abc293_e)
+  - $a_{k+2} = pa_{k+1} + qa_k$ ならば $\begin{pmatrix} a_{k+1} \\ a_k \end{pmatrix} = \begin{pmatrix} p & q \\ 1 & 0 \end{pmatrix}^k \begin{pmatrix} a_1 \\ a_0 \end{pmatrix}$
