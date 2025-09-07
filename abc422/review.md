@@ -1,6 +1,7 @@
 # [ABC422](https://atcoder.jp/contests/abc422) Review
 - Rated参加
-- 最近のE以降ムズくね……？
+- 例によって過去にあまり無いパターンをぶつけられ無事撃沈
+  - しかし参加人数が少ない（それとも層がいつもと異なる？）のが幸いしてレートは微減に留まった
 
 ## D - Least Unbalanced
 - AC（16分＋1WA）
