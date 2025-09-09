@@ -73,3 +73,11 @@ AtCoder Problems RecommendationのDifficultでおすすめされる問題をひ�
 ## [ABC382 E - Expansion Packs](https://atcoder.jp/contests/abc382/tasks/abc382_e)
 - 典型的な期待値DP
 - ただし遷移確率そのものをDPで求める必要がある
+
+## [ABC045 D - すぬけ君の塗り絵](https://atcoder.jp/contests/abc045/tasks/arc061_b)
+- 以下3行3列の連続するマス目をセクションと呼ぶ
+- 黒いマスの個数が $1$ 以上になるセクションは高々 $9N$ 個しかないため、それらに対して全探索を行えばOK
+  - あるマスが黒いかどうかは`set`で黒いマスを保持しておくことで1回あたり $O(\log N)$ で判定できる
+- 黒いマスの個数が $0$ のセクションの個数は余事象で求められる
+  - セクションの全体数は $(H-2)(W-2)$
+- 計算量はセクションあたりのマスの数を $M$ として $O(M^2N \log N)$
