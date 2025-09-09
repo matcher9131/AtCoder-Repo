@@ -166,13 +166,6 @@ F id() {
 - $\mathrm{dp}_{i}$ を $i$ を右端とする連続部分列のうち条件を満たすものの個数とすると重複カウントを無くせるかもしれない
   - [ABC418 D - XNOR Operation](https://atcoder.jp/contests/abc418/tasks/abc418_d)
 
-## すごろくDP
-- $\mathrm{dp}_{i,j}:$ $i$ 回振ったときに地点 $j$ にいる確率
-- 遷移は出目 $x$ のそれぞれについて $\mathrm{dp}_{i+1,\min \{ N, j+x \}} = p(x) \mathrm{dp}_{i,j}$
-  - ただし $p(x)$ は出目 $x$ の出る確率
-- $i$ 回目にはじめてゴールする確率は $\mathrm{dp}_{i,N} - \mathrm{dp}_{i-1,N}$
-  - [ABC298 E - Unfair Sugoroku](https://atcoder.jp/contests/abc298/tasks/abc298_e)
-
 ## $X_i + X_j \geq p, Y_i + Y_j \geq q$ を満たす $(i,j)$ の個数
 - $X_i$ の取りうる値が少ないなら $X$ に関しては普通の配列で全探索して、 $Y$ に関してはFenwick treeなどで区間和を得る
   - [AGC047 A - Integer Product](https://atcoder.jp/contests/agc047/tasks/agc047_a)

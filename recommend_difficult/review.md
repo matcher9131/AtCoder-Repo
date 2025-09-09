@@ -69,3 +69,7 @@ AtCoder Problems RecommendationのDifficultでおすすめされる問題をひ�
   - このとき、全ての $j \in T$ 段目に共通して現れる文字列は、すべての段に存在する文字種の数を $c$ として $c^L$ 個存在する
 - あとは全ての $T$ に対してこれを数え、包除原理を用いて解を求める
 - 計算量はアルファベットの文字種を $C$ として $O(NC2^N)$
+
+## [ABC382 E - Expansion Packs](https://atcoder.jp/contests/abc382/tasks/abc382_e)
+- 典型的な期待値DP
+- ただし遷移確率そのものをDPで求める必要がある

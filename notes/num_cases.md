@@ -29,3 +29,14 @@
 ## $P(X \geq i)$ が求めやすい $X$ に関して $E_X$ を求める
 - $E_X = \sum_{i} iP(X=i) = \sum_i P(X \geq i)$
   - [ABC295 E - Kth Number](https://atcoder.jp/contests/abc295/tasks/abc295_e)
+
+## すごろくDP
+- $\mathrm{dp}_{i,j}:$ $i$ 回振ったときに地点 $j$ にいる確率
+- 遷移は出目 $x$ のそれぞれについて $\mathrm{dp}_{i+1,\min \{ N, j+x \}} = p(x) \mathrm{dp}_{i,j}$
+  - ただし $p(x)$ は出目 $x$ の出る確率
+- $i$ 回目にはじめてゴールする確率は $\mathrm{dp}_{i,N} - \mathrm{dp}_{i-1,N}$
+  - [ABC298 E - Unfair Sugoroku](https://atcoder.jp/contests/abc298/tasks/abc298_e)
+
+## 確率 $p_x$ で値 $x$ を得る試行を繰り返し、値の合計が $X$ 以上になるまでの試行回数の期待値を得る
+- 得た値の合計が $i$ **以上** になるまでの試行回数の期待値を $E_i$ として、 $E_i = 1 + \sum_{j=0} p_j E_{\max \{ i-j, 0 \}}$ ※移項が必要
+  - [ABC382 E - Expansion Packs](https://atcoder.jp/contests/abc382/tasks/abc382_e)
