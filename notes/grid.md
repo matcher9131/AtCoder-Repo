@@ -19,3 +19,7 @@
 ## 特殊な操作をしながら探索するときの特殊な操作の回数
 - 特殊な操作のコストを $1$ 、それ以外を $0$ としてBFS
   - [ABC213 E - Stronger Takahashi](https://atcoder.jp/contests/abc213/tasks/abc213_e)
+
+## 正方形グリッドで右か下へのみ移動する経路を全探索
+- 前半と後半に分けるとそれぞれ $O(2^N)$ 通り
+  - [ABC271 F - XOR on Grid Path](https://atcoder.jp/contests/abc271/tasks/abc271_f)
