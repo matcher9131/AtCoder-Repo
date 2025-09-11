@@ -23,3 +23,7 @@
 ## 正方形グリッドで右か下へのみ移動する経路を全探索
 - 前半と後半に分けるとそれぞれ $O(2^N)$ 通り
   - [ABC271 F - XOR on Grid Path](https://atcoder.jp/contests/abc271/tasks/abc271_f)
+
+## 次に訪れるべきマスが今まで訪れたマスの全ての近傍となる条件でバックトラッキング
+- 毎度次に訪れるべきマスを探索する
+  - [ABC211 E - Red Polyomino](https://atcoder.jp/contests/abc211/tasks/abc211_e)
