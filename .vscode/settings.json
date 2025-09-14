@@ -112,7 +112,8 @@
         "stacktrace": "cpp",
         "stdfloat": "cpp",
         "syncstream": "cpp",
-        "fenwicktree": "cpp"
+        "fenwicktree": "cpp",
+        "climits": "cpp"
     },
     "editor.formatOnSave": false,
     "dotnet.defaultSolution": "disable"
