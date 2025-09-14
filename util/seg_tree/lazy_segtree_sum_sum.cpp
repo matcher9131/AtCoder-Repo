@@ -7,10 +7,10 @@ extern ll INF;
 
 using S = ll;
 S op(S a, S b) {
-    return max(a, b);
+    return a + b;
 }
 S e() {
-    return -INF;
+    return 0;
 }
 using F = ll;
 S mapping(F f, S x) {

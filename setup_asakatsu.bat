@@ -10,3 +10,5 @@ mkdir asakatsu\%1\4
 copy template asakatsu\%1\4
 mkdir asakatsu\%1\5
 copy template asakatsu\%1\5
+mkdir asakatsu\%1\6
+copy template asakatsu\%1\6
