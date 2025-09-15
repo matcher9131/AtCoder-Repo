@@ -34,19 +34,36 @@ int main() {
     c[0] = 1;
     for (ull bit = 0; bit < 1ULL<<n; ++bit) {
         for (ll i = 0; i < n; ++i) {
-            if (bit & (1LL << i)) continue;
+            if (bit & (1ULL << i)) continue;
             ll newBit = bit | (1LL << i);
             if (c[newBit] != 0) continue;
-            if (c[bit] == -1) c[newBit] = -1;
+            if (c[bit] > y) c[newBit] = y+1;
             else {
                 ll g = gcd(c[bit], a[i]);
                 auto [overflows, result] = multiply(c[bit]/g, a[i]);
-                c[newBit] = overflows || result > y ? -1 : result;
+                c[newBit] = overflows ? y+1 : result;
             }
         }
     }
+    for (ull bit = 0; bit < 1ULL<<n; ++bit) {
+        c[bit] = y / c[bit];
+        assert(c[bit] >= 0);
+    }
 
+    // メビウス変換
+    // 各c[bit]は自身のsupersetとなるものの回数を含んでしまっているのでそれを引く
+    for (ll i = 0; i < n; ++i) {
+        for (ull bit = 0; bit < 1ULL<<n; ++bit) {
+            if (bit & (1ULL << i)) continue;
+            c[bit] -= c[bit | (1ULL << i)];
+        }
+    }
     
+    ll ans = 0;
+    for (ull bit = 0; bit < 1ULL<<n; ++bit) {
+        if (popcount(bit) == m) ans += c[bit];
+    }
 
+    cout << ans << endl;
     return 0;
 }
