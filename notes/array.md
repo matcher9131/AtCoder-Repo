@@ -41,6 +41,7 @@
 - $[L, M)$ と $[M, R)$ がマージ不可
   - Mo's algorithm
     - [ABC174 F - Range Set Query](https://atcoder.jp/contests/abc174/tasks/abc174_f)
+    - [ABC293 G - Triple Index](https://atcoder.jp/contests/abc293/tasks/abc293_g)
 
 ## クエリ順が $1, 2, \dots, N$
 - $\mathrm{ans}_i$ から $\mathrm{ans}_{i+1}$ を作る
