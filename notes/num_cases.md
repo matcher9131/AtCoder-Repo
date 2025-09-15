@@ -40,3 +40,17 @@
 ## 確率 $p_x$ で値 $x$ を得る試行を繰り返し、値の合計が $X$ 以上になるまでの試行回数の期待値を得る
 - 得た値の合計が $i$ **以上** になるまでの試行回数の期待値を $E_i$ として、 $E_i = 1 + \sum_{j=0} p_j E_{\max \{ i-j, 0 \}}$ ※移項が必要
   - [ABC382 E - Expansion Packs](https://atcoder.jp/contests/abc382/tasks/abc382_e)
+
+## 集合 $S$ に対し $f(S)$ を数えたいが、 $S \subset T$ となる $f(T)$ を含んでしまう
+- メビウス変換で上位集合のものを取り除く
+
+```cpp
+for (int i = 0; i < n; ++i) {
+    for (ull bit = 0; bit < (1ULL << n); ++bit) {
+        c[bit] -= c[bit | (1ULL << i)];
+    }
+}
+```
+
+- ループの順序を逆にすると引きすぎてしまうので注意
+  - [ABC423 F - Loud Cicada](https://atcoder.jp/contests/abc423/tasks/abc423_f)
