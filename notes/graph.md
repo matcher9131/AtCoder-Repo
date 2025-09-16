@@ -126,3 +126,7 @@ while (k > 0) {
 ## 木の構造は変化しないが、辺の重みが途中で変化する
 - オイラーツアーによるタイムスタンプとLazy segment treeの組み合わせ
   - [ABC294 G - Distance Queries on a Tree](https://atcoder.jp/contests/abc294/tasks/abc294_g)
+
+## 頂点の重みと辺の重みの合計を考慮する
+- 超頂点を追加して頂点の重みを辺の重みに変換する
+  - [ARC029 C - 高橋君と国家](https://atcoder.jp/contests/arc029/tasks/arc029_3)
