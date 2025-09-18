@@ -252,3 +252,9 @@ while (i < w) {
   - $a_{k+1} = pa_k + q$ ならば $\begin{pmatrix} a_k \\ 1 \end{pmatrix} = \begin{pmatrix} p & q \\ 0 & 1 \end{pmatrix}^k \begin{pmatrix} a_0 \\ 1 \end{pmatrix}$
     - [ABC293 E - Geometric Progression](https://atcoder.jp/contests/abc293/tasks/abc293_e)
   - $a_{k+2} = pa_{k+1} + qa_k$ ならば $\begin{pmatrix} a_{k+1} \\ a_k \end{pmatrix} = \begin{pmatrix} p & q \\ 1 & 0 \end{pmatrix}^k \begin{pmatrix} a_1 \\ a_0 \end{pmatrix}$
+
+
+## DFSなのだが毎度探索する対象が変化する
+- 計算量が間に合うなら毎度探索する対象を作り直す
+  - [ABC281 F - Xor Minimization](https://atcoder.jp/contests/abc281/tasks/abc281_f)
+- バックトラッキング
