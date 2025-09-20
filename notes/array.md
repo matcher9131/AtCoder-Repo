@@ -258,3 +258,20 @@ while (i < w) {
 - 計算量が間に合うなら毎度探索する対象を作り直す
   - [ABC281 F - Xor Minimization](https://atcoder.jp/contests/abc281/tasks/abc281_f)
 - バックトラッキング
+
+
+## 3次元累積和
+
+```cpp
+// 構築
+vector<vector<vector<ll>>> s(n+1, vector<vector<ll>>(m+1, vector<ll>(l+1)));
+for (ll i = 0; i < n; ++i) {
+    for (ll j = 0; j < m; ++j) {
+        for (ll k = 0; k < l; ++k) {
+            s[i+1][j+1][k+1] = s[i][j+1][k+1] + s[i+1][j][k+1] + s[i+1][j+1][k] - s[i+1][j][k] - s[i][j+1][k] - s[i][j][k+1] + s[i][j][k] + a[i][j][k];
+        }
+    }
+}
+// [xl, xr)×[yl, yr)×[zl, zr)
+ll ans = s[xr][yr][zr] - s[xl][yr][zr] - s[xr][yl][zr] - s[xr][yr][zl] + s[xr][yl][zl] + s[xl][yr][zl] + s[xl][yl][zr] - s[xl][yl][zl];
+```
