@@ -54,3 +54,24 @@ for (int i = 0; i < n; ++i) {
 
 - ループの順序を逆にすると引きすぎてしまうので注意
   - [ABC423 F - Loud Cicada](https://atcoder.jp/contests/abc423/tasks/abc423_f)
+
+
+## $N$ 個から $0$ 個以上を選ぶ場合の数で、ある $y = f(x)$ が存在して $A_j = f(A_i)$ となる $i, j$ を同時に選べないとき
+- $f(A_i) = A_j$ ならば $f(A_j) = A_i$ が成り立つならばこの2つをセットにして数える
+
+```cpp
+unordered_map<ll, ll> count;
+
+ll ans = 1;
+set<ll> used;
+for (const auto &[val, c] : count) {
+    if (used.contains(val)) continue;
+    ll other = f(val);
+    if (count.contains(other)) {
+        ans *= mint(2).pow(c) * mint(2).pow(count[other]) - 1;
+        used.insert(other);
+    } else {
+        ans *= mint(2).pow(c);
+    }
+}
+```
