@@ -58,6 +58,7 @@ for (int i = 0; i < n; ++i) {
 
 ## $N$ 個から $0$ 個以上を選ぶ場合の数で、ある $y = f(x)$ が存在して $A_j = f(A_i)$ となる $i, j$ を同時に選べないとき
 - $f(A_i) = A_j$ ならば $f(A_j) = A_i$ が成り立つならばこの2つをセットにして数える
+  - [ABC168 E - ∙ (Bullet)](https://atcoder.jp/contests/abc168/tasks/abc168_e)
 
 ```cpp
 unordered_map<ll, ll> count;
