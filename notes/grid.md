@@ -3,6 +3,9 @@
 ## 全マス対象の操作
 - 1マスの移動だけ追えばあとはすべてわかる
   - [ARC153 B - Grid Rotations](https://atcoder.jp/contests/arc153/tasks/arc153_b)
+- 直前の操作で更新されたマスの隣接マスしか対象にならず、1度操作が行われたマスはそれ以降対象にならない
+  - BFSをベースに。新たな対象は一旦バッファに置いておき、キューをすべて吐き出してから操作してキューに突っ込む
+    - [ABC425 D - Ulam-Warburton Automaton](https://atcoder.jp/contests/abc425/tasks/abc425_d)
 
 ## 重ならないように配置
 - あらかじめグリッドをいくつかに分けて、そこに収まるかどうかを判定
