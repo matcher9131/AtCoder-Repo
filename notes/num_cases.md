@@ -19,11 +19,11 @@
   - [ABC301 F - Anti-DDoS](https://atcoder.jp/contests/abc301/tasks/abc301_f)
 
 ## 包除原理
-- ${\displaystyle \left| \bigcup_{i=1}^n A_i \right| = \sum_{k=1}^n(-1)^{k-1} \sum_{J \subset [n], |J| = k} \left| \bigcap_{j \in J} A_j \right |}$ （ただし $[n] = {1, 2, \dots, n}$ の形が有名だが、capとcupを逆にした ${\displaystyle \left| \bigcap_{i=1}^n A_i \right| = \sum_{k=1}^n(-1)^{k-1} \sum_{J \subset [n], |J| = k} \left| \bigcup_{j \in J} A_j \right |}$ も成り立つ
+- ${\displaystyle \left| \bigcup_{i=1}^n A_i \right| = \sum_{k=1}^n(-1)^{k-1} \sum_{J \subset [n], |J| = k} \left| \bigcap_{j \in J} A_j \right |}$ （ただし $[n] = {1, 2, \dots, n}$ ）の形が有名だが、capとcupを逆にした ${\displaystyle \left| \bigcap_{i=1}^n A_i \right| = \sum_{k=1}^n(-1)^{k-1} \sum_{J \subset [n], |J| = k} \left| \bigcup_{j \in J} A_j \right |}$ も成り立つ
   - [ABC297 F - Minimum Bounding Box 2](https://atcoder.jp/contests/abc297/tasks/abc297_f)
 
 ## 必ずしも $A \cap B$ のほうが $A \cup B$ より数えやすいとは限らない
-- 「少なくとも1個がAで少なくとも1個がB」という場合は、余事象を考えることにより $A \cap B$ より $A \cup B$ のほうが余事象を用いて数えやすい
+- 「少なくとも1個がAで少なくとも1個がB」という場合は、余事象を考えることにより $A \cap B$ より $A \cup B$ のほうが数えやすい
   - [ABC297 F - Minimum Bounding Box 2](https://atcoder.jp/contests/abc297/tasks/abc297_f)
 
 ## $P(X \geq i)$ が求めやすい $X$ に関して $E_X$ を求める
@@ -36,6 +36,11 @@
   - ただし $p(x)$ は出目 $x$ の出る確率
 - $i$ 回目にはじめてゴールする確率は $\mathrm{dp}_{i,N} - \mathrm{dp}_{i-1,N}$
   - [ABC298 E - Unfair Sugoroku](https://atcoder.jp/contests/abc298/tasks/abc298_e)
+
+## 回数の期待値をDPで
+- ${\displaystyle \mathrm{dp}_i = 1 + \sum_j p_j \cdot \mathrm{dp}_j}$
+  - ただし $p_j$ は遷移確率
+    - [ABC280 E - Critical Hit](https://atcoder.jp/contests/abc280/tasks/abc280_e)
 
 ## 確率 $p_x$ で値 $x$ を得る試行を繰り返し、値の合計が $X$ 以上になるまでの試行回数の期待値を得る
 - 得た値の合計が $i$ **以上** になるまでの試行回数の期待値を $E_i$ として、 $E_i = 1 + \sum_{j=0} p_j E_{\max \{ i-j, 0 \}}$ ※移項が必要
@@ -56,7 +61,7 @@ for (int i = 0; i < n; ++i) {
   - [ABC423 F - Loud Cicada](https://atcoder.jp/contests/abc423/tasks/abc423_f)
 
 
-## $N$ 個から $0$ 個以上を選ぶ場合の数で、ある $y = f(x)$ が存在して $A_j = f(A_i)$ となる $i, j$ を同時に選べないとき
+## $N$ 個から $0$ 個以上を選ぶ場合の数で、ある $y = f(x)$ が存在して $A_j = f(A_i)$ となる $i, j$ を同時に選べない
 - $f(A_i) = A_j$ ならば $f(A_j) = A_i$ が成り立つならばこの2つをセットにして数える
   - [ABC168 E - ∙ (Bullet)](https://atcoder.jp/contests/abc168/tasks/abc168_e)
 
@@ -76,3 +81,7 @@ for (const auto &[val, c] : count) {
     }
 }
 ```
+
+## $O(N^2)$ が間に合うときに $0 \leq j \leq i \leq N$ のすべてで ${\displaystyle \begin{pmatrix} i \\ j \end{pmatrix}}$ を求めたい
+- パスカルの三角形
+  - [ABC425 E - Count Sequences 2](https://atcoder.jp/contests/abc425/tasks/abc425_e)

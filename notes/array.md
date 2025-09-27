@@ -154,11 +154,6 @@ F id() {
   - [ABC307 E - Distinct Adjacent](https://atcoder.jp/contests/abc307/tasks/abc307_e)
 - $1$ 番目を決め打ちして探索し、 $N$ 番目が条件を満たすかどうかを確認する
 
-## 回数の期待値をDPで
-- ${\displaystyle \mathrm{dp}_i = 1 + \sum_j p_j \cdot \mathrm{dp}_j}$
-  - ただし $p_j$ は遷移確率
-    - [ABC280 E - Critical Hit](https://atcoder.jp/contests/abc280/tasks/abc280_e)
-
 ## DPで特定の条件を満たすものの個数を数える
 - 条件を満たすものと満たさないものの間で遷移があるかを確かめ、ある場合は両方を同時に数える
   - [ABC418 D - XNOR Operation](https://atcoder.jp/contests/abc418/tasks/abc418_d)

@@ -130,3 +130,7 @@ while (k > 0) {
 ## 頂点の重みと辺の重みの合計を考慮する
 - 超頂点を追加して頂点の重みを辺の重みに変換する
   - [ARC029 C - 高橋君と国家](https://atcoder.jp/contests/arc029/tasks/arc029_3)
+
+## 頂点集合からそれぞれの隣接頂点のうちある条件を満たすものに対して一斉に操作することを繰り返す
+- BFSでキューが空になるまで対象となる頂点を一時領域においておき、その後一斉に操作してキューに放り込む
+  - [ABC425 D - Ulam-Warburton Automaton](https://atcoder.jp/contests/abc425/tasks/abc425_d)
