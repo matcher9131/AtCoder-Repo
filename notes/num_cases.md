@@ -30,12 +30,17 @@
 - $E_X = \sum_{i} iP(X=i) = \sum_i P(X \geq i)$
   - [ABC295 E - Kth Number](https://atcoder.jp/contests/abc295/tasks/abc295_e)
 
-## すごろくDP
+## すごろくDP（ゴールする確率）
 - $\mathrm{dp}_{i,j}:$ $i$ 回振ったときに地点 $j$ にいる確率
 - 遷移は出目 $x$ のそれぞれについて $\mathrm{dp}_{i+1,\min \{ N, j+x \}} = p(x) \mathrm{dp}_{i,j}$
   - ただし $p(x)$ は出目 $x$ の出る確率
 - $i$ 回目にはじめてゴールする確率は $\mathrm{dp}_{i,N} - \mathrm{dp}_{i-1,N}$
   - [ABC298 E - Unfair Sugoroku](https://atcoder.jp/contests/abc298/tasks/abc298_e)
+
+## すごろくDP（ゴールに到達するまでにサイコロを振る回数の期待値）
+- $E_i = 1 + \sum_{j} p_j E_{i+j} + X$ として **後ろから** 計算
+  - ただし $p_j$ は **$0$ を除いた** 目 $j$ が出る確率、 $X$ は $0$ を出す回数の期待値
+    - [ABC263 E - Sugoroku 3](https://atcoder.jp/contests/abc263/tasks/abc263_e)
 
 ## 回数の期待値をDPで
 - ${\displaystyle \mathrm{dp}_i = 1 + \sum_j p_j \cdot \mathrm{dp}_j}$
