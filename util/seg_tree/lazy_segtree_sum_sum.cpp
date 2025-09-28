@@ -1,4 +1,4 @@
-// #include <atcoder/lazysegtree>
+#include <atcoder/lazysegtree>
 #include <algorithm>
 using namespace std;
 using ll = long long;
@@ -22,5 +22,4 @@ F composition(F f, F g) {
 F id() {
     return 0;
 }
-
-// atcoder::lazy_segtree<S, op, e, F, mapping, composition, id> seg(n);
+using LazySegTree = atcoder::lazy_segtree<S, op, e, F, mapping, composition, id>;
