@@ -15,14 +15,14 @@ private:
     multiset<ll, greater<>> _lower;
     multiset<ll> _upper;
     void _flatten() {
-        while ((ll)_upper.size() - (ll)_lower.size() > 1) {
+        while (_upper.size() > _lower.size() + 1) {
             auto it = _upper.begin();
             _lower.insert(*it);
             _lowerSum += *it;
             _upperSum -= *it;
             _upper.erase(it);
         }
-        while ((ll)_lower.size() - (ll)_upper.size() > 1) {
+        while (_lower.size() > _upper.size() + 1) {
             auto it = _lower.begin();
             _upper.insert(*it);
             _upperSum += *it;
@@ -40,29 +40,26 @@ public:
             _lower.insert(x);
             _lowerSum += x;
         }
-        this->_flatten();
+        _flatten();
     }
 
     void erase(ll x) {
-        ll med = _lower.empty() ? -INF : *_lower.begin();
-        if (x > med) {
-            auto it = _upper.find(x);
-            if (it != _upper.end()) {
-                _upper.erase(it);
-                _upperSum -= x;
-            }
+        auto it = _upper.find(x);
+        if (it != _upper.end()) {
+            _upper.erase(it);
+            _upperSum -= x;
         } else {
-            auto it = _lower.find(x);
+            it = _lower.find(x);
             if (it != _lower.end()) {
                 _lower.erase(it);
                 _lowerSum -= x;
             }
-        }
-        this->_flatten();
+        }        
+        _flatten();
     }
 
-    ll getUpperSum() { return this->_upperSum; }
-    ll getLowerSum() { return this->_lowerSum; }
+    ll getUpperSum() { return _upperSum; }
+    ll getLowerSum() { return _lowerSum; }
 };
 
 int main() {
