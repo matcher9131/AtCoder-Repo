@@ -270,3 +270,10 @@ for (ll i = 0; i < n; ++i) {
 // [xl, xr)×[yl, yr)×[zl, zr)
 ll ans = s[xr][yr][zr] - s[xl][yr][zr] - s[xr][yl][zr] - s[xr][yr][zl] + s[xr][yl][zl] + s[xl][yr][zl] + s[xl][yl][zr] - s[xl][yl][zl];
 ```
+
+
+## 2項ずつ選んで差の絶対値の和を最大化する
+- 大きい方 $\left\lfloor \frac{N}{2} \right\rfloor$ 個と小さい方 $\left\lfloor \frac{N}{2} \right\rfloor$ 個に分ける
+  - 隣接する2項という制限があっても $N$ が偶数なら達成可能（括弧に対応付けると最も内側のものから順番にできる）
+  - $N$ が奇数なら奇数番目の1項を除いて左右に分ける
+    - [ARC196 A - Adjacent Delete](https://atcoder.jp/contests/arc196/tasks/arc196_a)
