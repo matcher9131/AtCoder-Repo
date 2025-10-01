@@ -277,3 +277,8 @@ ll ans = s[xr][yr][zr] - s[xl][yr][zr] - s[xr][yl][zr] - s[xr][yr][zl] + s[xr][y
   - 隣接する2項という制限があっても $N$ が偶数なら達成可能（括弧に対応付けると最も内側のものから順番にできる）
   - $N$ が奇数なら奇数番目の1項を除いて左右に分ける
     - [ARC196 A - Adjacent Delete](https://atcoder.jp/contests/arc196/tasks/arc196_a)
+
+
+## 文字列中に長さ $K$ の回文があるかどうかを判定する
+- 直前 $K-1$ 文字の情報を持てばDPで回せる
+  - [ABC359 D - Avoid K Palindrome](https://atcoder.jp/contests/abc359/tasks/abc359_d)
