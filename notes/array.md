@@ -282,3 +282,8 @@ ll ans = s[xr][yr][zr] - s[xl][yr][zr] - s[xr][yl][zr] - s[xr][yr][zl] + s[xr][y
 ## 文字列中に長さ $K$ の回文があるかどうかを判定する
 - 直前 $K-1$ 文字の情報を持てばDPで回せる
   - [ABC359 D - Avoid K Palindrome](https://atcoder.jp/contests/abc359/tasks/abc359_d)
+
+
+## 部分列が2度現れるかどうかを判定する
+- （インデックスが）辞書順最小となるものと辞書順最大となるものを取り、一致するかどうかを見る
+  - [ARC195 A - Twice Subsequence](https://atcoder.jp/contests/arc195/tasks/arc195_a)
