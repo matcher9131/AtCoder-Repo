@@ -90,3 +90,7 @@ for (const auto &[val, c] : count) {
 ## $O(N^2)$ が間に合うときに $0 \leq j \leq i \leq N$ のすべてで ${\displaystyle \begin{pmatrix} i \\ j \end{pmatrix}}$ を求めたい
 - パスカルの三角形
   - [ABC425 E - Count Sequences 2](https://atcoder.jp/contests/abc425/tasks/abc425_e)
+
+## $A_i$ を用いない場合の数
+- 左右からの累積和
+  - [ABC291 F - Teleporter and Closed off](https://atcoder.jp/contests/abc291/tasks/abc291_f)
