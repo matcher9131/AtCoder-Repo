@@ -11,29 +11,32 @@ template<typename T> inline void chmax(T &x, T y) { if (x < y) x = y; }
 int main() {
     ll n;
     cin >> n;
-    map<double, ll> x, y;
-    ll cSum = 0;
+    vector<double> x(n), y(n), c(n);
     for (ll i = 0; i < n; ++i) {
-        ll xi, yi, ci;
-        cin >> xi >> yi >> ci;
-        x[xi] += ci;
-        y[yi] += ci;
-        cSum += ci;
+        cin >> x[i] >> y[i] >> c[i];
     }
-
-    auto f = [&](map<double, ll> &x) -> double {
-        ll cPrev = -cSum;
-        double xPrev = -1e5;
-        for (const auto &[xi, ci] : x) {
-            ll cCur = cPrev + 2 * ci;
-            if (cCur > 0) return cPrev < 0 ? xi : (xPrev + xi) / 2;
-            cPrev = cCur;
-            xPrev = xi;
+    
+    auto f = [&](vector<double> &x, double x0) -> double {
+        double res = 0;
+        for (ll i = 0; i < n; ++i) {
+            chmax(res, c[i] * abs(x[i] - x0));
         }
-        return INF;
+        return res;
     };
 
-    cout << fixed << setprecision(15) << max(f(x), f(y)) << endl;
+    double xl = -1e5, xr = 1e5, yl = -1e5, yr = 1e5;
+    for (ll i = 0; i < 100; ++i) {
+        double x1 = (2*xl + xr) / 3;
+        double x2 = (xl + 2*xr) / 3;
+        if (f(x, x1) < f(x, x2)) xr = x2;
+        else xl = x1;
+        double y1 = (2*yl + yr) / 3;
+        double y2 = (yl + 2*yr) / 3;
+        if (f(y, y1) < f(y, y2)) yr = y2;
+        else yl = y1;
+    }
+
+    cout << fixed << setprecision(15) << max(f(x, xl), f(y, yl)) << endl;
 
     return 0;
 }
