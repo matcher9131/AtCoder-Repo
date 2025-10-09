@@ -21,3 +21,7 @@
 ## 到達可能性
 - 最終局面から逆算して初期盤面が可能かどうかを調べる
   - [AGC033 B - LRUD Game](https://atcoder.jp/contests/agc033/tasks/agc033_b)
+
+## $N$ 個のものを1個ずつ順に取っていく形式で途中で勝敗が決まるが、 $O(N \log N)$ ぐらいまでしか許されない
+- 条件次第では先手or後手必勝にならないかどうかを考える。偶奇性も大事
+  - [ARC131 C - Zero XOR](https://atcoder.jp/contests/arc131/tasks/arc131_c)  ※ $N$ が奇数のとき先手必勝

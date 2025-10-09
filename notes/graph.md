@@ -134,3 +134,7 @@ while (k > 0) {
 ## 頂点集合からそれぞれの隣接頂点のうちある条件を満たすものに対して一斉に操作することを繰り返す
 - BFSでキューが空になるまで対象となる頂点を一時領域においておき、その後一斉に操作してキューに放り込む
   - [ABC425 D - Ulam-Warburton Automaton](https://atcoder.jp/contests/abc425/tasks/abc425_d)
+
+## 全域木に含まれない辺の両端が祖先と子孫の関係にある/ない
+- 全域木をDFSで作れば必ず祖先と子孫の関係にあり、BFSで作れば必ず祖先と子孫の関係にない
+  - [ABC251 F - Two Spanning Trees](https://atcoder.jp/contests/abc251/tasks/abc251_f)
