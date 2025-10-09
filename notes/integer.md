@@ -42,7 +42,7 @@
   - [ARC116 C - Multiple Sequences](https://atcoder.jp/contests/arc116/tasks/arc116_c)
 
 ## $A_i$ が $A_j$ の倍数であるような $(i, j)$ の列挙
-- $A_i = k$ となるような $i$ の集合を $S_k$ とし、`for (int k = 1; k * a[i] <= max; ++k)`で探す（`max`は $\max A$ ） 
+- $A_j$ を逆引きできるようにしておいて`for (int i = 0; i < n; ++i) for (int k = 1; k * a[i] <= max; ++k)`で探す（`max`は $\max A$ ） 
   - [ARC133 B - Dividing Subsequence](https://atcoder.jp/contests/arc133/tasks/arc133_b)
 
 ## 桁に注目して何かすべき問題だが、 $i$ 桁目のみ見てもうまくいかない

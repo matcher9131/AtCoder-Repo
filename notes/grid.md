@@ -35,3 +35,7 @@
 ## 次に訪れるべきマスが今まで訪れたマスの全ての近傍となる条件でバックトラッキング
 - 毎度次に訪れるべきマスを探索する
   - [ABC211 E - Red Polyomino](https://atcoder.jp/contests/abc211/tasks/abc211_e)
+
+## グリッド上でサイクル検出
+- サイクルの長さは必ず偶数、かつ4以上
+  - [ABC276 E - Round Trip](https://atcoder.jp/contests/abc276/tasks/abc276_e)

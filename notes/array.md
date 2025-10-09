@@ -1,9 +1,5 @@
 # Array
 
-## 共通
-- 後ろからDPはかなり強力
-  - [ABC078 D - ABS](https://atcoder.jp/contests/abc078/tasks/arc085_b)
-
 ## 全要素への操作
 - 何度か操作を行うとそれ以上変化しなくなる
   - [東京海上日動 プログラミングコンテスト2020 C - Lamps](https://atcoder.jp/contests/tokiomarine2020/tasks/tokiomarine2020_c)
@@ -92,10 +88,6 @@
 - $M$ の小さい順に求め、 $f(M)$ から $\sum_{m|M} f(m)$ を引く
   - [ABC304 F - Shift Table](https://atcoder.jp/contests/abc304/tasks/abc304_f)
 
-## 遷移がループしそうなDP
-- 状態数を増やせばループを回避できることがある
-  - [ABC303 D - Shift vs. CapsLock](https://atcoder.jp/contests/abc303/tasks/abc303_d)
-
 ## $i$ を固定したときに対象となる $j$ が複数存在する
 - $i$ を固定して $j$ の探索、 $j$ を固定して $i$ の探索の双方を行うことにより複数ではなく高々1個にする
   - [ABC302 D - Impartial Gift](https://atcoder.jp/contests/abc302/tasks/abc302_d)
@@ -144,23 +136,10 @@ F id() {
   - [ABC336 E - Digit Sum Divisible](https://atcoder.jp/contests/abc336/tasks/abc336_e)
 
 
-## DPで数え上げたいが要素数が多すぎる
-- そもそも漸化式を一般項で表せる
-  - [SoundHound Inc. Programming Contest 2018 -Masters Tournament- C - Ordinary Beauty](https://atcoder.jp/contests/soundhound2018-summer-qual/tasks/soundhound2018_summer_qual_c)
-
-
 ## $i$ 番目と $i+1$ 番目の間および $N$ 番目と $1$ 番目の間に制約がある
 - 「 $i$ 番目と $1$ 番目の間で制約を満たす/満たさない」をDPの要素に付け加える
   - [ABC307 E - Distinct Adjacent](https://atcoder.jp/contests/abc307/tasks/abc307_e)
 - $1$ 番目を決め打ちして探索し、 $N$ 番目が条件を満たすかどうかを確認する
-
-## DPで特定の条件を満たすものの個数を数える
-- 条件を満たすものと満たさないものの間で遷移があるかを確かめ、ある場合は両方を同時に数える
-  - [ABC418 D - XNOR Operation](https://atcoder.jp/contests/abc418/tasks/abc418_d)
-
-## 連続部分列の個数をDPで数える
-- $\mathrm{dp}_{i}$ を $i$ を右端とする連続部分列のうち条件を満たすものの個数とすると重複カウントを無くせるかもしれない
-  - [ABC418 D - XNOR Operation](https://atcoder.jp/contests/abc418/tasks/abc418_d)
 
 ## $X_i + X_j \geq p, Y_i + Y_j \geq q$ を満たす $(i,j)$ の個数
 - $X_i$ の取りうる値が少ないなら $X$ に関しては普通の配列で全探索して、 $Y$ に関してはFenwick treeなどで区間和を得る
@@ -284,6 +263,6 @@ ll ans = s[xr][yr][zr] - s[xl][yr][zr] - s[xr][yl][zr] - s[xr][yr][zl] + s[xr][y
   - [ABC359 D - Avoid K Palindrome](https://atcoder.jp/contests/abc359/tasks/abc359_d)
 
 
-## 部分列が2度現れるかどうかを判定する
+## 同じ部分列が2度現れるかどうかを判定する
 - （インデックスが）辞書順最小となるものと辞書順最大となるものを取り、一致するかどうかを見る
   - [ARC195 A - Twice Subsequence](https://atcoder.jp/contests/arc195/tasks/arc195_a)
