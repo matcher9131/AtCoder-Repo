@@ -8,11 +8,20 @@ constexpr ll INF = 1e18;
 template<typename T> inline void chmin(T &x, T y) { if (y < x) x = y; }
 template<typename T> inline void chmax(T &x, T y) { if (x < y) x = y; }
 
-int main() {
+void solve() {
     ll n, m;
     cin >> n >> m;
 
     cout << m + (n-2) * (m/2) << endl;
+}
+
+int main() {
+    ll t;
+    cin >> t;
+    
+    while (t--) {
+        solve();
+    }
 
     return 0;
 }
