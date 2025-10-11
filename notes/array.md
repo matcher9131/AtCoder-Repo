@@ -266,3 +266,19 @@ ll ans = s[xr][yr][zr] - s[xl][yr][zr] - s[xr][yl][zr] - s[xr][yr][zl] + s[xr][y
 ## 同じ部分列が2度現れるかどうかを判定する
 - （インデックスが）辞書順最小となるものと辞書順最大となるものを取り、一致するかどうかを見る
   - [ARC195 A - Twice Subsequence](https://atcoder.jp/contests/arc195/tasks/arc195_a)
+
+
+## 区間 $[1, j]$ の項の種類数と区間 $[j+1, i]$ の項の種類数の和を $O(N \log N)$ で求める
+
+$$
+\mathrm{dp}_{i+1, j} =
+  \begin{cases}
+    \mathrm{dp}_{i,j} + 1 && (A_{i+1} \notin S_{j+1, i}) \\
+    \mathrm{dp}_{i,j} && (A_{i+1} \in S_{j+1, i}) \\
+  \end{cases}
+$$
+
+- ただし $S_{j+1,i}$ は $A_{j+1}, A_{j+2}, \dots, A_i$ からなる集合
+- $A_{i+1} \in S_{j+1, i}$ を満たすかどうかは $j$ について単調性があるため、実際には $\mathrm{dp}_{i}$ に対して区間加算で $\mathrm{dp}_{i+1}$ が得られる
+  - よってインラインDPで更新すれば $O(N \log N)$ で計算できる
+- [ABC397 F - Variety Split Hard](https://atcoder.jp/contests/abc397/tasks/abc397_f)
