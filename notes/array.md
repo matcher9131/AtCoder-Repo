@@ -297,3 +297,7 @@ auto dfs = [&](auto dfs, ll last, ll val) -> void {
 };
 dfs(dfs, -2, /* 初期値 */);
 ```
+
+## $2^N$ 個の区間ができそうで実は $N+1$ 個の区間しかできないパターン
+- 実際に手を動かして確認！
+  - [AGC017 B - Moderate Differences](https://atcoder.jp/contests/agc017/tasks/agc017_b)

@@ -94,3 +94,18 @@ for (const auto &[val, c] : count) {
 ## $A_i$ を用いない場合の数
 - 左右からの累積和
   - [ABC291 F - Teleporter and Closed off](https://atcoder.jp/contests/abc291/tasks/abc291_f)
+
+## $r$ が小さいときの ${}_n H_r = \binom{n+r-1}{r-1}$
+
+```cpp
+mint nhr(ll n, ll r) {
+    mint numer = 1, denom = 1;
+    for (ll i = 1; i < r; ++i) {
+        numer *= n+i;
+        denom *= i;
+    }
+    return numer / denom;
+}
+```
+
+- 分母と分子に分けないと $\log M$ 倍（≒30倍）の計算量になってしまうので注意
