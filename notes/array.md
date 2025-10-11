@@ -282,3 +282,18 @@ $$
 - $A_{i+1} \in S_{j+1, i}$ を満たすかどうかは $j$ について単調性があるため、実際には $\mathrm{dp}_{i}$ に対して区間加算で $\mathrm{dp}_{i+1}$ が得られる
   - よってインラインDPで更新すれば $O(N \log N)$ で計算できる
 - [ABC397 F - Variety Split Hard](https://atcoder.jp/contests/abc397/tasks/abc397_f)
+
+
+## 連続する項を含まない（連続とは限らない）部分列を列挙する
+- 部分列そのものではなく部分列から得られる何らかの値が必要なら以下のDFSで $O(\phi^N)$ でできる
+  - [ABC427 F - Not Adjacent](https://atcoder.jp/contests/abc427/tasks/abc427_f)
+
+```cpp
+auto dfs = [&](auto dfs, ll last, ll val) -> void {
+    /* valを用いて何かを行う */
+    for (ll i = last + 2; i < n; ++i) {
+        dfs(dfs, i, /* 新しいval */);
+    }
+};
+dfs(dfs, -2, /* 初期値 */);
+```
