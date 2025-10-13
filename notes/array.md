@@ -301,3 +301,11 @@ dfs(dfs, -2, /* 初期値 */);
 ## $2^N$ 個の区間ができそうで実は $N+1$ 個の区間しかできないパターン
 - 実際に手を動かして確認！
   - [AGC017 B - Moderate Differences](https://atcoder.jp/contests/agc017/tasks/agc017_b)
+
+
+## ルールに従っていくつか選ぶときの平均値・中央値の最大化
+- 二分探索。OKかどうかは
+  - 平均値： $A_i - X$ の和の最大値が $0$ 以上になるかどうか
+  - 中央値： $A_i \geq X$ の個数が $A_i < X$ の個数を上回るかどうか
+    - 厳密な中央値の場合は無理かも？
+  - [ABC236 E - Average and Median](https://atcoder.jp/contests/abc236/tasks/abc236_e)
