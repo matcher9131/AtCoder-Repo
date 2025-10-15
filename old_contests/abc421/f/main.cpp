@@ -7,6 +7,9 @@ using mint = atcoder::modint998244353;
 constexpr ll INF = 1e16;
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+
     ll nq;
     cin >> nq;
     vector<ll> next(nq+1, -1);
@@ -29,7 +32,7 @@ int main() {
                 if (n1 >= 0) {
                     n1 = next[n1];
                     if (n1 == y) {
-                        cout << sum1 << endl;
+                        cout << sum1 << "\n";
                         next[x] = y;
                         break;
                     }
@@ -38,7 +41,7 @@ int main() {
                 if (n2 >= 0) {
                     n2 = next[n2];
                     if (n2 == x) {
-                        cout << sum2 << endl;
+                        cout << sum2 << "\n";
                         next[y] = x;
                         break;
                     }
@@ -50,3 +53,5 @@ int main() {
 
     return 0;
 }
+
+// 68ms
