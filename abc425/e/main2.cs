@@ -19,32 +19,32 @@ string[] input0 = Console.ReadLine()!.Split(" ");
 long t = long.Parse(input0[0]);
 long m = long.Parse(input0[1]);
 
-var isPrime = new bool[5001];
-Array.Fill(isPrime, true);
-var minFactor = new long[5001];
-Array.Fill(minFactor, -1);
+Span<bool> isPrime = new bool[5001];
+for (int i = 0; i < isPrime.Length; ++i) isPrime[i] = true;
+Span<int> minFactor = new int[5001];
+for (int i = 0; i < minFactor.Length; ++i) minFactor[i] = -1;
 isPrime[1] = false;
 minFactor[1] = 1;
-for (long p = 2; p < isPrime.Length; ++p)
+for (int p = 2; p < isPrime.Length; ++p)
 {
     if (!isPrime[p]) continue;
     minFactor[p] = p;
-    for (long q = 2 * p; q < isPrime.Length; q += p)
+    for (int q = 2 * p; q < isPrime.Length; q += p)
     {
         isPrime[q] = false;
         if (minFactor[q] == -1) minFactor[q] = p;
     }
 }
 
-var factorized = new Dictionary<long, long>[5001];
+Span<Dictionary<int, int>> factorized = new Dictionary<int, int>[5001];
 factorized[1] = new();
-for (long x = 2; x < factorized.Length; ++x)
+for (int x = 2; x < factorized.Length; ++x)
 {
     factorized[x] = new(factorized[x - 1]);
-    long y = x;
+    int y = x;
     while (y > 1)
     {
-        long p = minFactor[y];
+        int p = minFactor[y];
         while (minFactor[y] == p)
         {
             y /= p;
@@ -55,13 +55,13 @@ for (long x = 2; x < factorized.Length; ++x)
 
 while (t-- > 0)
 {
-    long n = long.Parse(Console.ReadLine()!);
-    long[] c = Console.ReadLine()!.Split(" ").Select(long.Parse).ToArray();
-    long s = 0;
-    foreach (long ci in c) s += ci;
+    int n = int.Parse(Console.ReadLine()!);
+    int[] c = Console.ReadLine()!.Split(" ").Select(int.Parse).ToArray();
+    int s = 0;
+    foreach (int ci in c) s += ci;
 
-    Dictionary<long, long> fact = new(factorized[s]);
-    foreach (long ci in c)
+    Dictionary<int, int> fact = new(factorized[s]);
+    foreach (int ci in c)
     {
         foreach (var (p, cnt) in factorized[ci])
         {
