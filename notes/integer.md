@@ -47,4 +47,8 @@
 
 ## 桁に注目して何かすべき問題だが、 $i$ 桁目のみ見てもうまくいかない
 - 下 $1$ 桁、下 $2$ 桁、…の順で考える
-　- [ARC158 C - All Pair Digit Sums](https://atcoder.jp/contests/arc158/tasks/arc158_c)
+  - [ARC158 C - All Pair Digit Sums](https://atcoder.jp/contests/arc158/tasks/arc158_c)
+
+## $a \oplus b < a$
+- $\Leftrightarrow b$ のMSBは $a$ のビットが立っている箇所
+  - [ARC129 A - Smaller XOR](https://atcoder.jp/contests/arc129/tasks/arc129_a)
