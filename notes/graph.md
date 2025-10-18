@@ -138,3 +138,7 @@ while (k > 0) {
 ## 全域木に含まれない辺の両端が祖先と子孫の関係にある/ない
 - 全域木をDFSで作れば必ず祖先と子孫の関係にあり、BFSで作れば必ず祖先と子孫の関係にない
   - [ABC251 F - Two Spanning Trees](https://atcoder.jp/contests/abc251/tasks/abc251_f)
+
+## 有向グラフにおける最短サイクル検出
+- 頂点 $u$ を始点としたBFSを行い、辺 $v,u$ があれば最短サイクル候補に追加
+  - [ABC142 F - Pure](https://atcoder.jp/contests/abc142/tasks/abc142_f)
