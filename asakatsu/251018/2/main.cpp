@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+#include <atcoder/modint>
+using namespace std;
+using ll = long long;
+using ull = unsigned long long;
+using mint = atcoder::modint998244353;
+constexpr ll INF = 1e18;
+template<typename T> inline void chmin(T &x, T y) { if (y < x) x = y; }
+template<typename T> inline void chmax(T &x, T y) { if (x < y) x = y; }
+
+int main() {
+    vector<vector<ll>> a(4, vector<ll>(4));
+    for (ll i = 0; i < 4; ++i) {
+        for (ll j = 0; j < 4; ++j) {
+            cin >> a[i][j];
+        }
+    }
+
+    for (ll i = 0; i < 4; ++i) {
+        for (ll j = 0; j < 3; ++j) {
+            if (a[i][j] == a[i][j+1]) {
+                cout << "CONTINUE" << endl;
+                return 0;
+            }
+        }
+    }
+
+    for (ll i = 0; i < 3; ++i) {
+        for (ll j = 0; j < 4; ++j) {
+            if (a[i][j] == a[i+1][j]) {
+                cout << "CONTINUE" << endl;
+                return 0;
+            }
+        }
+    }
+
+    cout << "GAMEOVER" << endl;
+
+    return 0;
+}

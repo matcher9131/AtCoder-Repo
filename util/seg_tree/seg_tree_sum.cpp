@@ -8,3 +8,4 @@ S op(S a, S b) {
 S e() {
     return 0;
 }
+using SegTree = atcoder::segtree<S, op, e>;

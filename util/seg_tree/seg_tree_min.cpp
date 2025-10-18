@@ -11,3 +11,4 @@ S op(S a, S b) {
 S e() {
     return INF;
 }
+using SegTree = atcoder::segtree<S, op, e>;
