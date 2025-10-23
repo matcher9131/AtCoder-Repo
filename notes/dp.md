@@ -30,3 +30,7 @@
 ## $A$ の部分列と $B$ の部分列が一致するような場合の数
 - 2次元累積和の要領で $\mathrm{dp}_{i,j}$ を $\mathrm{dp}_{i-1,j}, \mathrm{dp}_{i,j-1}, \mathrm{dp}_{i-1,j-1}$ から更新できる
   - [ABC130 E - Common Subsequence](https://atcoder.jp/contests/abc130/tasks/abc130_e)
+
+## $A$ の部分列で階差の絶対値が $K$ 以下であるようなものの最大の長さ
+- $\mathrm{dp}_{k}: $ 末項が $k$ になるような条件を満たす部分列の長さの最大値として $i = 1, 2, \dots, N$ の順に更新（in-place DPともいえる）
+  - [ACL Beginner Contest D - Flat Subsequence](https://atcoder.jp/contests/abl/tasks/abl_d)

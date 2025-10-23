@@ -142,3 +142,7 @@ while (k > 0) {
 ## 有向グラフにおける最短サイクル検出
 - 頂点 $u$ を始点としたBFSを行い、辺 $v,u$ があれば最短サイクル候補に追加
   - [ABC142 F - Pure](https://atcoder.jp/contests/abc142/tasks/abc142_f)
+
+## $[L_i, R_i]$ と $A_j$ で二部グラフの最大マッチング
+- $A_j$ の昇順で見ていき、割り当てられる中で $R_i$ が最小のものに割り当てる
+  - [CODE FESTIVAL 2014 Easy D - 枕決め](https://atcoder.jp/contests/code-festival-2014-morning-easy/tasks/code_festival_morning_easy_d)
