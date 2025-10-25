@@ -146,3 +146,11 @@ while (k > 0) {
 ## $[L_i, R_i]$ と $A_j$ で二部グラフの最大マッチング
 - $A_j$ の昇順で見ていき、割り当てられる中で $R_i$ が最小のものに割り当てる
   - [CODE FESTIVAL 2014 Easy D - 枕決め](https://atcoder.jp/contests/code-festival-2014-morning-easy/tasks/code_festival_morning_easy_d)
+
+## 頂点を赤と青に塗り分けられたグラフで、全ての赤い頂点について最も近い青い頂点までの距離を求める
+- 青い頂点を全て始点とする多始点BFS
+  - [ABC429 E - Hit and Away](https://atcoder.jp/contests/abc429/tasks/abc429_e)
+
+## 多始点BFSで2つの始点からの距離を求める
+- `dist`は`(距離, 始点)`、`que`は`(距離, 親, 始点)`の形で保持。`dist[to]`の始点に`src`が含まれればスキップ。`dist[to]`が1個以下か、距離を短くできるならば更新して`que`にプッシュ
+  - [ABC429 E - Hit and Away](https://atcoder.jp/contests/abc429/tasks/abc429_e)
