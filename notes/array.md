@@ -309,3 +309,8 @@ dfs(dfs, -2, /* 初期値 */);
   - 中央値： $A_i \geq X$ の個数が $A_i < X$ の個数を上回るかどうか
     - 厳密な中央値の場合は無理かも？
   - [ABC236 E - Average and Median](https://atcoder.jp/contests/abc236/tasks/abc236_e)
+
+
+## $\sum (A_i \oplus X)$
+- 桁ごとに $1$ の数を数えておくことで $O(K)$ （ $K$ はビット幅）で求まる
+  - [ARC135 C - XOR to All](https://atcoder.jp/contests/arc135/tasks/arc135_c)

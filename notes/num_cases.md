@@ -109,3 +109,8 @@ mint nhr(ll n, ll r) {
 ```
 
 - 分母と分子に分けないと $\log M$ 倍（≒30倍）の計算量になってしまうので注意
+
+
+## 全事象が明確でないときの $K$ 番目に小さい値（ $K \leq 10^6$ 程度）
+- サンプル等で上限がわかるならば、順序関係なく全探索してからソートする
+  - [ABC161 D - Lunlun Number](https://atcoder.jp/contests/abc161/tasks/abc161_d)
