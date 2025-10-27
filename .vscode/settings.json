@@ -113,7 +113,8 @@
         "stdfloat": "cpp",
         "syncstream": "cpp",
         "fenwicktree": "cpp",
-        "climits": "cpp"
+        "climits": "cpp",
+        "lazysegtree": "cpp"
     },
     "editor.formatOnSave": false,
     "dotnet.defaultSolution": "disable"
