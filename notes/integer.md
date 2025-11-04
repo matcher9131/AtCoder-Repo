@@ -56,3 +56,7 @@
 ## $i + jA + kB = N$ となる非負整数 $i,j,k$ に対して $iX + jY + kZ$ を最小にしたい
 - （ $\frac{Y}{A} \leq \frac{Z}{B}$ として） $j \leq \left\lfloor \frac{N}{A} \right\rfloor, k \leq A-1$ が成り立つので少ない方で全探索（要するに平方分割）
   - [ARC139 B - Make N](https://atcoder.jp/contests/arc139/tasks/arc139_b)
+
+## 小数を $10^n$ 倍して整数にする
+- `round`を使わないと誤差で丸め方向がおかしくなる
+  - [ABC191 D - Circle Lattice Points](https://atcoder.jp/contests/abc191/tasks/abc191_d)

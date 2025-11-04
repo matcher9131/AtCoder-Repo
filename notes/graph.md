@@ -154,3 +154,7 @@ while (k > 0) {
 ## 多始点BFSで2つの始点からの距離を求める
 - `dist`は`(距離, 始点)`、`que`は`(距離, 親, 始点)`の形で保持。`dist[to]`の始点に`src`が含まれればスキップ。`dist[to]`が1個以下か、距離を短くできるならば更新して`que`にプッシュ
   - [ABC429 E - Hit and Away](https://atcoder.jp/contests/abc429/tasks/abc429_e)
+
+## 有向グラフでサイクルに到達できる頂点数を求める
+- 強連結成分分解でサイクルを検出、各連結成分ごとに $\mathrm{dp}_{i}: $ $i$ 番目の連結成分がサイクルに到達できるかどうかを **後ろから** 見る（単独頂点はその直接の子のいずれかが条件を満たしているときOKになる）
+  - [ABC245 F - Endless Walk](https://atcoder.jp/contests/abc245/tasks/abc245_f)
