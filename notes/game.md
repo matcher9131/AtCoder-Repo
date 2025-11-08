@@ -25,3 +25,5 @@
 ## $N$ 個のものを1個ずつ順に取っていく形式で途中で勝敗が決まるが、 $O(N \log N)$ ぐらいまでしか許されない
 - 条件次第では先手or後手必勝にならないかどうかを考える。偶奇性も大事
   - [ARC131 C - Zero XOR](https://atcoder.jp/contests/arc131/tasks/arc131_c)  ※ $N$ が奇数のとき先手必勝
+- 各局面で即負けになる選択肢が高々1つしかない場合、先手の最後の1手に注目することで先手or後手必勝を判定する
+  - [ARC185 A - mod M Game 2](https://atcoder.jp/contests/arc185/tasks/arc185_a)
