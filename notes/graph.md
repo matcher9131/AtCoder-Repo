@@ -158,3 +158,7 @@ while (k > 0) {
 ## 有向グラフでサイクルに到達できる頂点数を求める
 - 強連結成分分解でサイクルを検出、各連結成分ごとに $\mathrm{dp}_{i}: $ $i$ 番目の連結成分がサイクルに到達できるかどうかを **後ろから** 見る（単独頂点はその直接の子のいずれかが条件を満たしているときOKになる）
   - [ABC245 F - Endless Walk](https://atcoder.jp/contests/abc245/tasks/abc245_f)
+
+## Floyd-Warshallで辺が更新される
+- 新しい辺が $(u,v)$ だとして、 $d(i,j)$ が更新されうるのは $d(i,u) + d(u,v) + d(v,j)$ または $d(i,v) + d(v,u) + d(u,j)$ （勿論後者は無向辺の場合に限る）
+  - [ARC035 C - アットコーダー王国の交通事情](https://atcoder.jp/contests/arc035/tasks/arc035_c)
