@@ -162,3 +162,8 @@ while (k > 0) {
 ## Floyd-Warshallで辺が更新される
 - 新しい辺が $(u,v)$ だとして、 $d(i,j)$ が更新されうるのは $d(i,u) + d(u,v) + d(v,j)$ または $d(i,v) + d(v,u) + d(u,j)$ （勿論後者は無向辺の場合に限る）
   - [ARC035 C - アットコーダー王国の交通事情](https://atcoder.jp/contests/arc035/tasks/arc035_c)
+
+## 列 $A,B$ に対し辺が交差しない2部マッチング
+- 辺を $A_i$ の昇順→ $B_i$ の降順でソートしてLIS
+  - [ARC126 B - Cross-free Matching](https://atcoder.jp/contests/arc126/tasks/arc126_b)
+  - [ARC133 B - Dividing Subsequence](https://atcoder.jp/contests/arc133/tasks/arc133_b)
