@@ -73,6 +73,10 @@
   - [ABC299 E - Nearest Black Vertex](https://atcoder.jp/contests/abc299/tasks/abc299_e)
 
 ## Functional Graphで $K$ 回辺を辿る
+- 複数頂点を始点とするならダブリング（ $O((N+Q) \log K)$ ）
+  - [ABC367 E - Permute K times](https://atcoder.jp/contests/abc367/tasks/abc367_e)
+
+- 1つの始点なら律儀に辿る（ $O(N)$ ）
 
 ```cpp
 // vector<ll> child;
@@ -167,3 +171,7 @@ while (k > 0) {
 - 辺を $A_i$ の昇順→ $B_i$ の降順でソートしてLIS
   - [ARC126 B - Cross-free Matching](https://atcoder.jp/contests/arc126/tasks/arc126_b)
   - [ARC133 B - Dividing Subsequence](https://atcoder.jp/contests/arc133/tasks/arc133_b)
+
+## 2色の辺のうち色Aを1回だけ通って残りが色Bになるようなサイクルを検出
+- 色BでUnion-Find treeを構築し、色Aの辺について両端頂点が同じグループになるものを探す
+  - [ARC164 B - Switching Travel](https://atcoder.jp/contests/arc164/tasks/arc164_b)
