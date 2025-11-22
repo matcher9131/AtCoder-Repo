@@ -114,3 +114,8 @@ mint nhr(ll n, ll r) {
 ## 全事象が明確でないときの $K$ 番目に小さい値（ $K \leq 10^6$ 程度）
 - サンプル等で上限がわかるならば、順序関係なく全探索してからソートする
   - [ABC161 D - Lunlun Number](https://atcoder.jp/contests/abc161/tasks/abc161_d)
+
+
+## グループA, Bからそれぞれ等しい個数を取り出す場合の数
+- ヴァンデルモンドの畳み込み ${\displaystyle \sum_{k=0}^n \binom{a}{k} \binom{b}{k} = \binom{a+b}{n}}$
+  - [ABC433 F - 1122 Subsequence 2](https://atcoder.jp/contests/abc433/tasks/abc433_f)
