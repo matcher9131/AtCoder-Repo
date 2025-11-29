@@ -319,3 +319,7 @@ dfs(dfs, -2, /* 初期値 */);
 - 少なくとも $A_1$ と $B_i$ のうちいずれか1つはペアにならないと割り当てられない
   - 逆に $A_1$ と $B_i$ がペアになるような $f_i$ で残りもペアにできるかどうかを判定すればよい（最低でも $O(N^2)$ になることが多い点に注意）
     - [ARC124 B - XOR Matching 2](https://atcoder.jp/contests/arc124/tasks/arc124_b)
+
+## $i$ ごとに $A_i$ か $B_i$ を選んで集合の要素数を最大にする
+- 各 $i$ に対して $A_i, B_i$ に辺を張り、要素数 $2$ 以上の連結成分について木なら $|V|-1$ 、木でないななら $|V|$ を合計したものが解になる
+  - [ABC434 E - Distribute Bunnies](https://atcoder.jp/contests/abc434/tasks/abc434_e)
