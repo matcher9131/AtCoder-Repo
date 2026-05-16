@@ -105,3 +105,39 @@ AC 15分くらい
 
 <span style="color: lightgray">これが2025年の水色なのは何かの間違いなのではと思えるくらいのボーナス問題</span>
 
+
+## ABC442 E - Laser Takahashi
+AC(1WA) 50分くらい（30分くらいで解きたい……）
+
+どうみても偏角ソートだが、この手の問題で軽々しく`atan2`を使うと大体誤差でうまくいかない
+
+偏角の差が180度以内なら外積 $x_1y_2 - y_1x_2$ の符号によって判断がつくことから、まずは平面を2つに分け、それぞれを外積による比較でソートする  
+<span style="color: lightgray">平面をupperとlowerに分けたせいでlower_bound, upper_boundと混同して混乱するというギャグをかます</span>
+
+同じ方向にいるモンスターは必ずまとめて倒せることから、始点は`lower_bound`、終点は`upper_bound`で検索すれば問題ない。あとは
+
+- $A_j$ と $B_j$ が同じ半平面にいるかどうか
+  - いれば $A_j$ から見て $B_j$ が時計回りにいるか反時計回りにいるか
+
+で場合分けして処理すればよい。計算量は $O(Q \log N)$  
+（なお反時計回りで始点と終点を取り違えてWA）
+
+`lower_bound`, `upper_bound`のたびに`compare`を指定するのが面倒なので、今回は三方比較を実装した`struct`を採用することにした
+
+```cpp
+#include <compare>
+
+struct Vector2D {
+    long long x;
+    long long y;
+
+    std::strong_ordering operator<=>(const Vector2D& other) const {
+        return x * other.y - y * other.x <=> 0;
+    }
+
+    // 三方比較が default 実装でないときは == 比較が自動で作られないので実装が必要とのこと（Gemini談）
+    bool operator==(const Vector2D& other) const {
+        return x * other.y == y * other.x;
+    }
+};
+```
