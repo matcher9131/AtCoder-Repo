@@ -9,3 +9,4 @@
 |2026/5/2|[ABC455 F - Merge Slimes 2](https://atcoder.jp/contests/abc455/tasks/abc455_f)|[◯](https://atcoder.jp/contests/abc455/submissions/75395543)|1549|[◯](review.md#ABC455_F_-_Merge_Slimes_2)|
 |2026/5/9|[ABC437 F - Manhattan Christmas Tree 2](https://atcoder.jp/contests/abc437/tasks/abc437_f)|[◯](https://atcoder.jp/contests/abc437/submissions/75598866)|1332|[◯](review.md#ABC437_F_-_Manhattan_Christmas_Tree_2)|
 |2026/5/16|[ABC442 E - Laser Takahashi](https://atcoder.jp/contests/abc442/tasks/abc442_e)|[◯](https://atcoder.jp/contests/abc442/submissions/75811353)|1355|[◯](review.md#ABC442_E_-_Laser_Takahashi)|
+|2026/5/23|[ABC448 E - Simple Division](https://atcoder.jp/contests/abc448/tasks/abc448_e)|[◯](https://atcoder.jp/contests/abc448/submissions/76012890)|1359|[◯](review.md#abc448-e---simple-division)|

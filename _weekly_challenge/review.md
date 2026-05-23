@@ -141,3 +141,14 @@ struct Vector2D {
     }
 };
 ```
+
+
+## ABC448 E - Simple Division
+解説AC 1時間ぐらい
+
+$M < 10007$ だから $\lfloor N/M \rfloor \bmod 10007 = \left\lfloor \frac{N \bmod 10007M}{M} \right\rfloor$ に気づけず時間を浪費
+
+それさえ気づけばあとはレピュニット $R_n$ を $10007M$ で割った余りを求める問題に帰着する
+
+$R_{n+1} = 10R_n + 1$ より行列を用いて $\begin{pmatrix} R_n \\ 1 \end{pmatrix} = \begin{pmatrix} 10 & 1 \\ 0 & 1 \end{pmatrix}^n \begin{pmatrix} 0 \\ 1 \end{pmatrix}$ と表せるので、繰り返し2乗法を用いればOK  
+なお自前の行列累乗を繰り返し2乗法で求めるプログラムでimmutableになっているはずが引数の行列を書き換える作りになっていてバグって更に時間を浪費

@@ -6,7 +6,7 @@ using ull = unsigned long long;
 using mint = atcoder::modint998244353;
 
 // 行列の積(mint)
-vector<vector<mint>> mat_mul_mod(vector<vector<mint>> &x, vector<vector<mint>> &y) {
+vector<vector<mint>> mat_mul_mod(const vector<vector<mint>> &x, const vector<vector<mint>> &y) {
     assert(x[0].size() == y.size());
     vector<vector<mint>> res(x.size(), vector<mint>(y[0].size()));
     for (ll i = 0; i < (ll)x.size(); ++i) {
@@ -20,15 +20,16 @@ vector<vector<mint>> mat_mul_mod(vector<vector<mint>> &x, vector<vector<mint>> &
 }
 
 // 行列の累乗(mint)
-vector<vector<mint>> mat_pow_mod(vector<vector<mint>> &x, ll n) {
+vector<vector<mint>> mat_pow_mod(const vector<vector<mint>> &x, ll n) {
+    vector<vector<mint>> y = x;
     vector<vector<mint>> res(x.size(), vector<mint>(x[0].size()));
     for (ll i = 0; i < (ll)res.size(); ++i) {
         res[i][i] = 1;
     }
 
     while (n > 0) {
-        if (n & 1) res = mat_mul_mod(res, x);
-        x = mat_mul_mod(x, x);
+        if (n & 1) res = mat_mul_mod(res, y);
+        y = mat_mul_mod(y, y);
         n >>= 1;
     }
 
@@ -36,7 +37,7 @@ vector<vector<mint>> mat_pow_mod(vector<vector<mint>> &x, ll n) {
 }
 
 // 行列の積（各要素はmod m）
-vector<vector<ll>> mat_mul_mod(vector<vector<ll>> &x, vector<vector<ll>> &y, ll m) {
+vector<vector<ll>> mat_mul_mod(const vector<vector<ll>> &x, const vector<vector<ll>> &y, ll m) {
     assert(x[0].size() == y.size());
     vector<vector<ll>> res(x.size(), vector<ll>(y[0].size()));
     for (ll i = 0; i < (ll)x.size(); ++i) {
@@ -51,15 +52,16 @@ vector<vector<ll>> mat_mul_mod(vector<vector<ll>> &x, vector<vector<ll>> &y, ll 
 }
 
 // 行列の累乗（各要素はmod m）
-vector<vector<ll>> mat_pow_mod(vector<vector<ll>> &x, ll n, ll m) {
+vector<vector<ll>> mat_pow_mod(const vector<vector<ll>> &x, ll n, ll m) {
+    vector<vector<ll>> y = x;
     vector<vector<ll>> res(x.size(), vector<ll>(x[0].size()));
     for (ll i = 0; i < (ll)res.size(); ++i) {
         res[i][i] = 1;
     }
 
     while (n > 0) {
-        if (n & 1) res = mat_mul_mod(res, x, m);
-        x = mat_mul_mod(x, x, m);
+        if (n & 1) res = mat_mul_mod(res, y, m);
+        y = mat_mul_mod(y, y, m);
         n >>= 1;
     }
 
