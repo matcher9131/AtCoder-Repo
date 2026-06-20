@@ -13,3 +13,6 @@
 |2026/5/30|[ABC459 E - Select from Subtrees](https://atcoder.jp/contests/abc459/tasks/abc459_e)|[◯](https://atcoder.jp/contests/abc459/submissions/76210675)|1298|[◯](review.md#abc459-e---select-from-subtrees)|
 |2026/6/6|[ABC456 E - Endless Holidays](https://atcoder.jp/contests/abc456/tasks/abc456_e)|[◯](https://atcoder.jp/contests/abc456/submissions/76413419)|1214|[◯](review.md#abc456-e---endless-holidays)|
 |2026/6/13|[ABC460 D - Repeatedly Repainting](https://atcoder.jp/contests/abc460/tasks/abc460_d)|[◯](https://atcoder.jp/contests/abc460/submissions/76603924)|1216|[◯](review.md#abc460-d---repeatedly-repainting)|
+|2026/6/20|[ABC154 F - Many Many Paths](https://atcoder.jp/contests/abc154/tasks/abc154_f)|[◯](https://atcoder.jp/contests/abc154/submissions/76788416)|※1775|[◯](review.md#abc154-f---many-many-paths)|
+
+※…昔の問題のため記載の数値より幾分か簡単
