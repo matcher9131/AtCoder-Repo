@@ -219,3 +219,25 @@ $\mathrm{dp}_{i,j,S,f}$ を $i$ 桁目までで $3$ で割った余りが $j$ �
 DPの要素数は $500 \times 3 \times 2^{10} \times 2$ で遷移は $0$ から $9$ までのどの数をくっつけるかの $10$ 通りなので計算回数は $10^7$ のオーダーで収まると判断
 
 あとはちょうど1つの条件を満たすように全ての $\mathrm{dp}_{|N|,j,S,f}$ を見て数え上げるだけ。なお $\mathrm{dp}_{|N|,0,\emptyset,0}$ が混ざり込むため注意（時間浪費ポイント3）
+
+
+## ABC452 E - You WILL Like Sigma Problem
+AC 25分くらい（ただし1か月ほど前に解説チラ見）
+
+愚直にやると $O(NM)$ で当然間に合わないので $i \bmod j$ ごとにまとめて足したいが、うまく規則性を見出せない
+
+ここで余りではなく商のほうに注目することを考える  
+すなわち $q = \left\lfloor \dfrac{i}{j} \right\rfloor$ とすると $i \bmod j = i - jq$ であり、
+$j$ を固定したときに $q$ が同じ値になる $i$ の範囲は $jq \leq i \leq \min \{ j(q+1)-1, N \}$ となることから
+
+$$\begin{align*}
+  \sum_{i=1}^N \sum_{j=1}^M A_i B_j (i \bmod j) &= \sum_{i=1}^N \sum_{j=1}^M A_i B_j \left(i - \left\lfloor \frac{i}{j} \right\rfloor j \right) \\
+  &= \sum_{i=1}^N \sum_{j=1}^M A_i B_j i - \sum_{i=1}^N \sum_{j=1}^M A_i B_j \left\lfloor \frac{i}{j} \right\rfloor j \\
+  &= \sum_{i=1}^N i A_i \sum_{j=1}^M B_j - \sum_{j=1}^M j B_j \sum_{q=0}^{\lfloor N/j \rfloor} q \sum_{i=jq}^{\min \{ j(q+1)-1, N \}} A_i
+\end{align*}$$
+
+改めて計算量を考えると
+- ${\displaystyle \sum_{i=jq}^{\min \{ j(q+1)-1, N \}} A_i}$ は $A_i$ の累積和を用いて $O(1)$
+- ${\displaystyle \sum_{j=1}^M j B_j \sum_{q=0}^{\lfloor N/j \rfloor} q}$ は倍数・約数関係でよく出てくる例のアレであり、 ${\displaystyle O\left(N + \left\lceil \frac{N}{2} \right\rceil + \left\lceil \frac{N}{3} \right\rceil + \dots + \left\lceil \frac{N}{M} \right\rceil \right) = O(N \log M)}$
+
+よってあとはこの式に則って計算するだけ（なのだが、累積和と1-indexedが混ざって添字がズレるのなんの……）
