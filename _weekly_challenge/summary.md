@@ -17,5 +17,6 @@
 |2026/6/27|[ABC282 E - Choose Two and Eat One](https://atcoder.jp/contests/abc282/tasks/abc282_e)|[◯](https://atcoder.jp/contests/abc282/submissions/76976864)|※1604|[◯](review.md#abc282-e---choose-two-and-eat-one)|
 |2026/7/5|[ABC465 E - Digit Circus](https://atcoder.jp/contests/abc465/tasks/abc465_e)|[◯](https://atcoder.jp/contests/abc465/submissions/77219118)|1417|[◯](review.md#abc465-e---digit-circus)|
 |2026/7/11|[ABC452 E - You WILL Like Sigma Problem](https://atcoder.jp/contests/abc452/tasks/abc452_e)|[◯](https://atcoder.jp/contests/abc452/submissions/77328908)|1318|[◯](review.md#abc452-e---you-will-like-sigma-problem)|
+|2026/7/18|[ABC438 E - Heavy Buckets](https://atcoder.jp/contests/abc438/tasks/abc438_e)|[◯](https://atcoder.jp/contests/abc438/submissions/77551109)|1226|[◯](review.md#abc438-e---heavy-buckets)|
 
 ※…昔の問題のため記載の数値より幾分か簡単
