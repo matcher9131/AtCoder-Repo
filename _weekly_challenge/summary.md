@@ -18,5 +18,6 @@
 |2026/7/5|[ABC465 E - Digit Circus](https://atcoder.jp/contests/abc465/tasks/abc465_e)|[◯](https://atcoder.jp/contests/abc465/submissions/77219118)|1417|[◯](review.md#abc465-e---digit-circus)|
 |2026/7/11|[ABC452 E - You WILL Like Sigma Problem](https://atcoder.jp/contests/abc452/tasks/abc452_e)|[◯](https://atcoder.jp/contests/abc452/submissions/77328908)|1318|[◯](review.md#abc452-e---you-will-like-sigma-problem)|
 |2026/7/18|[ABC438 E - Heavy Buckets](https://atcoder.jp/contests/abc438/tasks/abc438_e)|[◯](https://atcoder.jp/contests/abc438/submissions/77551109)|1226|[◯](review.md#abc438-e---heavy-buckets)|
+|2026/7/25|[ABC372 F - Teleporting Takahashi 2](https://atcoder.jp/contests/abc372/tasks/abc372_f)|[◯](https://atcoder.jp/contests/abc372/submissions/77794450)|※1722|[◯](review.md#abc372-f---teleporting-takahashi-2)|
 
 ※…昔の問題のため記載の数値より幾分か簡単
