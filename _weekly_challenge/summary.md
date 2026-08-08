@@ -21,5 +21,6 @@
 |17|2026/7/25|[ABC372 F - Teleporting Takahashi 2](https://atcoder.jp/contests/abc372/tasks/abc372_f)|[◯](https://atcoder.jp/contests/abc372/submissions/77794450)|※1722|[◯](review.md#abc372-f---teleporting-takahashi-2)|
 |18|2026/8/1|[ABC440 E - Cookies](https://atcoder.jp/contests/abc440/tasks/abc440_e)|[◯](https://atcoder.jp/contests/abc440/submissions/77982378)|1603|[◯](review.md#abc440-e---cookies)|
 |19|2026/8/8|[ABC437 E - Sort Arrays](https://atcoder.jp/contests/abc437/tasks/abc437_e)|[◯](https://atcoder.jp/contests/abc437/submissions/78175783)|1279|[◯](review.md#abc437-e---sort-arrays)|
+|20|2026/8/8|[ABC413 G - Big Banned Grid](https://atcoder.jp/contests/abc413/tasks/abc413_g)|[◯](https://atcoder.jp/contests/abc413/submissions/78176259)|1723|[◯](review.md#abc413-g---big-banned-grid)|
 
 ※…昔の問題のため記載の数値より幾分か簡単
