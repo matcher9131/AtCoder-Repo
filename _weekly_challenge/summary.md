@@ -24,5 +24,6 @@
 |20|2026/8/8|[ABC413 G - Big Banned Grid](https://atcoder.jp/contests/abc413/tasks/abc413_g)|[◯](https://atcoder.jp/contests/abc413/submissions/78176259)|1723|[◯](review.md#abc413-g---big-banned-grid)|
 |21|2026/8/15|[ABC383 F - Diversity](https://atcoder.jp/contests/abc383/tasks/abc383_f)|[◯](https://atcoder.jp/contests/abc383/submissions/78364872)|1706|[◯](review.md#abc383-f---diversity)|
 |22|2026/8/16|[ABC369 F - Gather Coins](https://atcoder.jp/contests/abc369/tasks/abc369_f)|[◯](https://atcoder.jp/contests/abc369/submissions/78448604)|1618|[◯](review.md#abc369-f---gather-coins)|
+|23|2026/8/23|[ABC472 F - Centroid of a Slice](https://atcoder.jp/contests/abc472/tasks/abc472_f)|[◯](https://atcoder.jp/contests/abc472/submissions/78646089)|1707|[◯](review.md#abc472-f---centroid-of-a-slice)|
 
 ※…昔の問題のため記載の数値より幾分か簡単
