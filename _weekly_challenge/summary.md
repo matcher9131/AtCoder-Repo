@@ -26,5 +26,6 @@
 |22|2026/8/16|[ABC369 F - Gather Coins](https://atcoder.jp/contests/abc369/tasks/abc369_f)|[◯](https://atcoder.jp/contests/abc369/submissions/78448604)|1618|[◯](review.md#abc369-f---gather-coins)|
 |23|2026/8/23|[ABC472 F - Centroid of a Slice](https://atcoder.jp/contests/abc472/tasks/abc472_f)|[◯](https://atcoder.jp/contests/abc472/submissions/78646089)|1707|[◯](review.md#abc472-f---centroid-of-a-slice)|
 |24|2026/8/30|[ABC279 F - BOX](https://atcoder.jp/contests/abc279/tasks/abc279_f)|[◯](https://atcoder.jp/contests/abc279/submissions/78752847)|※1777|[◯](review.md#abc279-f---box)|
+|25|2026/9/5|[ABC473 F - A/AB Insertion](https://atcoder.jp/contests/abc473/tasks/abc473_f)|[◯](https://atcoder.jp/contests/abc473/submissions/78951061)|1303|[◯](review.md#abc473-f---aab-insertion)|
 
 ※…昔の問題のため記載の数値より幾分か簡単
