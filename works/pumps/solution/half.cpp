@@ -19,6 +19,9 @@ int main() {
     vector<pair<ll, ull>> dic(numDic);
 
     for (ull bit = 0; bit < bitMax; ++bit) {
+        //
+        if (bit % 100000000ULL == 0) cout << "bit = " << bit << endl;
+        //
         ll sum = 0;
         for (ll i = 0; i < hh; ++i) {
             for (ll j = 0; j < w; ++j) {
